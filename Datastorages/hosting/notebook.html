@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notebook</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+<style>
+    .navbar{
+        width: 100%;
+        height: 100px;
+        background-color: rgba(181, 248, 237, 0.849);
+      }
+      #navicon{
+          font-size: 60px;
+          color: rgb(6, 255, 159);
+          padding-left: 10px;         
+      }
+      span{
+          font-size: 40px;
+          font-weight: 400;
+          font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      }
+      .creat{
+        margin-right: 50px;
+        width: 250px;
+        height: 50px;
+        border: 1px solid gold;
+        text-align: center;
+        padding-top: 5px ;
+        border-radius: 30px;
+        box-shadow:  1px 5px 5px  gold;
+        transition: 6;
+        cursor: pointer;
+      }
+      .creat:hover{
+        margin-right: 110px;
+      }
+      #creaticon{
+        font-size: 24px;
+        color: black;
+        font-weight: 800;
+      }
+     .mother{
+            float: left;
+            display:flex;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            margin-bottom: 80px;
+          
+}
+/* Demo div */
+.demodiv{
+    position: relative;
+    width: 400px;
+    height: 350px;
+    margin-left: 20px;
+    margin-top: 40px;
+}
+.demodiv a{
+    margin-right:10px;
+    margin-top: 0px;
+    font-size: 22px;
+    float: right;
+    box-shadow:  1px 5px 5px  gold;
+}
+
+ #textdiv{
+    position: absolute;
+    height: 300px;
+    width: 400px;
+    padding: 10px;
+    text-align:justify;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    margin-top: 52px;
+    overflow: auto;
+    box-shadow:   5px 1px 1px  gold;
+    border-top-right-radius: 15px;
+    border-left: 2px solid black ;
+    border-top: 2px solid black ;
+    border-bottom: 2px solid black ;
+    
+}
+#textdiv #inputdiv{
+    scroll-behavior: smooth;
+    scroll-margin-block: none;
+}
+#inputdiv{
+    position: absolute;
+    text-align:left;
+    border-top-right-radius: 15px;
+    height: 300px;
+    font-size: 22px;
+    width: 400px;
+    padding:10px;
+    margin-top: 52px;
+    overflow: auto;
+    resize: none;
+}
+.hidden{
+   visibility: hidden;
+}
+.visiable{
+  visibility: visible;
+}
+
+</style>
+    <nav class="navbar navbar-light">
+        <a class="navbar-brand" href="#">
+        <i id="navicon" class="fas fa-book-reader"></i> 
+        <span>NoTeBooK</span> 
+        </a>
+        <div class="creat btn-warning">
+          <a id="creaticon"  data-toggle="tooltip" title="Creat New Note ">Creat New Note</a>    
+        </div>
+      </nav>
+        <div id="mother" class="mother">
+    
+        </div>
+
+<!-- Script -->
+<script>
+   
+const creatnewnote=document.getElementById('creaticon')
+const motherdiv =document.getElementById('mother')
+
+const creatnote=(text)=>{
+     let node=document.createElement('div')
+     let divnode=`
+     <div id="demodiv" class="demodiv">
+    <a  class="btn btn-warning"  id="delete"><i class="far fa-trash-alt"></i></a>
+    <a class="btn btn-warning" id="edites"><i class="far fa-edit"></i></a>
+    <div id='textdiv'>
+    </div>  
+    <textarea id="inputdiv">
+     </textarea>
+     </div> 
+`
+       node.insertAdjacentHTML('afterbegin',divnode);
+       motherdiv.appendChild(node) ;
+
+   const deleteelement=node.querySelector('#delete')
+   const editelement=node.querySelector('#edites')
+   const readnote=node.querySelector('#textdiv')
+   const textarea=node.querySelector('#inputdiv')
+
+   deleteelement.addEventListener('click',()=>{
+          node.remove()
+          storage()
+        })
+
+       
+readnote.innerText=text
+textarea.value=text
+
+    textarea.onblur=function(){
+        readnote.innerText=textarea.value
+        textarea.classList.add('hidden')
+        readnote.classList.remove('visiable')
+       
+             storage()
+         }
+     editelement.addEventListener('click',()=>{
+            textarea.classList.remove('hidden')
+            readnote.classList.add('visiable')
+        })   
+}
+
+const pares =JSON.parse(localStorage.getItem('note')) 
+if(pares){
+    pares.forEach(singlenode=>{
+        creatnote(singlenode)
+    })
+}
+
+ creatnewnote.addEventListener('click',()=>{
+    creatnote('')
+ })
+function storage(){
+    const textarea=document.querySelectorAll('textarea')
+    let notes=[]
+    textarea.forEach(text=>{
+        notes.push(text.value)
+    })
+   
+    localStorage.setItem('note',JSON.stringify(notes))
+
+}
+
+
+</script>
+</body>
+</html>

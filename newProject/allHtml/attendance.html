@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attendacne</title>
+    <link rel="icon" href="https://www.pngrepo.com/png/177788/180/clock-square.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/newProject/allCss/attend.css"/>
+</head>
+<body>
+        <!--Navber  -->
+<nav class="navbar  navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container">
+    <a class="navbar-brand " href="#">
+        <span><i class="far fa-building d-inline-block align-top" style="font-size: 40px;"></i></span>
+        My Company
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link active" href="./adduser.html"> Employees & info <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="./singleInfo.html">Single Employee</a>
+            <a class="nav-item nav-link" href="./attendance.html">Attendance</a>
+            <a class="nav-item nav-link" href="./workhistory.html">Work history</a>
+            <a class="nav-item nav-link disabled" href="#">Company Cost</a>
+        </div>
+    </div>
+</div>
+</nav>
+    <!-- First Section -->
+<section class="firstSection">
+    <div class="firstModel">
+        <div class="container">
+            <!-- First Row -->
+            <div class="row row11st">
+               <div class="col">
+                   <h1>Employees Attendacne</h1>
+                   <div id="attendacnealert">          
+                  </div>
+               </div>
+            </div>
+            <div class="row12snd">
+                     <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-12">
+                            <div id="attendacnealert">          
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                  <label class="input-group-text" for="inputGroupSelect01"><i class="fas fa-sort-amount-up-alt"></i>&nbsp;Filter</label>
+                                </div>
+                                <select class="custom-select font-weight-bold text-success" id="inputGroupAttendSelect01">
+                                    <option selected>Choose...</option>
+                                    <option value="night">Night</option>
+                                    <option value="day">Day</option> 
+                                </select>
+                              </div>
+                        </div>
+                     </div>
+                <form id="attendacneform">
+                    <div class="row">
+                       <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="form-group ">
+                            <label for="exampleInputtodaydate">Today Date</label>
+                            <input type="date" class="form-control" id="exampleInputtodaydate" name="todaydate">
+                        </div>
+                       </div>
+                   
+                       <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="form-group ">
+                            <label for="exampleInputstartingtime">Starting time</label>
+                            <input type="time" class="form-control" id="exampleInputName1" name="startingtime">
+                        </div>
+                       </div>
+
+                       <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="form-group ">
+                            <label for="exampleInputendtime">End time</label>
+                            <input type="time" class="form-control" id="exampleInputendtime" name="endtime">
+                        </div>
+                       </div>
+                       <div class="col-lg-3 col-md-6 col-sm-12">
+                        <div class="form-group ">
+                            <label for="exampleInputattendance">.</label>
+                            <input type="submit" class=" btn btn-primary form-control" id="exampleInputattendance" name="attendance" value="Submit Attendance">
+                        </div>
+                       </div>
+                   </div>
+                </form>
+            </div>
+            <div class="row row13rd">
+                <div class="col">
+                   <table class="table table-hover border" id="attendacnetable">
+                       <thead>
+                         <tr>
+                           <th scope="col col-sm-12">Id</th>
+                           <th scope="col col-sm-12">Name</th>
+                           <th scope="col col-sm-12">Shift</th>
+                           <th scope="col col-sm-12">P/A</th>
+                         </tr>
+                       </thead>
+                       <tbody>
+                           
+                          
+                       </tbody>
+                   </table> 
+                </div>
+           </div>
+        </div>
+    </div>
+</section>
+<script type="module" src="../allscript/attend.js"></script>
+</body>
+</html>

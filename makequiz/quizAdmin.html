@@ -1,0 +1,649 @@
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QUIZ ADDMIN</title>
+    <link rel="icon" href="./popcorn_1f37f.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  </head>
+<body>
+<style>   
+        .first{
+            border-left: 6px solid rgba(0, 0, 255, 0.507);
+        }
+        .second{
+            border-left: 6px solid rgba(0, 0, 255, 0.507);
+            border-bottom: 6px solid rgba(0, 0, 0, 0.253);
+        }
+       
+        .fa-plus-circle{
+            font-size: 24px;
+        } 
+        .fa-plus-circle:hover{
+            font-size: 24px;
+            cursor: pointer;
+        } 
+        .main-contents{
+            border-left: 6px solid rgba(0, 0, 255, 0.507);
+            box-shadow: 1px  1px rgba(0, 0, 0, 0.466);
+        }
+        .input-select-contents{
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: 20px;
+            box-sizing: border-box;
+        }
+        .input-select-contents input[name="Question_Name"]{
+           width: 300px;
+           border-bottom: 3px solid rgba(0, 0, 0, 0.575);
+           margin-top: 7px;
+           outline: none;
+        }  
+        .input-select-contents input[name="mark"]{
+            width: 145px;
+            border-bottom: 3px solid rgba(0, 0, 0, 0.575);
+            margin-top: 5px;
+            margin-bottom: 5px;
+            outline: none;
+        }
+        .input-select-contents select[name="select"]{
+            width:100%;
+            height: 39px;
+            border-bottom: 3px solid  rgba(0, 0, 0, 0.575);
+            margin-top: 5px;
+            margin-bottom: 5px;
+        }
+        
+        .li-content{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+           
+        }
+        .input-label-content{
+            width: 80%;
+            font-size: 17px;
+            /* border-bottom: 1px solid rgba(0, 0, 0, 0.575); */
+        }
+        .input-label-content #option{
+            height: 22px;
+            width: 22px; 
+        }
+        .input-label-content #editorlabel{
+            width: 80%;
+        }
+        #single-input-label-content{
+            width: 80%;
+        }
+        .input-label-content #editorlabel:hover{
+            cursor: pointer;
+        }
+        [contenteditable] {
+            outline: 0px solid transparent;
+            
+        }
+        .remove-content{
+            width: 5%;
+            font-size: 20px;
+            /* border-bottom: 1px solid rgba(0, 0, 0, 0.575); */
+            text-align: right;
+        }
+        .remove-content{
+            width: 40px;
+            height: 40px;
+            
+        }
+        .remove-content:hover{
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+        }
+        .anwser-contents{
+            display: flex;
+            flex-wrap: wrap;
+           
+        }
+        .anwser-contents-input{
+            width: 80%;
+        }
+        .anwser-contents-delete{
+            width: 20%;
+            text-align: right;
+        }
+        #delete-question-div-delete{
+            width: 50px;
+            height: 50px;
+            font-size: 22px;
+        }
+        .anwser-contents input[name="answer"]{
+            height: 50px;
+        }
+        #copycomponemt{
+            font-size: 24px;
+            cursor: pointer;
+        }
+        #save{
+            cursor: pointer;
+        }
+        
+        
+        /* Parent Div Style */
+</style>
+        
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #e3f2fd;">
+           <a class="navbar-brand" href="#">
+              <img src="./puzzle-piece.png" width="40" height="40" class="d-inline-block align-top" alt="">
+              QuiZmakeR
+            </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link active"  href="./quizAdmin.html">Home</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./s_ans_history.html">Quiz History </a>
+            </li>
+            <li class="nav-item">
+              <p class="nav-link" id="save">Save Quiz</p>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0">
+            <a href="http://127.0.0.1:5501/makequiz/student.html" class="btn btn-outline-success text-light my-2 my-sm-0"  data-toggle="modal" data-target="#exampleModalCenter12" type="button">Share Question</a>
+          </form>
+    </div>
+</nav>
+
+<div class="container mt-2" id="alertshow">
+    
+</div>
+
+<div class="container mt-2 ">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="yourbio">
+               <div class="card addcart ">
+                    <div class="card-body rounded bg-light first">           
+                        <div>
+                             <label for="bio"><h5>Which subject do you want to  take the quiz </h5></label>
+                             <input type="text" class="form-control" id="subject" name="bio" aria-describedby="movIdHelp" placeholder="Enter Subject Name" required>
+                        </div>
+                        <div class="mt-2">
+                            <label for="time"><h5>Quiz Date</h5></label>
+                            <input type="date" class="form-control" id="time" name="time" aria-describedby="movIdHelp" required>     
+                        </div>
+                    </div>          
+                </div>     
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-2 sticky-top">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="yourbio2">
+               <div class="card addcart ">
+                    <div class="card-body rounded bg-light second">           
+                        <a class="creatbtn" href="#">
+                            <img src="./sketchbook.png" width="40" height="40" id="creat" class="d-inline-block align-top" alt="">
+                        </a> 
+                    </div>          
+                </div>  
+                     
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-2">
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="parentdiv">
+                <!-- Dynamic  -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-body">
+         <h3>Do You Want To Delete This Question <i class="fas fa-trash-alt"></i></h3>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+          <button type="button" class="btn btn-primary save-modal" > Yes</button>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- Delete Modal -->
+
+<!-- copy clipbord Modal -->
+<div class="modal fade" id="exampleModalCenter12" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+           <h6>Copy this link and shara</h6>
+        </div>
+        <div class="modal-body modal-body-url">
+           
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" id="copycomponemtdeletemodal" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+</div>
+<!-- Delete Modal -->
+
+<script type="module">
+
+    /* Firebase import module*/
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+       import { getDatabase, ref, set,onValue,remove,push,child,update} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+    /* Firebase import module*/
+    
+    /*Firebase Config*/
+    const firebaseConfig = {
+        apiKey: "AIzaSyAMkjf6MFvBJdE7li8fx0Y6Dj0BZiOnVd0",
+        authDomain: "moviesdownloaders.firebaseapp.com",
+        databaseURL: "https://moviesdownloaders-default-rtdb.firebaseio.com",
+        projectId: "moviesdownloaders",
+        storageBucket: "moviesdownloaders.appspot.com",
+        messagingSenderId: "426710588024",
+        appId: "1:426710588024:web:119bfd2cb3ffe2e5f8ab8d",
+        measurementId: "G-E1341ZVKWS"
+     };
+      const app = initializeApp(firebaseConfig);
+      const datebase=getDatabase(app)
+    /*Firebase Config*/ 
+    
+    
+    
+    
+    
+    
+    const creat_div_element_btn=document.querySelector("#creat")
+    let get_parent_div_element=document.querySelector("#parentdiv")
+    let count=0;
+    creat_div_element_btn.addEventListener("click",function(event){
+            let creat_child_element=document.createElement("div")
+                creat_child_element.setAttribute("id","all_main_contents")
+            const get_rendom_Id=rendomId()
+                creat_child_element.innerHTML=`
+                <div class="main-contents mt-3 mb-3 p-3 bg-light rounded" id="main_contents_${get_rendom_Id}" dataset="${get_rendom_Id}">
+                        <div class="input-select-contents">
+                              <div class="question-Name-contents" id="question_Name_${get_rendom_Id}">
+                                  <input type="text" class="form-control" name="Question_Name" aria-describedby="movIdHelp" placeholder="Enter Question Name" required>
+                              </div>
+                              <div class="selectbox-contents mt-1">
+                                  <select class="rounded selectbox " id="selectbox_${get_rendom_Id}" name="select" dataset="${get_rendom_Id}">
+                                    <option value="none" selected>Select Option</option> 
+                                        <option value="CheckBox" >Multi-Selection </option>
+                                        <option value="DropDown" >DropDown</option>
+                                        <option value="RadioBox">Multiple-Choice</option>
+                                        <option value="ShortAnswer">Short Answer</option>
+                                  </select>
+                              </div>
+                              <div class="mark-content mt-1" id="mark_content_${get_rendom_Id}">
+                                   <input type="number" class="form-control" name="mark" aria-describedby="movIdHelp" placeholder="Enter Mark" min="0" max="50" value="5" title="Add Mark " required>
+                              </div>
+                        </div>
+                        <div class="card mt-3">
+                           <div class="card-body">
+                               <ul class="list-group list-group-flush ul-content"  id="ul_${get_rendom_Id}"> 
+                                    <li  id="li_${get_rendom_Id}" class="list-group-item  li-content" dataset="${get_rendom_Id}">
+                                         
+                                         <div id="input_label_content_${get_rendom_Id}" class="input-label-content">
+                                            <input type="radio" name="" id="option" value="" class="mr-2" disabled>
+                                            
+                                            <label for="option" id="editorlabel" dataset="${get_rendom_Id}" contenteditable="true">Add Option</label>
+                                         </div>
+                                          <div class="single-input-label-content_${get_rendom_Id}" id="single-input-label-content" hidden>
+                                          <input type="single" class="form-control" name="" id="" placeholder="Short Anwser" readonly>
+                                         </div>
+                                        <div id="remove_content_${get_rendom_Id}" class="remove-content">
+                                          <h5 id="remove-content-id" title="Remove" hidden>X</h5>
+                                        </div>
+                                    </li> 
+                                </ul>
+                            </div>
+                          </div> 
+                        <div class="anwser-contents mt-3">
+                            <div class="anwser-contents-input" id="anwser_contents_input_${get_rendom_Id}">
+                               <input type="text" class="form-control" name="answer" aria-describedby="movIdHelp" placeholder="Enter Question Answer" required>
+                            </div>
+                            <div class="anwser-contents-delete">
+                                <button id="delete-question-div-delete" title="Delete Question" class="btn btn-danger"><i class="fas fa-trash-alt"></i></button>
+                            </div>
+                        </div>    
+                </div>
+                `
+        get_parent_div_element.insertAdjacentElement("afterbegin",creat_child_element)
+        let get_selectbox=document.querySelector(".selectbox")
+    
+    let get_parent_element_dataSet = document.querySelector(".main-contents").getAttribute("dataset")
+    
+    let label_editor=document.querySelector("#editorlabel")
+             label_editor.addEventListener("dblclick",function(event){
+                if(get_parent_element_dataSet==label_editor.getAttribute("dataset")){
+                    let li=document.createElement('li')
+                    li.setAttribute("id",`li_${get_rendom_Id}`)
+                    li.setAttribute("dataset",`${get_rendom_Id}`)
+                    li.classList.add(["list-group-item"],["rounded"],["li-content"])
+                    li.innerHTML=`<div id="input_label_content_${get_rendom_Id}" class="input-label-content">
+                                          <input type="${get_selectbox.value=="none"?"radio":get_selectbox.value=="RadioBox"?"radio":get_selectbox.value.value=="CheckBox"?"checkbox":get_selectbox.value.value=="DropDown"?"DropDown":"ShortAnswer"}" name="" id="option" value="" class="mr-1" disabled>
+                                          <label for="option" id="editorlabel"  dataset="${get_rendom_Id}" contenteditable="true">Option ${label_editor.parentNode.parentNode.parentNode.children.length+1}</label> 
+                                         <div class="single-input-label-content" hidden>
+                                          <input type="single" class="form-control" name="" id="" placeholder="Short Anwser" readonly>
+                                         </div>
+                                         </div>
+                                        <div id="remove_content_${get_rendom_Id}" class="remove-content" >
+                                          <h5 id="remove-content-id" title="Remove">X</h5>
+                                        </div> `                
+                        label_editor.parentNode.parentNode.insertAdjacentElement("beforebegin",li)
+            
+                        }
+                         let get_selectbox_default=document.querySelector(".selectbox")
+                             if(get_selectbox.value=="DropDown"){
+                                let  get_selectbox_dataset=get_selectbox_default.getAttribute("dataset")
+                                let  get_ul_elements=document.querySelector(`#ul_${get_selectbox_dataset}`) 
+                                let  get_li_element=get_ul_elements.querySelectorAll(`#li_${get_selectbox_dataset}`).forEach((get_single_li,index)=>{
+                                     let get_input=get_single_li.children[0].children[0]
+                                     enableinput(get_input,index)
+                                     get_input.removeAttribute("type")
+                                     get_input.setAttribute("type","text")
+                                })        
+                              }
+                        let remove_li_element=document.querySelectorAll("#remove-content-id").forEach(value=>{
+                        value.addEventListener("click",function(event){
+                              if(get_parent_element_dataSet==label_editor.getAttribute("dataset")){
+                                   let get_parent_li=value.parentNode.parentNode.parentNode
+                                   get_parent_li.removeChild(value.parentNode.parentNode)
+                                } 
+                                
+                            })
+                        })
+    
+    
+    
+    })
+    let delete_parentd_div_element_btn=document.querySelectorAll("#delete-question-div-delete")
+          delete_parentd_div_element_btn.forEach(delete_parentd_div_element=>{
+            delete_parentd_div_element.addEventListener("click",function(event){
+                delete_parentd_div_element.setAttribute("data-toggle","modal")
+                delete_parentd_div_element.setAttribute("data-target","#exampleModalCenter")
+                let modal_save_btn=document.querySelector(".save-modal")
+                    modal_save_btn.addEventListener("click",function(event){
+                        let get_child_Node=delete_parentd_div_element.parentNode.parentNode.parentNode.parentNode
+                        get_parent_div_element.removeChild(get_child_Node) 
+                        modal_save_btn.setAttribute("data-dismiss","modal")
+                    })
+             })
+        })
+       
+        let autofocus=document.querySelector(".question-Name-contents")
+        autofocus.children[0].focus() 
+       
+    
+    /*====================================================================================================*/
+    get_selectbox.addEventListener("change",function(event){
+           let  get_selectbox_dataset=get_selectbox.getAttribute("dataset") 
+           let  get_ul_elements=document.querySelector(`#ul_${get_selectbox_dataset}`)
+           let  get_li_elements=get_ul_elements.querySelectorAll(`#li_${get_selectbox_dataset}`).forEach((get_single_li,index)=>{
+                 let get_input=get_single_li.children[0].children[0]
+                    if(get_selectbox.value=="CheckBox"){
+                          get_input.removeAttribute("type")
+                          get_input.setAttribute("type","checkbox")
+                          get_input.setAttribute("readonly","false") 
+                          shortquestion(get_selectbox_dataset,true,get_single_li)
+                    }
+                    if(get_selectbox.value=="RadioBox"){
+                          get_input.removeAttribute("type")
+                          get_input.setAttribute("type","radio")
+                          get_input.setAttribute("readonly","false") 
+                          shortquestion(get_selectbox_dataset,true,get_single_li)
+                    }
+                    if(get_selectbox.value=="DropDown"){
+                          get_input.removeAttribute("type")
+                          get_input.setAttribute("type","dropdown")
+                          shortquestion(get_selectbox_dataset,true,get_single_li)
+                          enableinput(get_input,index)  
+                    }  
+                    if(get_selectbox.value=="ShortAnswer"){
+                        get_input.removeAttribute("type")
+                        get_input.setAttribute("type","hidden")
+                        shortquestion(get_selectbox_dataset,false,get_single_li)
+                    } 
+             }) 
+             
+             
+        })
+       
+    
+    /*=======================================================================================================*/   
+     
+    })
+    
+    /*==============================================Save Date=========================================================*/   
+   console.log()
+   
+    let get_save_btn =document.getElementById("save")
+    let alert=document.getElementById("alertshow")
+    let savedata=[]
+    let creatquizId=""
+    get_save_btn.addEventListener("click",function(event){
+        let get_subject =document.querySelector("#subject").value
+        let get_date=document.querySelector("#time").value
+        let get_maindiv_data=document.querySelectorAll(".main-contents").forEach(all_main_contents=>{
+            let question_detail={
+                question:{
+                    question_Option:{
+                        // question_Option_type,
+                    }, 
+                 }  
+            }
+            let get_list_item=all_main_contents.querySelectorAll(`#li_${all_main_contents.getAttribute("dataset")}`)
+                get_list_item.forEach((list,index)=>{
+                    let selectbox_get_value=all_main_contents.querySelector(`#selectbox_${all_main_contents.getAttribute("dataset")}`)
+                    let get_question_Name=all_main_contents.querySelector(`#question_Name_${all_main_contents.getAttribute("dataset")}`).children[0].value  
+                    let get_question_Mark=all_main_contents.querySelector(`#mark_content_${all_main_contents.getAttribute("dataset")}`).children[0].value 
+                    let get_question_Answer=all_main_contents.querySelector(`#anwser_contents_input_${all_main_contents.getAttribute("dataset")}`).children[0].value   
+                    
+                    question_detail.question.question_Name=get_question_Name
+                    question_detail.question.question_Mark=get_question_Mark
+                    question_detail.question.question_Answer=get_question_Answer
+                    question_detail.question.question_Id=all_main_contents.getAttribute("dataset")
+                    console.log(list.children[0].children[0].type)
+                       let alphabet="abcdefghijklmnopqrstuvwxyz"
+                       let option_Name=alphabet.charAt(index)
+                    //    question_detail.question.question_Option[option_Name]=list.children[0].children[1].textContent.trim()
+                    //    question_detail.question.question_Option_type=list.children[0].children[0].type.trim()
+                      if(selectbox_get_value.value=="ShortAnswer"){
+                        question_detail.question.question_Option.a="Short Answer"
+                        question_detail.question.question_Option_type=list.children[0].children[0].type.trim()
+                      }
+                     else{
+                        question_detail.question.question_Option[option_Name]=list.children[0].children[1].textContent.trim()
+                        question_detail.question.question_Option_type=list.children[0].children[0].type.trim()
+                     }
+                             
+               })
+              
+               savedata.push(question_detail)
+        })
+        let firebase_id=Firebase_rendomId()
+        const quiz_Data =Object.assign({
+                subjectName:get_subject,
+                date:get_date,
+                quizId:firebase_id
+              }, savedata);
+             
+      if(get_parent_div_element.children.length >= 4){
+        set(ref(datebase,"QuizApp/"+firebase_id),quiz_Data).then((result) => {
+            seccess(alert,"<strong>SuccessFully Data!</strong> is save ")
+            creatquizId=firebase_id
+            savedata=[] 
+        }).catch((err) => {
+            errors(alert,err)
+        });
+      }else{
+         
+        errors(alert,"<strong>Error occurred!</strong> Minimum required 5/Five question ")
+      }
+        
+    })
+    
+let sharalink=document.querySelector(".btn-outline-success")
+let modal_body = document.querySelector(".modal-body-url")
+sharalink.addEventListener("click",function(envent){
+    if(creatquizId!==""){
+        modal_body.innerHTML=``
+        let body=document.createElement("div")
+            body.innerHTML=`
+              <div class="input-group mb-3">
+                 <input type="text" class="form-control" placeholder="Copy Url " aria-label="Recipient's username" aria-describedby="basic-addon2" id="copyurl_value" value="http://127.0.0.1:5501/makequiz/student.html?id=${creatquizId}">
+                 <div class="input-group-append">
+                  <span class="input-group-text" id="copycomponemt" id="basic-addon2"><i class="fas fa-paste"></i></span>
+                 </div>
+               </div>
+            `
+         modal_body.appendChild(body)   
+         let copyText=document.querySelector('#copyurl_value')
+         let copybtn=document.querySelector('#copycomponemt')
+            copybtn.addEventListener("click",function(envent){
+               let copy =navigator.clipboard.writeText(copyText.value);
+                  copy.then(res=>{
+                    copybtn.setAttribute("data-toggle","Copy Success")
+                    copybtn.setAttribute("data-placement","top")
+                    copybtn.setAttribute("title","Copy Success")
+                    copybtn.classList.add(["input-group-text"],["bg-success"])
+                    copybtn.style.color="white"
+                  }).catch(errors=>{
+                    copybtn.setAttribute("title","Copy fail")
+                  })
+              
+             })
+    }else{
+      modal_body.innerHTML=``
+      let body=document.createElement("div")
+            body.innerHTML=`
+              <div class="input-group mb-3">
+                 <input type="text" class="form-control" placeholder=" No Url Here" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+                 <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2" disabled><i class="fas fa-paste"></i></span>
+                 </div>
+               </div>
+               <span class="input-group-text font-weight-bold border-danger" id="basic-addon2">Please creat quiz </span>
+
+            `
+         modal_body.appendChild(body)   
+    }
+})
+
+/*==============================================Save Date=========================================================*/   
+       
+    
+    
+    
+    function shortquestion(get_selectbox_dataset,boolean,get_single_li){
+                       if(!boolean){
+                           document.querySelectorAll(`#input_label_content_${get_selectbox_dataset}`).forEach(value=>{
+                            value.hidden=true
+                            get_single_li.classList.remove(["list-group-item"])
+                           })
+                           document.querySelectorAll(`#remove_content_${get_selectbox_dataset}`).forEach(value=>{
+                            value.hidden=true
+                           })
+                        //   document.querySelectorAll(`.single-input-label-content_${get_selectbox_dataset}`).forEach(value=>{
+                        //     value.hidden=false
+                        //   })
+                        document.querySelector(`.single-input-label-content_${get_selectbox_dataset}`).hidden=false
+                       }else{
+                          document.querySelectorAll(`#input_label_content_${get_selectbox_dataset}`).forEach(value=>{
+                              value.hidden=false
+                              get_single_li.classList.add(["list-group-item"])
+                           })
+                           document.querySelectorAll(`#remove_content_${get_selectbox_dataset}`).forEach(value=>{
+                            value.hidden=false
+                          })
+                        //   document.querySelectorAll(`.single-input-label-content_${get_selectbox_dataset}`).forEach(value=>{
+                        //     value.hidden=true
+                        //   })
+                        document.querySelector(`.single-input-label-content_${get_selectbox_dataset}`).hidden=true       
+                       }       
+    
+                    }
+    
+    function enableinput(getInput,index){
+           getInput.value=index+1 
+           getInput.style.fontSize ="22px"
+           getInput.style.width = "25px"
+           getInput.style.height = "25px"
+           getInput.style.border="none"
+           getInput.style.outline="none"
+           getInput.setAttribute("readonly","true")                      
+    } 
+    
+    function rendomId(){
+        let e_id="";
+        let alphabet ="abcdefghijklmnopqrstwxuvyz"
+        for(let i=0;i<alphabet.length;i++){
+          let rendompick=Math.floor(Math.random() *36 )
+           e_id+=alphabet.charAt(rendompick)
+        }
+        return  e_id.slice(0,6)
+    }
+    
+    function Firebase_rendomId(){
+        let e_id="";
+        let alphabet ="abcdefghijklmnopqrstwxuvyz0123456789"
+        for(let i=0;i<alphabet.length;i++){
+          let rendompick=Math.floor(Math.random() *36 )
+           e_id+=alphabet.charAt(rendompick)
+        }
+        return  e_id.slice(0,10)
+    }
+ 
+    
+function seccess(tag,seccessMassage){
+  tag.innerHTML=`
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     ${seccessMassage}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    `
+  setTimeout(()=>{
+    tag.innerHTML=``
+  },3000)  
+}
+function errors(tag,errormassage){
+  tag.innerHTML=`
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    ${errormassage}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    `
+  setTimeout(()=>{
+    tag.innerHTML=``
+  },5000)  
+}
+</script>
+</body>
+</html>

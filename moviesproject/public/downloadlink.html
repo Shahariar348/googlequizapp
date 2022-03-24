@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Downlaod Link</title>
+    <link rel="icon" href="./popcorn_1f37f.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
+</head>
+<body>
+<style>
+body{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+  }
+.jumbotron,h1{
+        font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+}
+.logo{
+      width: 100px;
+      height: 100px;
+}
+.fakeimghi {
+      width: 630px;
+      height: 350px;
+      object-fit: cover;
+}
+.fakeimghi1 {
+      width: 630px;
+      padding: 10px;  
+      object-fit: cover;
+}
+    
+    
+@media only screen and (max-width: 600px) {
+      .fakeimghi {
+       width: 340px;
+       height: 200px;
+       padding-right: 5px;
+   }
+    .fakeimghi1 {
+     width: 340px;
+     padding-right: 5px;
+   }   
+}
+</style>
+<!--Heading  -->
+  <div class="jumbotron text-center" style="margin-bottom:0">
+   <h1>Movies Downloader Site</h1>
+   <h3><img src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/star-struck_1f929.png" width="40px" height="40px" > মুভি দেখবা <img src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/star-struck_1f929.png" width="40px" height="40px" ></h3>
+
+   <p>This site will be provided you download any  movies</p> 
+  </div>
+<!--Heading  -->  
+<!--Navber  -->    
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <a class="navbar-brand" href="#">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="container">
+    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+            <a class="nav-link" href="./index.html">Home</a>
+          </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./aboutus.html">About us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./contactus.html">Contact us</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./privacyPolicy.html">Privacy policy</a>
+        </li>    
+      </ul>
+    </div>  
+  </div>
+  </nav>
+<!--Navber  -->
+<!--Main Div  -->
+  <div class="container" style="margin-top:40px">
+    <div class="row">
+      <!-- left div  -->
+      <div class="col-lg-8 col-sm-12" id="s_leftdiv">
+         <!-- Dynamic creat div  -->
+          
+         <!-- Dynamic creat div  -->
+      </div>
+      <!-- left div  -->
+      <!-- Right div  -->
+      <div class="col-lg-4  col-sm-12">
+        <div class="fakeimg">
+         <img src="./mo_prev_ui.png" alt="movies-logo">
+        </div>
+         <!-- Dynamic creat div  -->
+        <div>
+          <br>
+            <h3>Movie Review</h3>
+            <!-- Dynamic creat div with table -->
+            <div id="tablediv">
+             
+            </div>
+            <!-- Dynamic creat div with table -->
+        </div>
+         <!-- Dynamic creat div  -->
+      </div>
+      <!-- Right div  -->
+    </div>
+  </div>
+<!--Main Div  -->
+<!--  Footer -->
+<div class="jumbotron text-center" style="margin-bottom:0">
+  <img src="./mo_prev_ui.png" alt="movies-logo" width="100px">
+  <p>Copyright @ 2022 movies</p>
+<a href="./aboutus.html">About us</a> || <a href="./privacyPolicy.html">Privacy policy</a> || <a href="./contactus.html">Contact us</a>
+</div>
+<!-- Footer  -->
+
+<script type="module">
+ /* Firebase import module*/
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+  import { getDatabase, ref, set,onValue} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+ /* Firebase import module*/
+
+ /*Firebase Config*/
+const firebaseConfig = {
+    apiKey: "AIzaSyAMkjf6MFvBJdE7li8fx0Y6Dj0BZiOnVd0",
+    authDomain: "moviesdownloaders.firebaseapp.com",
+    databaseURL: "https://moviesdownloaders-default-rtdb.firebaseio.com",
+    projectId: "moviesdownloaders",
+    storageBucket: "moviesdownloaders.appspot.com",
+    messagingSenderId: "426710588024",
+    appId: "1:426710588024:web:119bfd2cb3ffe2e5f8ab8d",
+    measurementId: "G-E1341ZVKWS"
+  };
+  const app = initializeApp(firebaseConfig);
+  const datebase=getDatabase(app)
+/*Firebase Config*/
+
+/* Some variable */
+const singleMovies=document.getElementById("s_leftdiv") 
+const moviereview=document.getElementById("tablediv") 
+/* Some variable */
+
+/*Get movies id by url */
+  let currentUrl=window.location.href
+  let paramiter=(new URL(currentUrl)).searchParams
+  let paramwithid=paramiter.get('id')
+ 
+/*Get movies id by url */
+
+/* Single data by firebase */
+const readDataRefe=ref(datebase,`movieinfo/${paramwithid}`)
+onValue(readDataRefe,(snapshot)=>{
+  let div =document.createElement("div")
+  let snddiv =document.createElement("div")
+  div.innerHTML=`
+             <div class="fakeimghi">
+             <iframe src="${snapshot.val().Mvideolink}" width="100%" height="100%"  allowfullscreen>Refresh page and wait</iframe>
+             </div>
+             <div class="fakeimghi1">
+               <h2>${snapshot.val().Mname.toUpperCase()}</h2>
+               <h5>Published by site authorities  ${snapshot.val().Mpublish}</h5>
+               <br>
+               <p>Full Description</p>
+               <div id="description">${snapshot.val().Mdescription}</div>
+               <br>
+               <br>
+            </div>
+             `
+    snddiv.innerHTML=`
+               <br>
+               ${snapshot.val().Mreview}
+               <br> 
+               <br> 
+                `    
+                
+      singleMovies.appendChild(div)
+      moviereview.appendChild(snddiv)
+
+      let parentdiv=document.querySelector("#description")
+       let buttons =parentdiv.querySelectorAll("button")
+       
+       if(buttons.length==" "){
+          return true
+         }
+         else{
+          buttons.forEach(btn=>{
+              btn.addEventListener("click",function(event){
+                let episod=event.target.dataset.episodeid
+                     if(episod){
+                       let resrc=episod
+                       let iframe=document.querySelector("iframe")
+                       iframe.src=resrc 
+                     }
+              })
+           })
+         }
+
+})
+/* Single data by firebase */
+
+</script>
+</body>
+</html>

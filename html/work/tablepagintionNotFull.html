@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Pagination</title>
+
+<!-- CSS STYLE  -->
+    <style>
+          #main-div{
+              width: 800px;
+              height: 600px;  
+          }
+          #main-div h1{
+              text-align: center;
+          }
+          #table-div{
+              width: 100%;
+              height: 450px;
+          }
+          #table-div span,select{
+              margin-left: 10px;
+              font-size: 18px;
+          }
+          #table-div select{
+             width: 200px;
+             height: 30px;
+             border: 1px solid black;
+             font-size: 17px;
+             padding-left: 5px;
+             margin-bottom: 20px;
+          }
+          table {
+              margin-top: 30px;
+              text-align: left;
+             
+          }
+          table, tr,td ,th{
+              border: 1px solid black;
+              width: 80%;
+              margin: 5px;
+              font-size: 22px;
+          }
+          #perviousbtn,#btn1,#nextbtn{
+              font-size: 18px;
+              margin: 2px;
+          }
+          .active{
+              background-color: black;
+              color: wheat;
+              font-size: 18px;
+          }
+    </style>
+
+</head>
+<body>
+    <!-- HTML PARTS -->
+    <div id="main-div">
+        <h1>Personal Information</h1>
+        <div id="table-div">
+            <span>Sort Table : </span>
+            <select id="select" onchange="pagevalue()">
+                <option value="null">Increase Rows</option>
+                <option value="2">2</option>
+                <option value="4" >4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+            </select>
+            <input type="text" id="fillervalue" placeholder="Search item" onkeyup="search()" style="width: 300px; height: 25px; border: 1px solid black; margin-bottom: 10px; padding-left:  10px; font-size: 17px;"> 
+            <table id="table">
+                <thead>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+                  <th>Age</th>  
+                  <th>Working</th>
+                </thead>
+                <tbody id="tbody">
+                </tbody>
+           </table>
+        </div>
+         
+    <div id="paginator">
+
+   </div>
+</div>
+  <!-- JAVASCRIPT PARTS -->
+<script>
+  let personalinfo=[{
+                    name: "Shakibul alom",
+                    email: "shakibulalom@gamil.com",
+                    phone: "01948471029",
+                    age: "13",
+                    wokering: "Student",
+                   },
+                   {
+                    name: "Bappy",
+                    email: "bappy@gamil.com",
+                    phone: "019xxxxxxxx",
+                    age: "25",
+                    wokering: "Student",
+                   },
+                   {
+                    name: "Anik",
+                    email: "anik@gamil.com",
+                    phone: "018xxxxxxxx",
+                    age: "24",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Sayed",
+                    email: "sayed@gamil.com",
+                    phone: "018xxxxxxxx",
+                    age: "24",
+                    wokering: "Student",
+                   },
+                   {
+                    name: "Shabbir",
+                    email: "shabbir@gamil.com",
+                    phone: "017xxxxxxxx",
+                    age: "23",
+                    wokering: "Student",
+                   },
+                   {
+                    name: "Ashik",
+                    email: "ashik@gamil.com",
+                    phone: "018xxxxxxxx",
+                    age: "22",
+                    wokering: "Student",
+                   },
+                   {
+                    name: "Repon",
+                    email: "repon@gamil.com",
+                    phone: "013xxxxxxxx",
+                    age: "22",
+                    wokering: "Student",
+                   },
+                   {
+                    name: "Munna",
+                    email: "munna@gamil.com",
+                    phone: "018xxxxxxxx",
+                    age: "22",
+                    wokering: "Student",
+                   },{
+                    name: "Iqbal",
+                    email: "iqbal@gamil.com",
+                    phone: "016xxxxxxxx",
+                    age: "27",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Amit",
+                    email: "amit@gamil.com",
+                    phone: "017xxxxxxxx",
+                    age: "24",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Sagor",
+                    email: "sagor@gamil.com",
+                    phone: "018xxxxxxxx",
+                    age: "24",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Angkon",
+                    email: "angkon@gamil.com",
+                    phone: "017xxxxxxxx",
+                    age: "23",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Firoj",
+                    email: "firoj@gamil.com",
+                    phone: "013xxxxxxxx",
+                    age: "24",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Rocky",
+                    email: "rocky@gamil.com",
+                    phone: "014xxxxxxxx",
+                    age: "24",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Najmul",
+                    email: "najmul@gamil.com",
+                    phone: "016xxxxxxxx",
+                    age: "21",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Shohag",
+                    email: "shohag@gamil.com",
+                    phone: "018xxxxxxxx",
+                    age: "22",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Ariful",
+                    email: "ariful@gamil.com",
+                    phone: "018xxxxxxxx",
+                    age: "24",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Taposh",
+                    email: "taposh@gamil.com",
+                    phone: "012xxxxxxxx",
+                    age: "24",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Kazi",
+                    email: "kazi@gamil.com",
+                    phone: "018xxxxxxxx",
+                    age: "26",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Shuvo",
+                    email: "shuvo@gamil.com",
+                    phone: "017xxxxxxxx",
+                    age: "23",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Likhon",
+                    email: "likhon@gamil.com",
+                    phone: "018xxxxxxxx",
+                    age: "21",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Naim",
+                    email: "naim@gamil.com",
+                    phone: "017xxxxxxxx",
+                    age: "26",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Robin",
+                    email: "robin@gamil.com",
+                    phone: "019xxxxxxxx",
+                    age: "25",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Kibriy",
+                    email: "kibriy@gamil.com",
+                    phone: "019xxxxxxxx",
+                    age: "23",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Mashum",
+                    email: "mashum@gamil.com",
+                    phone: "018xxxxxxxx",
+                    age: "25",
+                    wokering: "Student",
+                   }
+                   ,{
+                    name: "Tariq",
+                    email: "tariq@gamil.com",
+                    phone: "019xxxxxxxx",
+                    age: "23",
+                    wokering: "Student",
+                   }
+                   
+]
+function pagevalue(){
+    let pageV=document.getElementById('select').value
+    localStorage.setItem('page',pageV)
+    setTimeout(()=>{
+        window.location.reload(true);
+    },100)
+   
+  }
+  let currentpage=1
+  let perpage=parseInt(localStorage.getItem('page')) 
+  let pagenumber=Math.ceil( personalinfo.length/perpage) 
+  let paginator =document.getElementById('paginator')
+
+
+          paginator.innerHTML+=`<button id="perviousbtn" class=" btn btn-primary"
+          data-nutok="pervious">Pervious</button>`
+     for (let i=0; i<pagenumber; i++) 
+        { 
+            let start=i+1
+             if(start==1){
+                 paginator.innerHTML+=`<button id="btn1" class="btn btn-primary active"
+                  value="${i+1}">${i+1}</button>`
+                }
+                else{
+                    paginator.innerHTML+=`<button id="btn1" class=" btn btn-primary"
+                     value="${i+1}">${i+1}</button>`
+                }
+        
+        }
+          paginator.innerHTML+=`<button id="nextbtn" class=" btn btn-primary"
+          data-nutok="next">Next</button>`
+     
+      var slicearray;
+      let valuewa =document.querySelectorAll('#btn1')
+
+      let perviousbtn =document.getElementById('perviousbtn')
+      let nextbtn =document.getElementById('nextbtn')
+     
+      let startapge=0
+      let endpage=0
+      
+      startapge=(currentpage-1)*(perpage)
+                    endpage =startapge+perpage
+                    slicearray = personalinfo.slice(startapge,endpage)
+                    addhtml(slicearray)
+                    pervioushidden(currentpage)
+                    nextshidden(currentpage)
+                     
+;[...valuewa].forEach((btn,index)=> {
+           btn.addEventListener('click',function(e){
+                currentpage=e.target.value 
+                  startapge=(currentpage-1)*(perpage)
+                  endpage =startapge+perpage
+                  slicearray = personalinfo.slice(startapge,endpage)
+             
+                  addhtml(slicearray)  
+                  pervioushidden(currentpage)
+                  nextshidden(currentpage)
+                  active(currentpage)
+                 
+           })
+   
+  })
+
+perviousbtn.onclick=function(e){
+                     let intpre =parseInt(currentpage)
+                     let perviouspage=intpre-1
+                     startapge=(perviouspage-1)*(perpage)
+                     endpage =startapge+perpage
+                     slicearray = personalinfo.slice(startapge,endpage)
+                     currentpage=perviouspage
+                   
+                     addhtml(slicearray)
+                     pervioushidden(currentpage)
+                     active(currentpage)
+                     nextshidden(currentpage)
+                   }
+nextbtn.onclick=function(e){
+                     let int =parseInt(currentpage)
+                     let nextpage=int+1
+                     startapge=(nextpage-1)*(perpage)
+                     endpage =startapge+perpage
+                     slicearray = personalinfo.slice(startapge,endpage)
+                     currentpage=nextpage
+                     addhtml(slicearray)
+                     nextshidden(currentpage)
+                     pervioushidden(currentpage)
+                     active(currentpage)
+                   }
+function active (btnname){
+    ;[...valuewa].forEach((btn1,index1)=> {
+      let indexss=index1+1
+        
+            if(indexss==btnname){
+               var current = document.getElementsByClassName("active");
+                    if (current.length > 0) {
+                          current[0].className = current[0].className.replace(" active", "");
+                           }
+                           btn1.className += " active";        
+                        }  
+                    })
+                 }  
+
+function pervioushidden(show){
+              if(show<2){
+                perviousbtn.setAttribute('disabled','disabled')
+              }
+             else{
+              perviousbtn.removeAttribute('disabled')
+      }
+}
+function nextshidden(show){
+               if(show==pagenumber){
+               nextbtn.setAttribute('disabled','disabled')
+               }
+              else{
+               nextbtn.removeAttribute('disabled')
+     }
+}
+
+
+
+function addhtml(slicearray){
+             let table =document.getElementById('table')
+             let tablebody =table.tBodies.item(0)
+             tbody.innerHTML=''
+
+            for(let lis=0;lis<slicearray.length;lis++){
+            let rowsd=tablebody.insertRow()
+            let cell1=rowsd.insertCell(0).innerText=`${slicearray[lis].name}`
+            let cell2=rowsd.insertCell(1).innerText=`${slicearray[lis].email}`
+            let cell3 = rowsd.insertCell(2).innerText=`${slicearray[lis].phone}`
+            let cell4 = rowsd.insertCell(3).innerText=`${slicearray[lis].age}`
+            let cell5 = rowsd.insertCell(4).innerText=`${slicearray[lis].wokering}`
+      
+        }
+}
+
+function search(){
+  let searchvalue=document.getElementById('fillervalue').value.toUpperCase()
+     let tr =table.getElementsByTagName('tr')
+      for(let t=0;t<tr.length;t++){
+            let td=tr[t].getElementsByTagName('td')[2]
+            if(td){
+                let tdvalue=td.textContent.toUpperCase()
+                   if(tdvalue.indexOf(searchvalue)>-1){
+                       tr[t].style.display=''
+                   }
+                   else{
+                    tr[t].style.display='none'
+                   }
+            }
+      }
+}
+  
+</script>
+</body>
+</html>

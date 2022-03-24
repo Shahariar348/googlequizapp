@@ -1,0 +1,140 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:sans-serif;
+}
+.headers{
+   display: flex;
+   height: 12vh;
+   align-items: center;
+   color: white;
+   background-image: linear-gradient(to left,rgb(15, 191, 214),rgb(15, 214, 171));
+}
+.logos{
+    flex: 1;
+ 
+}
+.logos h3{
+  margin-top: 18px;
+  font-size: xx-large;
+}
+.logos{
+    display: flex;
+}
+.navber{
+    flex: 2;
+
+}
+.navber nav ul {
+   display: flex;
+   justify-content: space-around;
+   list-style: none;
+}
+
+.navber nav ul li a {
+    text-decoration: none;
+    display: block;
+    overflow: hidden;
+    font-size: 19px;
+    color: white;
+    font-weight:500;
+    cursor: pointer;
+
+    
+ }
+ 
+.navber nav ul li :hover {
+     padding: 5px;
+     border-radius: 8px;
+     background-image:linear-gradient(to right,rgba(4, 192, 76, 0.562),rgba(39, 202, 243, 0.562))
+}
+.logos img{
+    width: 50px;
+    margin-top: 0px;
+    margin-left: 50px;
+  
+}
+.donor-form{
+    width: 100%;
+    height: 100%;
+   
+}
+.donor-list{ 
+    float: left;
+    width: 300px;
+    height: 65vh;
+    margin-top: 20px;
+    margin-left: 25px;
+    margin-right: 5px;
+    display: block;
+}
+.card {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 100%;
+    display: block;
+    height: 100%;
+    
+  }
+  .card:hover {
+    box-shadow: 8px 16px 8px 16px rgba(0,0,0,0.2);
+  }
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    border-radius: 5px; /* 5px rounded corners */
+  }
+  .card-img{
+    height: 50%;
+    margin: 2px;
+  }
+  
+  
+  .card-img:hover {
+    box-shadow: 0px 2px 8px 0px rgba(98, 204, 107, 0.062);
+  }
+
+  .donor-info{
+     margin-top: 10px;
+     margin-left: 10px;
+     margin-right: 2px;
+     overflow: hidden;
+  }
+  .donor-info h4 {
+      font-size: 22px;
+      margin-bottom: 5px;
+     
+  }
+ 
+  .donor-info-list p{
+   margin-top: 5px;
+   font-size: 16px;
+
+
+  }
+  #small{
+    font-size: 14px;
+    margin-right: 5px;
+    font-weight: lighter;
+  }
+  .button {
+    border: none;
+    outline: 0;
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 95%;
+    margin-top: 40px;
+    margin-left: -8px;
+  }
+  
+  .button:hover {
+    background-color: #555;
+  }
+
+

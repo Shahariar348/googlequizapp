@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learner Html </title>
+    <link rel="icon" href="https://www.pngrepo.com/png/177788/180/clock-square.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+   
+</head>
+<body>
+  <style>
+    body{
+      overflow-y: auto;
+    }
+    #maincontain{
+     margin-left: 50px;
+
+    }
+    #mainhi{
+      margin-left: 50px;
+      width: 600px;
+
+    }
+  </style>
+    <h1>Javascript Closures </h1>
+
+    <form id="uploadfile">
+        <input type="text" placeholder="Name">
+        <input type="file" placeholder="Upload File" id="file"> 
+        <input type="submit" value="Submit">
+    </form>
+
+    <div style="width: 400px; height: 400px;">
+      <img id="imd" src="" alt="phoneimage" width="100%" height="100%"> 
+    </div>
+    
+   <div id="maincontain">
+   </div>
+   <div id="mainhi" style="width: 600px; height: auto;">
+ 
+   </div>
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-app.js";
+  import { getStorage, ref as sRef,uploadBytesResumable,getDownloadURL } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-storage.js";
+  import { getDatabase, ref, set,onValue} from "https://www.gstatic.com/firebasejs/9.6.5/firebase-database.js";
+ 
+  // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.5/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+  apiKey: "AIzaSyBCzRlF04mVdIDSsHFky428yEEfJVa4XVg",
+  authDomain: "so-i-c456b.firebaseapp.com",
+  databaseURL: "https://so-i-c456b-default-rtdb.firebaseio.com",
+  projectId: "so-i-c456b",
+  storageBucket: "so-i-c456b.appspot.com",
+  messagingSenderId: "411608026725",
+  appId: "1:411608026725:web:84b7dcea1b19d6ba14c08c",
+  measurementId: "G-PQG17CJCVL"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+ 
+const datebaaa=getDatabase(app)
+
+
+let form=document.getElementById('uploadfile')
+let srcy;
+let img;
+form[1].onchange= function(event) {
+   srcy=event.target.files[0].name
+   img=event.target.files[0]
+  //  console.log(event.target.files[0])
+}
+const storage = getStorage();
+
+
+  let main=document.getElementById('maincontain')
+
+
+
+
+
+
+
+
+form.addEventListener("submit",function(event){
+   event.preventDefault()
+   const userinffo={}
+   ;[...this].forEach(valu=>{
+     if(valu.type!=="submit")
+     {
+       
+       const storageRef = sRef(storage, "images/"+srcy);
+       const metadata = {
+       contentType:img.tpye,
+       };
+ const uploadTask = uploadBytesResumable(storageRef, img, metadata);
+ uploadTask.on('state_changed',(snapshot) => {
+            console.log("Upload Done ")
+ },
+(error)=>{
+           console.log("Somthing :::::::::::")
+},
+() => {// Upload completed successfully, now we can get the download URL
+  getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                  console.log('File available at', downloadURL);
+                  userinffo.imageurl=downloadURL
+                  writeUserData("User-3256",form[0].value,downloadURL)
+              });}
+  )
+     
+//=================================================================================
+     }
+   })
+  
+})
+
+function writeUserData(userId, name, imageUrl) {
+  set(ref(datebaaa, `users/${userId}`),
+   { 
+     userId:userId,
+     username: name,
+     profile_picture : imageUrl,
+   }
+  );
+}
+
+function readUserDate(){
+  const datebateLocation=ref(datebaaa, 'users/User-3256' )
+   onValue(datebateLocation,(snapshot) =>{
+    let images = document.getElementById("imd")
+        images.src=snapshot.val().profile_picture
+        main.innerHTML=snapshot.val().username
+   })
+}
+readUserDate()
+
+
+const  data = [
+        {'date': '1977-7-16', 'sex': 'M', 'species': 'NL'},
+        {'date': '1977-7-16', 'sex': 'M', 'species': 'NL'},
+        {'date': '1977-7-16', 'sex': 'F', 'species': 'DM'},
+        {'date': '1977-7-16', 'sex': 'M', 'species': 'DM'},
+        {'date': '1977-7-16', 'sex': 'M', 'species': 'DM'},
+        {'date': '1977-7-16', 'sex': 'M', 'species': 'PF'},
+        {'date': '1977-7-16', 'sex': 'F', 'species': 'PE'},
+        {'date': '1977-7-16', 'sex': 'M', 'species': 'DM'}
+      ]
+     let newarray=data.filter((value,index)=>{
+        if(value.sex=="F"){
+              let datefomatter=dateformat(value.date)
+               let newObj={
+                   seq:index,
+                   year:datefomatter.year,
+                   sex:value.sex,
+                   species:value.species
+               }
+               let aatt=[]
+               aatt.push(newObj)
+             return [...aatt]
+         }
+             
+         
+     })
+     let aatt=[]
+     data.some((date,index)=>{
+         if(date.sex=="F"){
+          let myfilter=mydate(date,index)
+          console.log(myfilter)  
+         }
+     })
+
+
+      function dateformat(date){
+         let [year,month,day]=date.split("-")
+          return {
+              year,
+              month,
+              day
+          }
+      }
+
+      function mydate(date,index){
+        let datefomatter=dateformat(date.date)
+        let newObj={
+                   seq:index+1,
+                   year:datefomatter.year,
+                   sex:date.sex,
+                   species:date.species
+         }
+         aatt.push(newObj)
+          return aatt
+      }
+  function multip(factor){
+     let cowsting=String(factor)
+     
+     return cowsting.length
+  } 
+
+  let twice=multip(333)
+  console.log(twice)
+ 
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,1229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Page Title</title>
+   
+</head>
+
+<body>
+    
+
+    <h1>My First Heading</h1>
+    <p>My first paragraph.</p>
+
+</body>
+
+<script>
+    //================================Try...Catch...Finally..throw=========================================================================================================\\
+    /*
+    class Error{
+        constructor(massage){
+            this.name=Error
+            this.massage=massage
+        }
+    }
+
+    class Validation extends Error{
+        constructor(fuck,s_massage){
+            super(s_massage)
+                    this.name=fuck
+                    this.massage=s_massage
+            }
+    }
+
+
+    let nameInput='Shakibul'
+    let passwordInput='12345'
+
+    function inputvali(nameInput,passwordInput){
+        if(nameInput.length==''&& passwordInput==''){
+            throw new Validation('All input','Not emtry') 
+            return false
+        }
+        if(nameInput.length<5)  {
+           throw new Validation('Name Input','must be getter then 5') 
+           return false
+        }
+        if(passwordInput.length<6 )  {
+           throw new Validation('Password Input','must be getter then 6') 
+           return false
+        }
+       
+        else{
+          
+            return true
+        }
+    }
+
+    try {
+        let valid=inputvali(nameInput,passwordInput)
+       if(valid){
+        console.log(' Log in successfully ')
+        } 
+        
+    } catch (error) {
+     console.log(error.name+' '+error.massage);
+    }  
+    */
+
+    //================================Try...Catch...Finally..throw finish===========================================================================================================\\
+
+
+    //================================JavaScript ES6 ===============================================================================================================================\\
+
+    //*******************************Arrow Function**********************************************************************************************************************************\\
+    /*
+    let arrow=(b,n=9)=>b+n // at onec return value
+    console.log(arrow(5))
+     //if one argument passing
+    let onearrow=one=>one
+    console.log(onearrow(5)) //5
+
+     //Arrow Function as an Expression you can also dynamically
+     //create a function and use it as an expression. For example,
+
+    let age=1
+    let checkadult=(age>=18) ? ()=>console.log('she/he is adult') : ()=>console.log('she/he is NOT  adult')
+    console.log(checkadult())
+    */
+    /* this with Arrow Function
+    Inside a regular function, this keyword refers to the function where it is called.However, 
+    this is not associated with arrow functions. Arrow function does not have its own this.
+    So whenever you call this, it refers to its parent scope. For example, */
+
+    /*function Person() { //========> that is parent scope
+        this.name = 'Jack',
+        this.age = 25,
+        this.sayName = function () {
+            console.log(this.age);
+            let innerFunc = () => {
+                console.log(this.age);
+            }
+            innerFunc();
+        }
+    }
+    const newperson = new Person();
+    newperson.sayName();*/
+
+    /*
+    Arguments Binding Regular functions have arguments binding.
+    That's why when you pass arguments to a regular function, 
+    you can access them using the arguments keyword. For example
+    */
+
+    // let argumen = function () {
+    //     console.log(arguments);
+    // }
+    // argumen(4,6,7); // Arguments [4, 6,
+
+    // let argumen=()=>{
+    //     console.log(arguments)
+    // }
+    // argumen(45,2)//ReferenceError: arguments is not defined
+
+    //******************************************************************************************************************************************************************************\\
+
+    //*******************************JavaScript Template Literals********************************************************************************************************************\\
+
+    /*
+    const first_name = "Jack";
+    const last_name = "Sparrow";
+    console.log(`Hello ${first_name} ${last_name}`)
+    */
+    /*let total=`Bangla  81 Math 80 and English 82 total ${81+80+82}`
+    let total1=81+80+82
+    let grade=(total1>240) ? ()=>console.log(`${total} \nA+`) : ()=>console.log(`${total}\nA`)
+     console.log(grade())*/
+
+    /*
+    Normally, you would use a function to pass arguments. For example
+    However, you can create tagged templates (that behave like a function) 
+    using template literals.You use tags that allow you to parse template literals 
+    with a function.Tagged template is written like a function definition.
+    However, you do not pass parentheses () when calling the literal. For example,
+    */
+
+    /*const name = 'Jack';
+    const greet = true;
+    function tagExample(strings, nameValue) {
+        let str0 = strings[0]; // Hello
+        let str1 = strings[1]; // , How are you?
+        if(greet) {
+            return `${str0}${nameValue}${str1}`;
+        }
+    }
+    // creating tagged literal
+    // passing argument name
+    const result = tagExample`Hello ${name}, How are you?`;
+    console.log(result);// Hello Jack, How are you?
+     */
+
+    //****************************************************************************************************************************************************************************\\
+
+    //*******************************JavaScript Destructuring*********************************************************************************************************************\\
+    /*
+    const person={
+       p_name:"Jack Sparrow",
+       p_age:"55",
+       p_genders:"female"
+    }
+
+    // Destructuring
+    let p_pname=person.p_name
+    let p_page=person.p_age
+    let p_pgender=person.p_genders
+
+    //Seconde way to Destructuring 
+    const { p_name,p_age,p_genders}=person
+    console.log(p_name)
+    */
+
+    //******************************************************************************************************************************************************************************//*/
+
+    //*******************************JavaScript Spread Operator or (...)**************************************************************************************************************\\
+    /*
+    let arrayni=['cpl','bpl','ipl','pcl']
+    let newarrayni=[...arrayni] // copy by arrayni to newarrayni 
+    console.log(newarrayni) // ['cpl', 'bpl', 'ipl', 'pcl']
+
+    newarrayni.push('kpl')
+    console.log(arrayni) //Main array not changing  
+                           //['cpl', 'bpl', 'ipl', 'pcl']
+
+    console.log(newarrayni)// ['cpl', 'bpl', 'ipl', 'pcl', 'kpl']
+    let numberarray=[[...arrayni],1,5,6,8,9]
+    console.log(numberarray) // [Array(4), 1, 5, 6, 8, 9] 
+
+    //Second way to cancat array 
+    let seccoarray=[...arrayni,1,5,6,8,9]
+    console.log(seccoarray) //['cpl', 'bpl', 'ipl', 'pcl', 1, 5, 6, 8, 9]
+
+
+    let creatarray='Bangladesh'
+    console.log([...creatarray])//['B', 'a', 'n', 'g', 'l', 'a', 'd', 'e', 's', 'h']
+
+    //JavaScript Rest Parameter With Spread Operator or (...)
+    let arrow1=([...arrayni])=>console.log(arrayni) 
+    arrow1(arrayni)//['cpl', 'bpl', 'ipl', 'pcl']
+
+
+
+    // console.log([...person])//javas.html:312 Uncaught TypeError: person is not iterable
+    // console.log(...person)//javas.html:314 Uncaught TypeError: Found non-callable @@iterator
+    console.log([...person.p_genders])//['f', 'e', 'm', 'a', 'l', 'e']
+
+
+    let objectspreet={
+        name:{
+            id:11
+        },
+        name:{
+            id:12
+        },
+        name:{
+            id:13
+        }
+    }
+    console.log([...objectspreet.name])//TypeError: objectspreet.name is not iterable
+    */
+
+    //*********************************************************************************************************************************************************************************\\
+
+    //*******************************JavaScript import and export**********************************************************************************************************************\\
+
+    /*
+    export
+
+    export default function contact(name, age) {
+        console.log(`The name is ${name}. And age is ${age}.`);
+    }
+
+    import contact from './contact.js';
+
+    contact('Sara', 25);
+    The name is Sara. And age is 25
+    */
+
+    //*********************************************************************************************************************************************************************************\\
+
+    //*******************************JavaScript Map and Week Map***********************************************************************************************************************\\
+
+    /*
+    The JavaScript ES6 has introduced two new data structures, i.e Map and WeakMap.
+    Map is similar to objects in JavaScript that allows us to store elements in a key/value pair.
+    The elements in a Map are inserted in an insertion order. However, unlike an object, a map can contain objects, functions and other data types as key
+    */
+    /*
+    let map1=new Map()
+    console.log(map1)
+
+    object set as a keys
+    map1.set('Name',{fullname:"shahariar",lastname:'Alom'})
+    map1.set('Alldetial',{like:"Footboll",relision:'Islam'})
+
+    console.log(map1)
+    Map with object key
+    */
+
+
+    /*let map2 = new Map();
+    map2.set({na:'shaha'},{name: 'Jack', age: "26"})
+    map2.set('info',{name: 'Jack', age: "26"})
+    console.log(map2)
+    */
+    //  const map =new Map([['Apples','200'],['oranges','120'],['Bannas','210'],['painaapples','563']])
+
+    /*
+    //Desctruture key and values 
+    for(let [key,value] of map){
+        console.log(key+' == '+value)
+    }
+    map.forEach((value,key)=>{
+      console.log(key+' '+value)
+    })
+    */
+
+    /*
+    map.set(25,'mango')
+    console.log(map) //Map(5) {'Apples' => '200', 25 => 'mango'}
+
+    console.log(map.get(25))//mango
+
+    map.delete('Apples') //Appples deletet from the map datatype
+    console.log(map)//{'oranges' => '120', 'Bannas' => '210', 'painaapples' => '563', 25 => 'mango'}
+
+    //for check map property has exits return true or has not return false
+
+    console.log(map.has('Apples')) //true
+
+    //Return only in a map key
+    console.log(map.keys())// MapIterator {'Apples', 'oranges', 'Bannas', 'painaapples', 25}
+
+    //Return only in a map Values
+    console.log(map.values())//MapIterator {'200', '120', '210', '563', 'mango'}
+
+    console.log(map.entries())
+
+    0: {"Apples" => "200"}
+    1: {"oranges" => "120"}
+    2: {"Bannas" => "210"}
+    3: {"painaapples" => "563"}
+    4: {25 => "mango"}
+
+
+    for(let [inte,va] of map.entries()){
+        console.log(inte,va)
+    }
+     OUTPUT 
+    Apples 200
+    oranges 120
+    Bannas 210
+    painaapples 563
+    25 'mango'
+    */
+    /*
+    const wrongMap = new Map()
+    wrongMap['bla'] = 'blaa'
+    wrongMap['bla2'] = 'blaaa2' 
+    console.log(wrongMap)  // Map { bla: 'blaa', bla2: 'blaaa2' }
+
+     //Map set key object and access map
+    const objectin={
+        name:'sajal',
+        price:'45'
+    }
+    map.set(objectin.name,"Shahariaralom")
+    console.log(map)
+    console.log(map.get(objectin.name))
+    OUTPUT
+    Shahariaralom
+    */
+    /*
+    --------------------------------------------------------------------------------------------
+    #    new Map()           Creates a new Map object                                          #
+    #------------------------------------------------------------------------------------------#
+    #    set()	             Sets the value for a key in a Map                                 #      
+    #------------------------------------------------------------------------------------------#
+    #    get()	             Gets the value for a key in a Map                                 #      
+    #------------------------------------------------------------------------------------------#
+    #    clear()	         Removes all the elements from a Map                               #        
+    #------------------------------------------------------------------------------------------#
+    #    delete()	         Removes a Map element specified by a key                          #             
+    #------------------------------------------------------------------------------------------#
+    #    has()	             Returns true if a key exists in a Map                             #          
+    #------------------------------------------------------------------------------------------#
+    #    forEach()	         Invokes a callback for each key/value pair in a Map               #                        
+    #------------------------------------------------------------------------------------------#
+    #    entries()	         Returns an iterator object with the [key, value] pairs in a Map   #                                    
+    #------------------------------------------------------------------------------------------#
+    #    keys()	             Returns an iterator object with the keys in a Map                 #                      
+    #------------------------------------------------------------------------------------------#
+    #    values()	         Returns an iterator object of the values in a Map                 #                      
+    --------------------------------------------------------------------------------------------
+    */
+
+    //*********************************************************************************************************************************************************************************\\
+
+    //*******************************Object To Array***********************************************************************************************************************************\\
+
+    /*
+    let person={
+       p_name:"Jack Sparrow",
+       p_age:"55",
+       p_genders:"female"
+    }
+
+    let personValues=person.valueOf()
+       //Object.keys(personValues)
+    let personReturn=Object.keys(personValues).map(item=>{
+        return {item:item,valueis:person[item]}  // return Object 
+    })
+    personReturn.forEach(item=>{
+        console.log(`${item.item} Values ${item.valueis}`)
+    })
+
+
+     OUTPUT
+     p_name Values Jack Sparrow
+     javas.html:551 p_age Values 55
+     javas.html:551 p_genders Values female
+
+
+    //Second way to convert array
+    for(let ins in person){
+        console.log(ins +person[ins])
+    }
+    */
+
+    //*******************************Array To Object **********************************************************************************************************************************\\
+    /*
+    let array =['Mahmudulla','Mashrafi','Tamim','Shakib','Musfikur']
+    let returnObject=Object.assign({},array)// return object
+    console.log(returnObject)
+
+    OUTPUT
+    {0: 'Mahmudulla', 1: 'Mashrafi', 2: 'Tamim', 3: 'Shakib', 4: 'Musfikur'}
+
+     */
+
+    //*********************************************************************************************************************************************************************************\\
+
+    //*******************************For....in and For......of************************************************************************************************************************\\
+    /*
+    There are also other types of loops. The for..in loop in JavaScript 
+    allows you to iterate over all property keys of an object.For..in just like for loops
+    */
+    /*
+    const forin=[12,45,26,36,80,90]
+    for(let forins in forin){
+        console.log(forins) //We get all of index number
+        //0 1 2 3 4 5 
+        console.log(forin[forins]) //We also get value by uesing forin[forins]
+        //12 45 26 36 80 90
+    }
+    */
+    /*
+    const salaries= {
+        Jack : 24000,
+        Paul : 34000,
+        Monica : 55000
+    }
+    */
+    // Accessing object by using for loops 
+    /*
+    for(let ir=0;ir<salaries.length;ir++){ //CanNot accessing 
+      console.log(ir)
+    }
+    */
+    // Accessing object by using forEach method
+    /*
+    salaries.forEach(item=>{  //CanNot accessing 
+        console.log(item)
+    })
+    */
+    // Accessing object by using for..in 
+    /*
+    In the above program, the for...in loop is used to iterate over the salaries object and print all its properties.
+
+    1.The object key is assigned to the variable keysal.
+    2.salaries[keysal] is used to access the value of keysal.
+    */
+    /*
+    for(let keysal in salaries){ //Can accessing 
+     console.log(keysal) // Jack,Paul,Monica
+     console.log(salaries[keysal])// 24000, 34000,55000
+    }
+
+    const string = 'code';
+    for (let i in string) {
+        console.log(string[i]); // c,o,d,e
+    }
+    */
+
+    //*******************************For..of*******************************************************************************************************************************************\\
+
+    /*
+    The for...of loop was introduced in the later versions of JavaScript ES6.
+    The for..of loop in JavaScript allows you to iterate over iterable objects (arrays, sets, maps, strings etc)
+
+    iterable - an iterable object (array, set, strings, etc).
+    element - items in the iterable
+    */
+    /*
+    const forofs=[12,45,26,36,80,90]
+    for(let forof of forofs){
+        console.log(forof) //We also get value
+         //12 45 26 36 80 90
+        // console.log(forofs[forof]) // get error
+       
+    }
+     // for...of with Strings
+     // You can use for...of loop to iterate over string values. For example,
+    const string = 'code';
+    for (let i of string) {
+        console.log(i); // c,o,d,e
+    }
+
+    const salaries= {
+        Jack : 24000,
+        Paul : 34000,
+        Monica : 55000
+    }
+    */
+    /*
+    for(let sel of salaries) //CanNot accessing object 
+    {
+        console.log(sel) // TypeError: salaries is not iterable
+    }
+    */
+
+    /*for...of with Maps
+    You can iterate through Map elements using the for...of loop. For example,
+
+     // define Map
+    let map = new Map();
+
+     // inserting elements
+    map.set('name', 'Jack');
+    map.set('age', '27');
+
+     // looping through Map
+    for (let [key, value] of map) {
+        console.log(key + '- ' + value);
+    }
+    Output
+
+    name- Jack
+    age- 27
+
+    */
+
+    /*
+    for...of with Sets
+    You can iterate through Set elements using the for...of loop. For example,
+
+     // define Set
+    const set = new Set([25, 2, 3]);
+
+     // looping through Set
+    for (let i of set) {
+        console.log(i);
+    }
+
+    Output
+    25
+    2
+    3
+    */
+
+    /*
+    ==============================================================================================
+    *         for...of                          *                      for...in                  *         
+    *===========================================*================================================*                 
+    *  iterate through the values of            *          The for...in loop is used to iterate  *
+    *  The for...of loop is used to             *          through the keys of an object.        *
+    *  an iterable.                             *                                                *                        
+    *                                           *                                                * 
+    *===========================================*================================================* 
+    *  The for...of loop cannot be              *           You can use for...in to iterate over *
+    *  used to iterate over an object.          *           an iterable such arrays and strings  *
+    *                                           *           but you should avoid using for...in  *
+    *                                           *           for iterables.                       *
+    ============================================*================================================= 
+    */
+
+    //*********************************************************************************************************************************************************************************\\
+    //================================JavaScript ES6 Finish==================================================================================================================================\\
+
+    //================================How to Tag Work Sytem==================================================================================================================================\\
+    /*
+    const tagName=[
+    {
+        video:{
+           videoname:'how to make a cup of tea',
+           videoUrl:'https://www.youtube.com/watch?v=2Hpet11EHrM',
+           videolength:'15 MB',
+           tags:['how to make','tea' ],
+        }
+    },
+    {
+        video:{
+           videoname:'top 10 funny video',
+           videoUrl:'https://www.youtube.com/watch?v=2Hpet11EHrM',
+           videolength:'15 MB',
+           tags:['top 10' ,'funny video' ],
+           
+        }
+    },
+    {
+        video:{
+           videoname:'dad villa',
+           videoUrl:'https://www.youtube.com/watch?v=2Hpet11EHrM',
+           videolength:'110 MB',
+           tags:['how to','how to creat', ],
+           }
+    },
+    {
+        video:{
+           videoname:'how to creat a website',
+           videoUrl:'https://www.youtube.com/watch?v=2Hpet11EHrM',
+           videolength:'220 MB',
+           tags:['how to','website','creat' ],
+        }
+    },
+    {
+        video:{
+           videoname:'how to get a Domain and Hosting',
+           videoUrl:'https://www.youtube.com/watch?v=2Hpet11EHrM',
+           videolength:'22 MB',
+           tags:['how to ', 'get','domain and dosting' ],
+        }
+    }
+    ]
+
+    const searchVideo='top 10'
+
+    localStorage.setItem('tagSearch',JSON.stringify(tagName))
+    let getTagName=JSON.parse(localStorage.getItem('tagSearch'))
+
+    let getTagNamereturn=getTagName.filter(item=>{
+        item.video.tags.push(item.video.videoname)
+         for(i in item.video.tags){
+            let tagToString=item.video.tags.join('')
+               if(tagToString.match(searchVideo)){
+                  if(item.video.tags[i].match(searchVideo)){
+                     return item.video 
+                    }   
+                }
+          }
+    })
+
+    getTagNamereturn.forEach(videoDetail=>{
+         console.log(videoDetail.video)
+    })
+    */
+    //================================How To Tag Work Sytem Finish==================================================================================================================================\\
+
+    //=================================Random Number Generator======================================================================================================================================\\
+    /*
+    const sentence='abcdefghijklmnopqrstwxyz0123456789'
+    let randomnumber=''
+    for(let k =0;k<sentence.length;k++){
+       let rendomNumberGenerator=Math.floor(Math.random()*sentence.length) 
+       randomnumber+=sentence.charAt(rendomNumberGenerator)
+    }
+    console.log(`This Is Your Bitcoin Address ${randomnumber}`) //3ynmpnjnftqdaof57tpxqq51bnmqyai664
+    */
+    //=================================Random Number Generator Finish===============================================================================================================================\\
+
+    //=================================Rock Scissor Paper======================================================================================================================================\\
+    /*
+    let win={
+        'rock':{
+            'rock':'draw',
+            'scissor':'win',
+            'paper':'lose'
+        },
+        'scissor':{
+            'rock':'lose',
+            'scissor':'draw',
+            'paper':'win'
+        },
+        'paper':{
+            'rock':'win',
+            'scissor':'lose',
+            'paper':'draw'
+        },
+    }
+
+    let human=Math.floor(Math.random()*3)
+    let computer=Math.floor(Math.random()*3)
+
+    let computerChosen=['rock','scissor', 'paper'][computer]
+    let humanChosen=['rock','scissor', 'paper'][human]
+
+    let humanWin=win[humanChosen][computerChosen]
+    let computerWin=win[computerChosen][humanChosen]
+
+     //console.log(`Human pick ${humanChosen.toUpperCase()} and Coomputer pick ${computerChosen.toUpperCase()} ` ) 
+    console.log(`Coomputer pick ${computerChosen.toUpperCase()} and Human pick ${humanChosen.toUpperCase()}  ` ) 
+
+    if(computerWin=='win'){
+      console.log('Compter win Human Lose')
+    }
+    else if(computerWin=='lose'){
+      console.log('Human win Compter Lose')
+    }
+    else{
+        console.log('Human and Compter draw')
+    }
+    */
+    //=================================Rock Scissor Paper Finish===============================================================================================================================\\
+
+    //=================================Passing time calculate======================================================================================================================================\\
+    /*
+    let start = new Date(2021,10,10);
+    let startTime=Date.now()  // start measuring time
+
+      for (let i = 0; i < 10; i++) {  // do the job checking time
+      let doSomething = i * i * i;
+    }
+
+       // program to display a text using setTimeout method
+    let endTime=Date.now()
+    let end = new Date(2021,10,10); // end measuring time
+
+    let oneday=1000*60*60*24
+    let oneMonth=1000*60*60*24*31
+    let oneYear=1000*60*60*24*31*12
+    let oneSec=1000
+    let oneMin=1000*60
+    let oneHour=1000*60*60
+     
+    let totallDay=(end - start)/oneday
+    let totalHour=(endTime-startTime)/oneHour
+    let totalMin=(endTime-startTime)/oneMin
+    let totalTime=(endTime-startTime)/oneSec
+
+      if(totalTime>60){
+        console.log(`${totalMin} min ago`) 
+      }
+      if(totalMin>=60){
+          console.log(`${totalHour} min ago`) 
+      }
+       if(totalHour>=24){
+          console.log(`${totallDay} min ago`) 
+       }
+    */
+    //=================================Passing time calculate Finish===============================================================================================================================\\
+
+
+    //=================================SetTimeOut======================================================================================================================================\\
+     /*
+   // The setTimeout() method executes a block of code after the specified time.The method executes the code only once.
+    //The commonly used syntax of JavaScript setTimeout is:
+   // setTimeout(function, milliseconds);
+
+    function affter() {
+        console.log('After 3 second')
+    }
+    setTimeout(affter, 3000)
+        // Display Time Every 3 Second
+    function after() { //However, in the above program, since the function is calling itself, 
+        //the program displays the time every 3 seconds.
+        let settime = new Date().toLocaleString()
+        console.log(settime)
+        setTimeout(after, 3000)
+
+    }
+    after()
+
+
+    OUTPUT
+    10 / 18 / 2021, 8: 16: 53 PM
+    javas.html: 769 10 / 18 / 2021, 8: 16: 57 PM
+    javas.html: 769 10 / 18 / 2021, 8: 17: 00 PM
+    javas.html: 769 10 / 18 / 2021, 8: 17: 03 PM
+    javas.html: 769 10 / 18 / 2021, 8: 17: 06 PM
+    javas.html: 769 10 / 18 / 2021, 8: 17: 09 PM
+    javas.html: 769 10 / 18 / 2021, 8: 17: 12 PM
+    
+      // You generally use the clearTimeout() method when
+     //you need to cancel the setTimeout() method call before it happens
+    let count = 0
+    function inCre() {
+        count += 1
+        console.log(count)
+    }
+    let setId = setTimeout(inCre, 1000)
+    clearTimeout(setId)
+    console.log('setTimeout is stopped.');
+
+      //The setTimeout function can pass any parameter lick this
+       function afterPrint(fir_name,les_name){
+         console.log('Hi '+fir_name+" "+les_name)
+       }
+      setTimeout(afterPrint,2000,'Jony','Deev')
+
+    */
+//=================================SetTimeOut Finish======================================================================================================================================\\
+
+//=================================CallBack Function======================================================================================================================================\\
+ /*
+     
+    // In JavaScript, you can also pass a function as an argument to a function. 
+    // This function that is passed as an argument inside of another function is
+    // called a callback function. For example,
+
+/*
+function orginalfun(name,callmeback){
+    callmeback()
+}
+function callbakcs(){
+     console.log('Hi')
+}
+orginalfun('callback',callbakcs)
+*/
+ //******************************Benefit of Callback Function***************************************************\\
+
+//  he benefit of using a callback function is that you can wait for the result of 
+//  the result of a previous function call and then execute another function call.
+//  In this example, we are going to use the setTimeout() method to mimic the program
+//  that takes time to execute, such as data coming from the server.
+
+                 //  program that shows the delay in execution
+/*
+      function greet() {
+          console.log('Hello world');
+      }
+
+      function sayName(name) {
+          console.log('Hello' + ' ' + name);
+      }
+
+             // calling the function
+      setTimeout(greet, 2000);
+      sayName('John');
+                // Output
+
+                // Hello John
+                // Hello world
+
+                // As you know, the setTimeout() method executes a block of code after the specified time.
+                // Here, the greet() function is called after 2000 milliseconds (2 seconds). During this wait,
+                // the sayName('John');is executed. That is why Hello John is printed before Hello world.The above 
+                // code is executed asynchronously (the second function; sayName() does not wait for the first function;
+                //  greet() to complete).
+
+//************************Using a Callback Function***********************************************************************
+
+                // In the above example, the second function does not wait for the first function to be 
+                // complete. However, if you want to wait for the result of the previous function call 
+                // before the next statement is executed, you can use a callback function. For example,
+
+                // Callback Function Example
+function greet(name, kpl) {
+    console.log('Hello world');
+
+              // callback function
+              // executed only after the greet() is executed
+    kpl(name);
+}
+        // callback function
+function sayName(name) {
+    console.log('Hello' + ' ' + name);
+}
+
+        // calling the function after 2 seconds
+setTimeout(greet, 2000, 'John', sayName);
+            // Output
+            // Hello world
+            // Hello John
+
+        //    In the above program, the code is executed synchronously. 
+        //    The sayName() function is passed asan argument to the greet() function.
+        //    The setTimeout() method executes the greet() function only after 2 seconds. 
+        //    However, the sayName() function waits for the execution of the greet() function.
+
+function call(name,error,callmeback){
+     
+    if(error==true){
+        callmeback({
+            error
+        })
+     
+     }
+   else{
+      callmeback({
+          name,
+          hi:'You are so good'
+      })
+    }  
+} 
+function back(result){
+    if(result.error==true){
+        console.log(`${result.error} Error `)
+       }
+    else{
+        console.log(`${result.name}! you done great job ${result.hi} `)
+
+    
+    }
+}
+setTimeout(call,2000,'Ashik',false,back)
+
+const takeOrder=(customer,callback)=>{
+    console.log(`Order take for ${customer}`)
+    callback(customer)
+}
+
+const proceess=(customer,callbacks)=>{
+    console.log(`Order are procesing for ${customer}`)
+    setTimeout(()=>{
+        console.log(`Shaps are cooked`)
+        console.log(`Shaps are cooking for ${customer}`)
+        callbacks(customer)
+    },3000)
+  
+}
+const cmp =(customer)=>{
+    console.log(`Order compelet for ${customer}`)
+}
+
+takeOrder('Shahariar',(customer)=>{
+     proceess(customer,(customer)=>{
+         cmp(customer)
+     })
+})
+
+const squer=(num,callback)=>{
+    console.log(num)
+    callback(num)
+}
+
+const even=(num)=>{
+   if(num%2==0){
+       console.log('This number is even')
+   }
+   else{
+    console.log('This number is not even')
+   }
+}
+
+try{
+squer(8,(num)=>{
+    if(num>3){
+        let res =num*num
+         even(res)
+        console.log(res)
+    }
+    else{
+        throw new Error('Number is geaterthen 3')
+    }
+   
+})
+}
+catch(error){
+   console.log(error)
+}
+
+  //Loaded any Script File with help of callback
+  
+  const loaded=(script)=>{ // that is simple load script file
+       let scriptCreat =document.createElement('script')
+       scriptCreat.src=script
+      document.head.append(scriptCreat)
+  }
+loaded('load.js')
+
+const loaded=(script,callback)=>{ // that are uesing callback to load script file
+       let scriptCreat =document.createElement('script')
+       scriptCreat.src=script
+       scriptCreat.onload=()=>{
+         callback(null,scriptCreat)
+       }
+       scriptCreat.onerror=()=>{
+           callback('Error khaichi')
+       }
+      document.head.append(scriptCreat)
+  }
+
+loaded('load.js',(err)=>{
+   if(err){
+       console.log(err)
+   }
+   else
+   {
+       console.log('success')
+   }
+})
+*/
+//=================================CallBack Function Finish======================================================================================================================================\\
+
+//************************Using Promise Function***********************************************************************
+ /* 
+const count =true
+const promise= new Promise((resolve,reject)=>{
+    if(count==true){
+         let person={
+            name:'shahariar'
+        }
+        resolve(person)
+    }
+    else{
+        reject()
+    }
+   
+})
+ promise.then(res=>{
+     console.log(res)
+ }).catch(err=>{
+    console.log(res)
+ })
+
+const promise=new Promise((resolve,reject)=>{
+     resolve('Hi there')
+})
+console.log(promise)
+promise.then(res=>{
+    console.log(res)
+})
+
+let promise = new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve('hi am ')
+    },3000)
+})
+
+ promise.then((res)=>{
+     console.log(res)
+ })
+
+async function name(){
+    let response = await fetch('/article/promise-chaining/user.json');
+let user = await response.json();
+console.log(user)
+}
+
+name()
+
+// read our JSON
+
+// read github user
+const id={
+    name:'Shahariar',
+    ids:457896123589632
+}
+const x =new Promise((reslove,reject)=>{
+    const person={
+        name:'Shahariar',
+        country:'Bangladesh'
+    }
+    reslove(person)
+})
+
+x.then(res=>{
+    return JSON.stringify(res)
+    
+}).then(res=>{
+    let personid=JSON.parse(res)
+    console.log(personid)
+    return new Promise((reslove,reject)=>{
+        setTimeout(()=>{
+            if(id.name==personid.name){
+              personid.id=(id.ids)
+                 reslove(personid)
+            }
+           
+        },5000)
+    })
+}).then(res=>{
+   return JSON.stringify(res)
+}).then(res=>{
+    let detail=JSON.parse(res)
+    console.log(detail)
+})
+.catch(err=>{
+    console.log(err)
+})
+
+
+fetch('https://api.github.com/users/Shahariar348')
+.then(res=>{
+    return res.json()
+})
+.then(resu=>{
+   if(resu.id==75930750){
+      console.log(resu)
+      fetch("https://api.github.com/users/Shahariar348/repos")
+      .then(res=>{
+      return res.json()
+}).then(ner=>{
+   console.log(ner)
+})
+}
+})
+.catch(err=>{
+    console.log(err)
+})
+const baseUrl1='https://api.github.com/users/Shahariar348'
+const baseUrl2='https://api.github.com/users/Shahariar348/repos'
+const loadURL=(url)=>{
+    return fetch(url)
+     .then(respon=>{
+         return respon.json()
+     })
+}
+const getRepos=(uid,url2)=>{
+    return uid==75930750 ? loadURL(url2):null
+}
+const githubUers=(uers)=>{
+  return new Promise((resolve,reject)=>{
+    let img = document.createElement('img');
+    img.src = uers.avatar_url;
+    img.className = "promise-avatar-example";
+    document.body.append(img);
+    setTimeout(()=>{
+        resolve(uers)
+    },-10000)
+  })  
+}
+
+loadURL(baseUrl1)
+.then(githubUers)
+.then(hsss=>{
+    console.log(hsss)
+}).catch(err=>{
+    console.log(err)
+})
+
+
+Promise.all([
+  new Promise(resolve => setTimeout(() => resolve(1), 1000)), // 1
+  new Promise(resolve => setTimeout(() => resolve(2), 2000)), // 2
+  new Promise(resolve => setTimeout(() => resolve(3), 5000))  // 3
+]).then(re=>{
+    console.log(re)
+});
+
+// this time I useing promise ti load script file 
+
+const load=(scriptfilename)=>{
+    return new Promise((resolve,reject)=>{
+         let creatScript=document.createElement('script')
+         creatScript.src=scriptfilename
+         creatScript.onload=()=>resolve(creatScript)
+         creatScript.onerror=()=>reject(new Error('Error oucer'))
+         document.head.append(creatScript)
+    })
+ 
+}
+let loaded=load('lodd.js')
+
+loaded.then(valoe=>{
+    console.log(valoe)
+}).catch(err=>{
+    console.log(err)
+})
+
+*/
+//=================================CallBack Promise Finish======================================================================================================================================\\
+
+//************************Async/await Function***********************************************************************
+ /* 
+ //The word “async” before a function means one simple thing: a function always returns a promise.
+ // Other values are wrapped in a resolved promise automatically
+ 
+ async function f() {
+     return 1;
+  }
+f().then(res=>console.log(res)); //1 
+
+    //We could explicitly return a promise, which would be the same:
+     async function f() {
+       return Promise.resolve(1);
+     }
+     f().then(res=>console.log(res));
+//***************************************Await**********************************************************************************************************************************************\\
+   //There’s another keyword, await, that works only inside async functions, and it’s pretty cool.
+   //The keyword await makes JavaScript wait until that promise settles and returns its result.
+   
+   async function f() {
+
+  let promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("done!"), 1000)
+  });
+  // let promise= promise.resolve(1)   Syntex error 
+  let result = await promise; // wait until the promise resolves (*)
+
+  alert(result); // "done!"
+}
+
+f();
+
+// Promise chaining sytem with async await
+   // creat async function 
+
+const baseUrl1='https://api.github.com/users/Shahariar348'
+const baseUrl2='https://api.github.com/users/Shahariar348/repos'
+let asyncfun=(async(url)=>{
+    try{
+        let result=''    
+    let responsewithurl= await fetch(url)
+    if(responsewithurl.status===200){
+       result=await responsewithurl.json()
+      // return result // anyther way to show result  
+      }
+    else{
+        throw new Error(`Your request ${responsewithurl.status}`)
+    }
+    if(result.id==75930750){
+    let responsewithurlsen= await fetch(baseUrl2)
+    let result2= await responsewithurlsen.json()
+    console.log(result2)
+    }
+    else{
+        throw new Error(`Your id not match`)
+    }
+   
+    }catch(err){
+        console.log(err)
+    }
+   
+})
+
+asyncfun(baseUrl1)
+
+//asyncfun(baseUrl1).then(res=>{ // anyther way to  show result and catch error
+//     console.log(res)
+// }).catch(err=>{
+//     console.log(err)
+// })
+*/
+
+//=================================Async/await Finish======================================================================================================================================\\
+
+//=================================Exports file system======================================================================================================================================\\
+
+
+
+//=================================Exports file system Finish======================================================================================================================================\\
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
+</html>

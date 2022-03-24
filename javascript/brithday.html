@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Birthday</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="brithday.css">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </head>
+
+<body>
+
+ 
+
+  <section class="co">
+<div class="container">
+  <div class="row row1">
+    <div class="col-lg-12 col-sm-6">
+      <h2 class="text1">Assalamu Alaikum Wa Rahmatullah</h2>
+      <h5 class="text2">Calculate Your age</h5>
+    </div>
+  </div>
+  <div class="row row2">
+    <div class="col-lg-7 col-sm-7 col1">
+      <div class="namedis">
+      <h6 class="text3">Enter your Date of birthday</h6>
+        <label for="validationServerUsername">Full Name</label>
+        <div class="input-group">
+          <input type="text" id="inputText" class="form-control border border-info" placeholder="Enter your name " aria-describedby="inputGroupPrepend3" oninput="fullnames()">
+        </div>
+        <span id="vali1">Please enter name</span>
+      </div>  
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="inputNumber1">Date of Day</label>
+            <input type="number" class="form-control border border-info" id="inputNumber1" placeholder="dd" oninput="days()">
+            <span id="vali2">Please fill day</span>
+          </div>
+          <div class="form-group col-md-4">
+            <label for="inputNumber2">Date of Month</label>
+            <input type="number" class="form-control border border-info" id="inputNumber2" placeholder="mm" oninput="months()">
+            <span id="vali3">Please fill month</span>
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="inputNumber3">Date of Year</label>
+            <input type="number" class="form-control border border-info" id="inputNumber3" placeholder="yyyy" oninput="years()">
+            <span id="vali4">Please fill year</span>
+          </div>
+        </div>    
+        <button id="btn23" type="submit" class="btn btn-info">Submit form</button>
+        <button id="btn234" type="reset" class="btn btn-danger">Reset form</button>
+                     
+      </form>
+
+    </div>
+    <div class="col-lg-5 col-sm-5 col2">
+      
+      <h5 id="text4">Your Data Of Birth</h5>
+      <h5 id="text5" class="border border-info">20 year 12 month 15 day</h5>
+      <h5 id="text6" class="border border-info"></h5>
+
+      <p>
+      <button id="btn45" class="btn btn-warning" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+       Last Check 
+     </button>
+     <button id="btn23456" type="button" class="btn btn-info">Submit form</button>
+     <div id="div123456">
+      <div role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+     </div>
+      </p>
+      <div class="collapse" id="collapseExample">
+        <div class="card card-body">
+          <h4 id="text7">Your Data Of Birth</h4>
+          <h5 id="text8">Your Data Of Birth</h5>
+        </div>
+      </div> 
+
+  </div>
+</div>
+  </section>
+
+
+ 
+  
+  <script src="/brithday.js"></script>
+  <script>
+     
+      // var btn=document.getElementById("btn12")
+      // let txt=document.getElementById("text5")
+      // let parson=document.getElementsByClassName("card")       
+       
+      
+      // btn.addEventListener('click',function(e){
+      //     e.preventDefault()
+      //     let name=document.getElementById("input").value
+      //     var dd=document.getElementById("input1").value
+      //     var mm=document.getElementById("input2").value
+      //     var yyyy=document.getElementById("input3").value
+          
+
+      //   })
+</script>
+</body>
+
+</html>

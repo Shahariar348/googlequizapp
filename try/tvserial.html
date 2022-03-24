@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tv Serial</title>
+    <link rel="icon" href="./popcorn_1f37f.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+  <style>
+  #fdiv{
+    margin-left:5px;
+    margin-top: 10px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;           
+  }
+  #fdiv section:hover{
+    background-color: black;
+    color: white;
+  }
+  #sdiv{
+    padding-bottom: 10px;
+  }
+  #sdiv button{
+    margin-left: 5px;
+    outline: none;
+  }
+  #sdiv button:hover{
+    background-color: black;
+    color: white;
+  }
+  #output{
+     margin-left: 10px;
+     padding: 10px;
+     width: 720px;
+     height: 500px;
+     border: 1px solid royalblue;
+     overflow-y: scroll;
+  }
+  #table{
+     margin-left: 10px;
+     padding: 10px;
+     width: 720px;
+     height: 400px;
+     border: 1px solid royalblue;
+     overflow-y: scroll;        
+  }
+  #senderTable{
+    margin-top: 40px;
+  }
+  #moviesTable tbody tr #circal{
+       width: 200px;
+       height: 150px;
+  }
+  #moviesTable tbody tr #circal img{
+       border: 2px solid black;
+       
+  }
+#subject{
+    width: 450px;
+    height: 70px;
+    padding: 10px;
+    border: 1px solid black;
+}
+#body{
+    width: 450px;
+    height: 300px;
+    padding: 10px;
+    border: 1px solid black;
+}
+#hovers:hover{
+  cursor: pointer;
+}
+  </style>
+  <!-- Finsh style -->
+  
+  <!--Navber  -->
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+      <a class="navbar-brand" href="#">
+      </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="container">
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+              <a class="nav-link" href="./index.html">Home</a>
+            </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./aboutus.html">About us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contactus.html">Contact us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./privacyPolicy.html">Privacy policy</a>
+          </li>    
+        </ul>
+      </div>  
+    </div>
+  </nav>
+  <!--Navber  -->
+  
+  
+  <!-- Admin Div -->
+  <div class="container" style="margin-top:30px">
+      <div class="row">
+  
+        <!-- left div  -->
+        <div class="col-lg-8 col-sm-12" id="leftdiv">
+         <div id="alertdiv">
+  
+         </div>        
+          <form action="" id="adminform">
+            <h3>Tv Serial Admin</h3>
+            <!-- Input  -->
+              <div class="form-group">
+              <input type="text" class="form-control" id="movId" aria-describedby="movIdHelp" hidden>
+              </div>
+              <div class="form-group">
+                      <label for="moviename">Movie Name</label>
+                      <input type="text" class="form-control" id="moviename" aria-describedby="movienameHelp" placeholder="Movie name">
+              </div>
+              <div class="form-group">
+                      <label for="authorPublish">authorPublish</label>
+                      <input type="text" class="form-control" id="authorPublish" aria-describedby="authorPublishHelp" placeholder="Enter Author Publish">
+              </div>
+              <div class="form-group">
+                      <label for="file">File</label>
+                      <input type="file" class="form-control" id="file" aria-describedby="fileHelp">
+              </div>
+              <div class="form-group">
+                <label for="videolink">Video Link</label>
+                <input type="text" class="form-control" id="videolink" aria-describedby="videolinkHelp">
+             </div>
+            <!-- Input  -->
+  
+            <!-- Editor Input  -->
+              <div id="fdiv">
+                      <select title="Title"  onchange="formatDoc('formatblock',this[this.selectedIndex].value);">
+                          <option selected>Title line</option>
+                          <option value="h1">H1</option>
+                          <option value="h2">H2</option>
+                          <option value="h3">H3</option>
+                          <option value="h4">H4</option>
+                          <option value="h5">H5</option>
+                          <option value="h6">H6</option>
+                          <option value="p">P</option>
+                          <option value="div">div</option>
+                      </select>
+                
+                      <select title="Selecte Text Size" onchange="formatDoc('fontsize',this[this.selectedIndex].value);">
+                          <option selected>Text Size</option>
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="6">6</option>
+                          <option value="7">7</option>
+                          <option value="8">8</option>
+                          <option value="9">9</option>
+                          <option value="10">10</option>
+                          <option value="11">11</option>
+                          <option value="12">12</option>
+                          <option value="13">13</option>
+                          <option value="14">14</option>
+                      </select>
+          
+                      <select title="Selecte Font Family" onchange="formatDoc('fontname',this[this.selectedIndex].value);">
+                          <option selected> Font Family</option>
+                          <option>Arial</option>
+                          <option>Impact</option>
+                          <option>sans-serif</option>
+                          <option>Tahoma</option>
+                          <option>Verdana</option>
+                          <option>Arial Black</option>
+                          <option>Courier New</option>
+                          <option>Lucida Sans Unicode</option>
+                          <option>Trebuchet MS</option>
+                          <option>Times New Roman</option>
+                          <option>Franklin Gothic Medium</option>
+                      </select>
+                      <label for="favcolor">Txt Color</label>
+                      <input type="color" id="favcolor" name="favcolor"  title="Text Color" oninput="formatDoc('forecolor',this.value);">
+                        
+                      <label for="favBcolor">Bg Color</label>
+                      <input type="color" id="favBcolor" name="favBcolor"  title="Background Color"  oninput="formatDoc('backcolor',this.value);">
+              </div>
+            <!-- Editor Input  -->
+  
+            <!-- Editor Button  -->
+              <div id="sdiv">
+                      <button type="button" data-cmd="delete"  title="Delete">
+                          <i class="fas fa-broom" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="undo" title="Undo">
+                          <i class="fas fa-undo" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="redo" title="Redo">
+                          <i class="fas fa-redo" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="bold" title="Bold">
+                          <i class="fas fa-bold" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="italic" title="Italic">
+                          <i class="fas fa-italic" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="underline" title="Under line">
+                          <i class="fas fa-underline" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="justifyLeft" title="Left">
+                          <i class="fas fa-align-left" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="justifyFull" title="Center">
+                          <i class="fas fa-align-justify" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="justifyRight" title="Right">
+                          <i class="fas fa-align-right" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="insertunorderedlist" title="Unordered list">
+                          <i class="fas fa-list-ul" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="insertorderedlist" title="Ordered list">
+                          <i class="fas fa-list-ol" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="createLink"  title="CreateLink">
+                          <i class="fas fa-link" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="convertHtml" title="Convert Html">
+                          <i class="fas fa-code" aria-hidden="true"></i>
+                      </button>
+          
+                      <button type="button" data-cmd="cut" title="Cut">
+                          <i class="fas fa-cut" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="copy" title="Copy">
+                          <i class="fas fa-copy" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="paste" title="Paste">
+                          <i class="fas fa-paste" aria-hidden="true"></i>
+                      </button>
+                      <!-- <i class="fa-solid fa-table-cells"></i> -->
+                      <button type="button" data-cmd="enableInlineTableEditing" title="Table">
+                          <i class="fas fa-table" aria-hidden="true"></i>
+                      </button>
+                      <button type="button" data-cmd="creatButton" title="creatButton">
+                        <i class="fas fa-layer-plus" aria-hidden="true"></i>
+                    </button>
+                    
+                      
+
+              </div>
+            <!-- Editor Button  -->
+  
+            <!-- Editor Textarea 1  -->
+              <div class="form-group">
+                       <p id="output" name="textField" title="Editor" contenteditable="true" ></p>
+              </div>
+            <!-- Editor Textarea 2  -->
+              <div class="form-group">
+                       <p id="table" name="table" title="Table Editor" contenteditable="true" ></p>
+              </div>
+            <!-- Editor Textarea  -->
+  
+            <!-- Form Submit  -->
+              <input id="btn" class="btn btn-success"  type="submit" value="Creat new Post">
+              <br>
+              <br>
+            <!-- Form Submit  -->
+          </form>
+        </div>
+       <!-- left div  -->
+  
+       <!-- Right div  -->
+         <div class="col-lg-4  col-sm-12">
+           <h3>Sender Info</h3>
+            <!-- Email Sender  -->
+            <table class="table table-bordered table-striped" id="senderTable">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">No</th>
+                  <th scope="col">Name</th>
+                  <th scope="col">Email</th>
+                </tr>
+              </thead>
+              <tbody id="hovers">
+                
+              </tbody>
+            </table>
+            <!-- Email Sender  -->
+         </div>
+       <!-- Right div  -->
+  
+     </div>
+  </div>
+  <!-- Admin Div -->
+  
+  <!-- Movies Info Edit -->
+  <div class="container" style="margin-top:30px">
+    <h3>Movies info </h3>
+    <div class="row">
+      <div class="col-lg-8 col-sm-12" id="leftdiv">
+        <table class="table table-striped table-bordered table-hover" id="moviesTable">
+          <thead>
+            <tr>
+              <th scope="col">Image</th>
+              <th scope="col">Name</th>
+              <th scope="col">Update</th>
+              <th scope="col">Delete</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td id="circal"><img src="../moviesproject/public/mo_prev_ui.png" width="100%" height="100%"></td>
+              <td>Shahariar</td>
+              <td>Shahariar</td>
+            </tr>
+          </tbody>
+        </table>
+       </div>
+  </div>
+  </div>
+  <!-- Movies Info Edit -->
+
+<!-- Model Info -->
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sender Information</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h6>Email Subject</h6>
+         <div id="subject">
+
+         </div>
+         <h6 class="mt-2">Email Body</h6>
+         <div id="body">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Model-->
+<!-- Model Info  -->
+
+  <!--  Footer -->
+  <div class="jumbotron text-center" style="margin-bottom:0">
+    <img src="./mo_prev_ui.png" alt="movies-logo" width="100px">
+    <p>Copyright @ 2022 movies</p>
+  <a href="./aboutus.html">About us</a> || <a href="./privacyPolicy.html">Privacy policy</a> || <a href="./contactus.html">Contact us</a>
+  </div>
+  <!-- Footer  -->
+  
+  
+  <script>
+  function formatDoc(xcmd,xvalue){
+        document.execCommand(xcmd,false,xvalue)
+  }
+  </script>
+  
+  
+  <script type="module">
+    /* Firebase import module*/
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+    import { getStorage,ref as sRef,uploadBytesResumable,getDownloadURL} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-storage.js";
+    import { getDatabase, ref, set,onValue,remove,push,update  } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+   /* Firebase import module*/
+  
+    /* Variable */
+    const form=document.getElementById("adminform")
+    const oDoc=document.getElementById("output")
+    const tDoc=document.getElementById("table")
+    const buttons=document.querySelectorAll("button")
+    const senderTable=document.getElementById("senderTable")
+    const moviesTable=document.getElementById("moviesTable")
+    const alertdiv=document.getElementById("alertdiv")
+  
+   /* Variable */
+  
+   /* Image variable */
+    let image;
+    let imagesrc;
+   /* Image variable */
+  
+   /* Image Onchange funtion */
+     form[3].onchange=function(event){
+      imagesrc=event.target.files[0].name
+      image=event.target.files[0] 
+  }
+   /* Image Onchange funtion */
+  
+  /*Text Editor*/  
+  let showhtml=false
+  buttons.forEach(button=>{
+         button.addEventListener("click", function(events){
+             const getCmd=button.getAttribute("data-cmd")
+              if(getCmd=="createLink"){
+                  let url=prompt("Emter url link",)     
+                  document.execCommand(getCmd, false,url);
+                  let links =oDoc.querySelectorAll('a')
+                    links.forEach(link=>{
+                        link.target="_blank"
+                        link.style.textDecoration="none"
+                        link.addEventListener("mouseover",()=>{
+                          oDoc.removeAttribute("contenteditable")
+                          console.log(oDoc)
+                        })
+                        link.addEventListener("mouseout",()=>{
+                          oDoc.setAttribute("contenteditable","true")
+                        })
+                    })
+              }
+              else{
+                  document.execCommand(getCmd, false,null);
+              }
+             
+              if(getCmd==="convertHtml"){
+                console.log(showhtml)
+                   if(showhtml){
+                   oDoc.innerHTML=oDoc.innerText.trim()
+                   tDoc.innerHTML=tDoc.innerText.trim()
+                   showhtml=false
+                   button.style.color="red"
+                   }
+                   else{
+                      oDoc.innerText = oDoc.innerHTML
+                      tDoc.innerText = tDoc.innerHTML
+                      showhtml=true
+                      button.style.color="green"
+                   }
+               
+              }
+             
+      if("enableInlineTableEditing"==getCmd){
+       let div=document.createElement("div")
+       div.innerHTML=`
+       <table class="table table-bordered">
+                  <tbody>
+                      <tr>
+                          <th>Industry</th>
+                          <td>Hollywood / South Indian / Bollywood / Tollywood</td>
+                      </tr>
+                    <tr>
+                      <th>IMDB Rating</th>
+                      <td>7 / 10</td>
+                    </tr>
+                    <tr>
+                      <th>Rotten Tomatoes </th>
+                      <td>85% fresh</td>
+                    </tr>
+                    <tr>
+                      <th>File Size</th>
+                      <td>2.26 GB</td>
+                    </tr>
+                    <tr>
+                      <th>Release Date</th>
+                      <td>12, Dec 2021</td>
+                    </tr>
+                    <tr>
+                      <th>Budget</th>
+                      <td>$ 11.0 Millions</td>
+                    </tr>
+                    <tr>
+                      <th>Box Office (Gross USA)</th>
+                      <td>$ 11.0 Millions</td>
+                    </tr>
+                  </tbody>
+                </table>
+      `
+       tDoc.insertAdjacentElement("afterbegin",div)
+  
+      }
+      if("creatButton"==getCmd){
+        
+        let span=document.createElement("span")
+        let datasetvalue=prompt("Enter Data set Value",)
+        let ButtonName=prompt("Enter Button name",)
+        span.innerHTML=`<button class="btn btn-success ml-1" data-episodeid="${datasetvalue}">${ButtonName}</button> br`
+        oDoc.insertAdjacentElement("beforeend",span) 
+ 
+        }       
+          
+     })  
+  })
+  /*Text Editor*/  
+  
+  /*Firebase Config*/
+  const firebaseConfig = {
+      apiKey: "AIzaSyAMkjf6MFvBJdE7li8fx0Y6Dj0BZiOnVd0",
+      authDomain: "moviesdownloaders.firebaseapp.com",
+      databaseURL: "https://moviesdownloaders-default-rtdb.firebaseio.com",
+      projectId: "moviesdownloaders",
+      storageBucket: "moviesdownloaders.appspot.com",
+      messagingSenderId: "426710588024",
+      appId: "1:426710588024:web:119bfd2cb3ffe2e5f8ab8d",
+      measurementId: "G-E1341ZVKWS"
+    };
+    const app = initializeApp(firebaseConfig);
+    const datebase=getDatabase(app)
+    const imageStorage = getStorage();
+  /*Firebase Config*/
+  
+ /* Rage*/ 
+  var x = document.createElement("INPUT");
+  x.value=0
+  x.setAttribute("type", "range");
+  x.max=100
+  
+  alertdiv.appendChild(x);
+ 
+ /*Rage*/ 
+
+  
+  /*form submit*/
+  form.addEventListener("submit",function(event){
+      event.preventDefault()
+      const movinfo={}
+      ;[...this].forEach(valu=>{ 
+       if(valu.value ==="creat new post") {
+        if(valu.type!=="submit")
+          {
+           movinfo.Uid=form[0].value
+           movinfo.m_name=form[1].value
+           movinfo.m_publishdate=form[2].value
+           movinfo.videolink=form[4].value
+          }
+       }
+       else{
+           
+            if(valu.type!=="submit")
+          {
+           movinfo.Uid=form[0].value
+           movinfo.m_name=form[1].value
+           movinfo.m_publishdate=form[2].value 
+           movinfo.videolink=form[4].value
+           } 
+         }
+    })
+  
+       if(movinfo.Uid !==""){
+          try {
+              /* Image upload */
+           const storageReferene=sRef(imageStorage,"tvserial/"+imagesrc)
+            const metadate={
+              contentType:image.type
+            }
+            const uploadTask = uploadBytesResumable(storageReferene, image, metadate);
+            uploadTask.on('state_changed',(snapshot)=>{
+              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              uploadsuccess(alertdiv,`Upload is ${progress} % done`)
+             },
+             (error)=>{
+              errors(alertdiv,`Upload error`)
+            },()=>{
+              getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                let movieId=`tvs-${rendomId()}`
+  
+               /* Date Save in Firebase Storage*/
+               updatemovie(movinfo.Uid,movinfo.m_name,movinfo.m_publishdate,movinfo.videolink,downloadURL,oDoc.innerHTML,tDoc.innerHTML)
+               /* Date Save in Firebase Storage*/
+               });
+           
+              }
+            
+            ) 
+          /* Image Upload */
+          } catch (error) {
+            errors(alertdiv,error)
+          }
+       }
+       else{
+          try {
+             /* Image upload */
+             const storageReferene=sRef(imageStorage,"tvserial/"+imagesrc)
+            const metadate={
+              contentType:image.type
+            }
+            const uploadTask = uploadBytesResumable(storageReferene, image, metadate);
+            uploadTask.on('state_changed',(snapshot)=>{
+              const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+              // uploadsuccess(alertdiv,`Upload is ${progress} % done`)
+              x.stepUp(Math.floor(progress));
+              console.log(progress)
+             },
+             (error)=>{
+              errors(alertdiv,`Upload error`)
+            },()=>{
+              getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+                let movieId=`tvs-${rendomId()}`
+  
+               /* Date Save in Firebase Storage*/
+                  savemovieinfo(movieId,movinfo.m_name,movinfo.m_publishdate,movinfo.videolink,downloadURL,oDoc.innerHTML,tDoc.innerHTML)
+               /* Date Save in Firebase Storage*/
+               });
+           
+              }
+            
+            ) 
+          /* Image Upload */
+          } catch (error) {
+            errors(alertdiv,error)
+           }
+       }
+    
+   })
+  /*form submit*/
+  
+  /* Date Save Function */
+  function savemovieinfo(movieId, moviename, publishdate,videolink, movieimageUrl,description,moviereveiw) {
+    try{
+      set(ref(datebase, `tvserial/${movieId}`),
+      { 
+      movieId,
+      Mname: moviename,
+      Mpublish:publishdate,
+      Mvideolink:videolink,
+      Mimage:movieimageUrl,
+      Mdescription:description,
+      Mreview:moviereveiw,
+      }
+     );
+      success(alertdiv,`New Post Created Successfuly`)
+      form.reset()
+    }catch(error){
+      errors(alertdiv,`New Post Created Faild`)
+    }
+  
+  }
+  /* Date Save Function */
+  
+  /* Update Save Function */
+  function updatemovie(movieId, moviename, publishdate,videolink, movieimageUrl,description,moviereveiw) {
+   try {
+    let upd={ 
+      movieId:movieId,
+      Mname: moviename,
+      Mpublish:publishdate,
+      Mvideolink:videolink,
+      Mimage:movieimageUrl,
+      Mdescription:description,
+      Mreview:moviereveiw,
+     }
+    update(ref(datebase, `tvserial/${movieId}`),upd);
+    success(alertdiv,`Post Update Successfuly`)
+    form[26].value="Creat new post"
+    form.reset()
+   } catch (error) {
+    errors(alertdiv,`Post Update Faild`)
+   }
+  }
+  /* Update Save Function */
+  
+  /* Rendom number creat this function*/
+  function rendomId(){
+    let e_id="";
+    let alphabet ="abcdefghijklmnopqrstwxuvyz0123456789"
+  
+    for(let i=0;i<alphabet.length;i++){
+      let rendompick=Math.floor(Math.random() *36)
+       e_id+=alphabet.charAt(rendompick)
+    }
+    return  e_id
+  }
+  /* Rendom number creat this function*/
+  
+  /* Sender list*/
+  let count=0
+  const readDataRefe=ref(datebase,`contact_Us`)
+  onValue(readDataRefe,(snapshot)=>{
+    let tbody=senderTable.tBodies.item(0)
+             tbody.innerHTML=""
+     for(let singlevalue in snapshot.val()){
+        count++
+          let tr=tbody.insertRow()
+          let td1=tr.insertCell(0).innerHTML=`${singlevalue}`
+          let td2=tr.insertCell(1).innerHTML= snapshot.val()[singlevalue].senderName
+          let td3=tr.insertCell(2).innerHTML= snapshot.val()[singlevalue].senderEmail
+      }  
+     ;[...tbody.rows].forEach(row=>{
+       let senderids=row.cells[0].innerText
+       row.addEventListener("click",function(event){
+          row.setAttribute("data-toggle","modal")
+          row.setAttribute("data-target","#exampleModal")
+          document.getElementById("subject").innerHTML=`
+          <p>${ snapshot.val()[senderids].emailSubject}</p>
+          `
+          document.getElementById("body").innerHTML=`
+          <p>${ snapshot.val()[senderids].emailBody}</p>
+          `
+       })
+     })
+  })
+  /* Sender list*/
+  
+  /* Movies information */
+  const readDataRefeinfo=ref(datebase,`tvserial`)
+  onValue(readDataRefeinfo,(snapshot)=>{
+    let tbody=moviesTable.tBodies.item(0)
+             tbody.innerHTML=""
+     for(let singlevalue in snapshot.val()){
+          let tr=tbody.insertRow()
+          let td1=tr.insertCell(0).innerHTML=`<img src="${snapshot.val()[singlevalue].Mimage}" width="100%" height="100%">`
+          let td2=tr.insertCell(1).innerHTML= snapshot.val()[singlevalue].Mname.toUpperCase()
+          let td3=tr.insertCell(2).innerHTML= `<input type="button"  id="edit" class="btn btn-warning mb-1"  data-keyID="${snapshot.val()[singlevalue].movieId}" value="Edit">`
+          let td4=tr.insertCell(3).innerHTML= `<input type="button"  id="delete" class="btn btn-danger mb-1"  data-keyID="${snapshot.val()[singlevalue].movieId}" value="Delete">`
+          
+          
+        } 
+        let settr =tbody.rows
+        ;[...settr].forEach((tr,index)=>{
+          settr[index].cells[0].setAttribute("id","circal")
+          
+        })
+  /* Update information */
+    let editbutton=document.querySelectorAll("#edit")
+            ;[...editbutton].forEach(edit=>{
+              edit.addEventListener("click",function(event){
+                 let vedioId=event.target.dataset.keyid
+                 onValue(ref(datebase,`tvserial/${vedioId}`),(snapshot)=>{
+                  form[0].value=snapshot.val().movieId
+                  form[1].value=snapshot.val().Mname
+                  form[2].value=snapshot.val().Mpublish
+                  oDoc.innerHTML=snapshot.val().Mdescription
+                  tDoc.innerHTML=snapshot.val().Mreview
+                  form[26].value="Update Post"
+                  
+                  })
+              })
+           })
+  /* Update information */
+  
+  /* Delete information */
+    let deletebutton=document.querySelectorAll("#delete") 
+             ;[...deletebutton].forEach(deletek=>{
+              deletek.addEventListener("click",function(event){
+                 let vedioIdk=event.target.dataset.keyid
+                 remove(ref(datebase,`tvserial/${vedioIdk}`,vedioIdk))
+              })
+           }) 
+  /* Delete information */            
+  })
+  /*  Movies information */
+  
+  /*  Success Massage */
+  function success(tag,successMassage){
+    tag.innerHTML=`
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>${successMassage}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+      `  
+  }
+  /*  Success Massage */
+  
+  /* Image upload Success Massage */
+  function uploadsuccess(tag,successMassage){
+    tag.innerHTML=`
+      <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>${successMassage}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+      `  
+  }
+  /*  Success Massage */
+  
+  /*  Error Massage */
+  function errors(tag,errorMassage){
+    tag.innerHTML=`
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>${errorMassage}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+      `  
+  }
+  /*  Error Massage */
+  
+ 
+  </script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Css -->
+    <style>
+        #mainImageBox{
+            width: 100%;
+            height: 100vh;
+            text-align: center;
+        }
+        #singleImageBox{
+            width: 60%;
+            height: 70vh;
+            margin-left: 280px;
+            box-shadow: 5px 5px 5px gray;
+        }
+        #multipulImageBox{
+            /* width: 80%;
+            height: 60vh; */
+            display: flex;
+            margin-top: 20px;
+          
+           
+        }
+        #multipulImageBox div{
+            width: 60%;
+            height: 25vh;
+            margin-left: 5px;
+        
+        }
+        #multipulImageBox div img{
+            width: 90%;
+            height: 25vh;
+           /* box-shadow: 1px 5px 5px gray; */
+           cursor: pointer;
+           
+        }
+        img:hover{
+            margin-left: 5px;
+            border: 5px solid black;
+            border-radius: 8px;
+            /* box-shadow: 5px 5px 5px gray; */
+
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Html -->
+    <div id="mainImageBox">
+        <div id="singleImageBox">
+            <img id="singleImage" src="https://www.britainexpress.com/images/attractions/editor3/Dorney-Court-6158-2.jpg" alt="" width="100%" height="100%">
+        </div>
+        <div id="multipulImageBox">
+            <div>
+                <img id="singleImage1" src="https://www.britainexpress.com/images/attractions/editor3/Dorney-Court-6158-2.jpg" alt="" width="100%" height="100%">
+
+            </div>
+            <div>
+              
+                <img id="singleImage2" src="  https://i1.trekearth.com/photos/104331/housei.jpg" alt="" width="100%" height="100%">
+
+            </div>
+            <div>
+                <img id="singleImage3" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Ham_House_%287776599228%29.jpg/1200px-Ham_House_%287776599228%29.jpg" alt="" width="100%" height="100%">
+                
+            </div>
+            <div>
+                <img id="singleImage4" src="https://thumbs.dreamstime.com/b/modern-british-house-garden-english-cottage-home-31491856.jpg" alt="" width="100%" height="100%">
+
+            </div>
+            <div>
+                <img id="singleImage5" src="https://mapio.net/images-p/39052105.jpg" alt="" width="100%" height="100%">
+
+            </div>
+        </div>
+    </div>
+    <!-- Javascript -->
+    <script>
+         let singleImagediv=document.getElementById("singleImage")
+        //    let imge="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Ham_House_%287776599228%29.jpg/1200px-Ham_House_%287776599228%29.jpg"
+        //    singleImagediv.src=imge
+        let multiimagediv=document.getElementById('multipulImageBox') 
+          let singlediv=multiimagediv.querySelectorAll('img')
+            singlediv.forEach(img=>{
+                img.onclick=function(event){
+                    let imgsrc=event.target.src
+                    singleImagediv.src=imgsrc
+                }
+               
+            })
+             let count=0;
+            setInterval(()=>{
+               count++
+               if(count==5){
+                   count=0
+               }
+               let imgsrc=singlediv[count].src
+               singleImagediv.src=imgsrc
+              
+            },4000)
+         
+   </script>
+</body>
+</html>

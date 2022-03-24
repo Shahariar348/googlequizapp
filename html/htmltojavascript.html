@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript</title>
+</head>
+<body>
+    <style>
+        .contain{
+            position: absolute;
+            width: 1240px;
+            height: 90vh;
+           
+        }
+        .contain2{
+            width: 500px;
+            margin-left: 400px;
+            margin-top: 100px;
+
+        }
+    </style>
+    <div class="contain">
+        <div class="contain2">
+            <form id="form" name="my">
+                <input id="ia" type="text" name='username' placeholder="User Name">
+                <input id="ib" type ="password" name='password' placeholder="password">
+
+              
+                <input type="radio"  name="subject" value="HTML">
+                <label for="html">HTML</label><br>
+                <input type="radio" name="subject" value="CSS">
+                <label for="css">CSS</label><br>
+                <input type="radio" name="subject" value="JavaScript">
+                <label for="javascript">JavaScript</label>
+               
+
+            
+                <select id="select" name="selected">
+                    <option value="null" selected>Option</option>
+                    <option value="apple" >Apple</option>
+                    <option value="pear" >Pear</option>
+                    <option value="banana" >Banana</option>
+                </select>
+    
+
+
+
+              <input id="sub" type="submit" value="submit">
+
+
+            </form>
+
+         
+         
+        </div>
+    </div>
+   
+</body>
+<script>
+   
+    const sub=document.getElementById('sub')
+      const form = document.forms.my
+      form.addEventListener('submit',function(e){
+           e.preventDefault()
+          // form['age']
+          // console.log(ele.type +" "+ele.name +" "+ele.value)
+          let validation=false
+          let formdata={};
+          let elemest =form.elements ;  // or 
+          [...elemest].forEach(ele=>{ 
+              if(ele.type !== 'submit'){
+                validation =valiname(ele.name,ele.value)
+                let ra=validationary()
+                  if(validation&&ra){
+                    formdata[ele.name]=ele.value
+                    }
+                
+                 
+              }
+             
+         })
+         console.log(formdata)
+          
+    })
+
+  
+
+  function  valiname(valuesname,value){
+    if(valuesname=='username'){
+        if(value.length <=0){
+            console.log('Enter your name')
+            return false
+        }
+        else{
+            return true
+        }
+    }
+   else if(valuesname=='password'){
+        if(value.length<=0 || value.length >=6){
+            console.log('Enter your password and length 6')
+            return false
+        }
+        else{
+            return true
+        }
+    }
+    else if(valuesname=='selected'){
+        if(value=='null'){
+            console.log('Setect valid option')
+            return false
+        }
+        else{
+            return true
+        }
+    }
+   
+  else{
+    return true
+  }
+ 
+}
+function  validationary(){
+    let radio=document.getElementsByName('subject')
+      for(let i=0;i<radio.length;i++){
+          if(radio[i].checked==true){
+            return true 
+          }
+          else{
+            console.log('Setect Your subject')
+            return false
+          }
+         
+      }
+    
+  }
+
+
+</script>
+</html>

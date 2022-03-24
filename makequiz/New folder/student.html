@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link rel="icon" href="./popcorn_1f37f.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+ <style>
+.main_question{
+    border-left: 6px solid rgba(0, 0, 255, 0.507);
+    border-top: 1px solid rgba(0, 0, 255, 0.507);
+    box-shadow: 1px  1px rgba(0, 0, 0, 0.466);
+    padding: 10px;
+}
+.subbox{
+    border-left: 12px solid rgba(0, 255, 64, 0.507);
+    border-right: 12px solid rgba(0, 255, 76, 0.507);
+    border-top: 1px solid rgba(0, 0, 0, 0.747);
+    border-bottom: none;
+    box-shadow: 1px  1px rgba(0, 0, 0, 0.466);
+    padding: 10px;
+}
+.main_question span{
+    color: red;
+}
+.mr-2{
+    width: 20px;
+    height: 20px;
+}
+
+
+.main_question .form-group ul li:hover{
+cursor: pointer;
+background-color: rgba(0, 255, 255, 0.185);
+height: auto;
+}
+#checkanswer{
+    width: 30%;
+}
+.modal-body ul li #shortanswer{
+    width: 100%;
+}
+</style>  
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="#">
+       <img src="./puzzle-piece.png" width="40" height="40" class="d-inline-block align-top" alt="">
+       QuiZmakeR
+     </a>
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+ </button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+   <ul class="navbar-nav mr-auto">
+     <li class="nav-item active">
+       <a class="nav-link" href="#"> Quiz History <span class="sr-only">(current)</span></a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" href="#"></a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link disabled" href="#">Disabled</a>
+     </li>
+   </ul>
+</div>
+</nav>
+
+<div class="container mt-2" id="alertshow">
+    
+</div>
+
+<div class="container">
+   <div class="row">
+     <div class="col-lg-10 ml-1 mr-1 mt-1 mb-2 subbox">
+         <div id="subject_name_div">
+            <h5 id="subject_name"></h5>
+        </div>
+         <div id="total_mark">
+             <h6 id="mark"> </h6>
+         </div>
+     </div>
+     
+   </div>
+</div>
+
+
+<div class="container  hide_form">
+     <div class="row">
+         <div class="col-lg-10">
+            <form id="form">
+              <div class="main_question">
+                  <div class="form-group">
+                    <label for="StudentName"><h6>Student Name <span>*</span></h6></label>
+                    <input type="text" class="form-control mb-4" id="StudentName" name="studentname" placeholder="Enter Student Name" required>
+                  </div>
+                  <div class="form-group">
+                    <label for="StudentName"><h6>Student Id <span>*</span></h6></label>
+                    <input type="text" class="form-control mb-4" id="StudentId" name="StudentId" placeholder="Enter Student Id" required>
+                  </div>
+                   <hr>
+                   <br>
+                  
+                  </div>
+                <div class="mb-4 mt-4">
+                <input type="submit" id="btn" class="btn btn-success submit" value="Submit Answer">
+               </div>
+            </form>
+         </div>
+     </div>
+</div>
+
+<div class="container hide mt-5" hidden>
+     <div class="row">
+         <div class="col-lg-8">
+            <div class="">
+                <div class="card addcart ">
+                     <div class="card-body rounded bg-light">
+                         <div>
+                              <label for="bio"><h1>Thank you for finishing Quiz </h1></label>
+                              <label for="bio"><h3>Wait  you for next Quiz Update</h3></label>
+                              <!-- <input type="text" class="form-control" id="subject" name="bio" aria-describedby="movIdHelp" placeholder="Enter Subject Name" required> -->
+                         </div>
+                         <div>
+                          
+                         </div>
+                    </div>
+                  </div> 
+             </div>
+         </div>
+     </div>
+</div>  
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <!-- <label for="quiz_info"><h5>Quiz Date</h5></label>
+             <ul class="list-group list-group-flush" id="quiz_info">
+                <li class="list-group-item border rounded mb-1">Cras justo odio</li>
+                <li class="list-group-item border rounded mb-1">Dapibus ac facilisis in</li>
+                <li class="list-group-item border rounded mb-1">Morbi leo risus</li>
+                <li class="list-group-item border rounded mb-1">Porta ac consectetur ac</li>
+                <li class="list-group-item border rounded mb-1">Vestibulum at eros</li>
+            </ul> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+</div> 
+ <!-- Modal -->
+
+</body>
+<script type="module">
+/* Firebase import module*/
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+import { getDatabase, ref, set,onValue,query,equalTo} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+// remove,push,child,update,
+/* Firebase import module*/
+
+/*Firebase Config*/
+const firebaseConfig = {
+    apiKey: "AIzaSyAMkjf6MFvBJdE7li8fx0Y6Dj0BZiOnVd0",
+    authDomain: "moviesdownloaders.firebaseapp.com",
+    databaseURL: "https://moviesdownloaders-default-rtdb.firebaseio.com",
+    projectId: "moviesdownloaders",
+    storageBucket: "moviesdownloaders.appspot.com",
+    messagingSenderId: "426710588024",
+    appId: "1:426710588024:web:119bfd2cb3ffe2e5f8ab8d",
+    measurementId: "G-E1341ZVKWS"
+ };
+  const app = initializeApp(firebaseConfig);
+  const datebase=getDatabase(app)
+/*Firebase Config*/ 
+
+let addform=document.querySelector('.main_question')
+let submitform=document.getElementById("form")
+let subjectname=document.querySelector('#subject_name')
+let totalmark=document.querySelector('#total_mark')
+let get_mark=0
+
+/*Get movies id by url */
+  let currentUrl=window.location.href
+  let paramiter=(new URL(currentUrl)).searchParams
+  let paramwithid=paramiter.get('id')
+  let get_quiz_id_by_url=paramwithid
+/*Get Quiz id by url */
+
+
+/*Get all question in database */
+
+onValue(ref(datebase,"QuizApp/"+get_quiz_id_by_url),snapshot=>{
+       
+      document.querySelector("#StudentName").setAttribute("quiz_id",snapshot.val().quiz_id)
+      document.querySelector("#StudentName").setAttribute("quiz_date",snapshot.val().questionBio.date)
+      let question_Detail =snapshot.val().question
+      let count = 1;
+      subjectname.textContent=`Subject Name : ${snapshot.val().questionBio.subject}`
+      for(let id in question_Detail){
+            get_mark +=Math.floor(question_Detail[id].q_mark)  
+            totalmark.textContent=`Total mark : ${get_mark}`
+
+          if(question_Detail[id].q_type=="hidden"){
+              addform.appendChild(hiddentype(question_Detail[id],count++))     
+            }
+          if(question_Detail[id].q_type=="radio"){   
+              addform.appendChild(radioBox(question_Detail[id],count++))
+            } 
+          if(question_Detail[id].q_type=="checkbox"){
+              addform.appendChild(checkBox(question_Detail[id],count++))
+            }
+          if(question_Detail[id].q_type=="text"){
+             addform.appendChild(textBox(question_Detail[id],count++))
+          }  
+       }
+  })
+/*Get all question in database */
+
+
+
+submitform.addEventListener("submit",function(event){
+    event.preventDefault()
+    let user_given={        
+         get_answer:{
+          
+         }
+    }
+    let studentNameinput=submitform[0]
+    let student_name=studentNameinput.value
+    let student_in_id=submitform[1].value
+    let quiz_date=studentNameinput.getAttribute("quiz_date")
+    let AddstudentId =`st-${rendomId()}`
+    user_given.studentBio={
+       name:student_name,
+       id:student_in_id,
+       date:quiz_date,
+       addid:AddstudentId,
+       quiz_id:get_quiz_id_by_url
+    }
+    ;[...this].forEach(value=>{
+        if(value.type!=="submit"){
+           if(value.type=="radio"){
+               let inputs=document.querySelectorAll(`input[name="${value.name}"]`)                
+               for(let i of inputs){
+                   if(i.checked){  
+                    user_given.get_answer[value.getAttribute("data_q_id")]={
+                         q_qname:value.name,
+                         q_qanswer:[`${i.value}`]
+                       }
+                 }
+                   
+               }
+           }
+           if(value.type=="checkbox"){
+            let inputs=document.querySelectorAll(`input[name="${value.name}"]`)
+            let checkBoxvalue=[] 
+               for(let i of inputs){
+                   if(i.checked){
+                      checkBoxvalue.push(i.value)         
+                    }
+                    user_given.get_answer[value.getAttribute("data_q_id")]={
+                         q_qname:value.name,
+                         q_qanswer:checkBoxvalue
+                   }
+                
+               }
+           }
+           if(value.type=="select-one"){
+             let inputs=document.querySelectorAll(`select[name="${value.name}"]`)
+                for(let i of inputs){
+                   user_given.get_answer[value.getAttribute("data_q_id")]={
+                         q_qname:value.name,
+                         q_qanswer:[`${i.value}`]
+                      }             
+                }      
+           }
+           if(value.type=="text" && value.name!=="studentname" && value.name!=="StudentId" ){
+           let inputs=document.querySelectorAll(`input[name="${value.name}"]`)
+                for(let i of inputs){
+                  user_given.get_answer[value.getAttribute("data_q_id")]={
+                         q_qname:value.name,
+                         q_qanswer:[`${i.value}`]
+                      }               
+                 }    
+             }   
+        }   
+     })
+       save(user_given)
+     
+})
+let chechusershas=[]
+function save(user_given){
+  let alert=document.getElementById("alertshow")
+   let check_for_quiz={
+      s_id:user_given.studentBio.id,
+      s_quiz:user_given.studentBio.quiz_id,
+   }
+   
+   let chechusers=JSON.parse(localStorage.getItem("chechusershave"))
+     if(chechusers==null){
+        chechusershas=[]
+        chechusershas.push(check_for_quiz)
+        localStorage.setItem("chechusershave",JSON.stringify(chechusershas))
+      }
+     else{       
+        chechusershas=chechusers           
+      }
+     
+      let check =chechusers==null ?undefined:chechusers.find(value=>{
+        if(value.s_id==check_for_quiz.s_id && value.s_quiz == check_for_quiz.s_quiz){
+            return value
+         }
+       })
+    if(check==undefined){
+        chechusershas.push(check_for_quiz)
+        localStorage.setItem("chechusershave",JSON.stringify(chechusershas))
+        set(ref(datebase,"studentanswer/"+user_given.studentBio.addid),user_given).then((result) => {
+          seccess(alert,"<strong>SuccessFully complete !</strong> your Quiz")
+           set(ref(datebase,"QuizApp/"+get_quiz_id_by_url+"/completeTask/"+user_given.studentBio.addid),user_given).then((result) => {
+            seccess(alert,"<strong>SuccessFully complete !</strong> your Quiz")
+            submitform.reset()
+            checkanswer()
+            totalmark.textContent=`Mark will gavin very soon`
+        })
+      
+      }).catch((err) => {
+        errors(alert,"<strong>Error occurred!</strong>  something wants to wrong  ")
+    });
+    }else{
+      errors(alert,`<strong>Hey ${user_given.studentBio.name}!</strong> You allready finished your quiz`)
+     
+    }
+  
+}
+
+function checkanswer(){
+    let mainform=document.querySelector(".hide_form").hidden=true
+    let checkdiv=document.querySelector(".hide").hidden=false
+     
+}
+
+function hiddentype(hiddenquestion,index){
+    let div =document.createElement("div")
+    div.classList.add(["form-group"])
+        let divtwo=document.createElement("div")
+              divtwo.innerHTML=`<label for="shortAnswer">${index}. ${hiddenquestion.q_name} <span>*</span></label>`
+                 div.innerHTML=`
+                   <input type="text" class="form-control shortanswer_${hiddenquestion.q_id}" id="shortAnswer" data_q_id="${hiddenquestion.q_id}" name="${hiddenquestion.q_name}" placeholder="Enter Answer">     
+                   `
+                  div.insertAdjacentElement("afterbegin",divtwo)
+     return div        
+}
+function textBox(redioquestion,index){
+    let div =document.createElement("div")
+       div.classList.add(["form-group"])
+          let divtwo=document.createElement("div")
+              divtwo.innerHTML=`<label for="${redioquestion.q_id}">${index}. ${redioquestion.q_name}</label>`
+            
+          let divthree=document.createElement("div")  
+               let select =document.createElement("select") 
+                     select.setAttribute("name",`${redioquestion.q_name}`) 
+                     select.setAttribute("id",`${redioquestion.q_id}`)
+                      select.setAttribute("data_q_id",`${redioquestion.q_id}`)
+                     select.required=true
+                     select.classList.add(["custom-select"],[`custom_select_${redioquestion.q_id}`])
+                     select.innerHTML=`<option selected>Choose...</option>`
+            for(let i in redioquestion.q_option){
+                  let option=document.createElement("option")
+                      option.setAttribute("value",`${redioquestion.q_option[i]}`)
+                      option.setAttribute("data_q_id",`${redioquestion.q_id}`)
+                      option.innerText=redioquestion.q_option[i]  
+                //   select.innerHTML=`<option value="${redioquestion.question_Option[i]}">${redioquestion.question_Option[i]}</option>`
+                      select.appendChild(option)
+            }
+                divthree.insertAdjacentElement("afterbegin",select)
+
+              div.insertAdjacentElement("afterbegin",divthree) 
+              div.insertAdjacentElement("afterbegin",divtwo)
+
+
+    return div 
+}  
+function checkBox(checkquestion,index){
+    let div =document.createElement("div")
+        div.classList.add(["form-group"])
+          let divtwo=document.createElement("div")
+              divtwo.innerHTML=`<label for="${checkquestion.q_id}">${index}. ${checkquestion.q_name}</label>`
+                let creat_ul=document.createElement('ul')
+                    creat_ul.setAttribute("id",`${checkquestion.q_id}`)
+                    creat_ul.classList.add(["list-group"],["list-group-flush"],["mb-1"])
+                for(let i in checkquestion.q_option){
+                let li=document.createElement('li')
+                li.classList.add(["list-group-item"],["mb-3"],["border"],["rounded"])
+                li.innerHTML=`
+                <input type="checkbox" class="mr-2 checkbox_${checkquestion.q_id}" data_q_id="${checkquestion.q_id}" id="${checkquestion.q_option[i]}" name="${checkquestion.q_name}" value="${checkquestion.q_option[i]}">${checkquestion.q_option[i]}<br>
+                <i></i>
+                `
+                creat_ul.appendChild(li)
+                  let clickable=true
+                li.addEventListener("click",function(e){
+                    if(clickable){
+                        li.children[0].checked=clickable
+                        clickable=false
+                      }else{
+                        li.children[0].checked=clickable
+                        clickable=true
+                      }
+                   
+                  
+                  })
+                }   
+             div.insertAdjacentElement("afterbegin",creat_ul)
+         div.insertAdjacentElement("afterbegin",divtwo)
+    return div 
+}  
+function radioBox(radioquestion,index){
+
+    let div =document.createElement("div")
+        div.classList.add(["form-group"])
+          let divtwo=document.createElement("div")
+              divtwo.innerHTML=`<label for="${radioquestion.q_name}">${index}. ${radioquestion.q_name}</label>`
+                let creat_ul=document.createElement('ul')
+                    creat_ul.setAttribute("id",`${radioquestion.q_id}`)
+                creat_ul.classList.add(["list-group"],["list-group-flush"],["mb-1"])
+                for(let i in radioquestion.q_option){
+                let li=document.createElement('li')
+                li.classList.add(["list-group-item"],["mb-3"],["border"],["rounded"])
+                li.innerHTML=` <input type="radio" class="mr-2 radio_${radioquestion.q_id}" data_q_id="${radioquestion.q_id}" id="${radioquestion.q_option[i]}" name="${radioquestion.q_name}" value="${radioquestion.q_option[i]}">${radioquestion.q_option[i]}<br>
+                <i></i> `
+                creat_ul.appendChild(li)  
+                let clickable=true
+                li.addEventListener("click",function(e){
+                    if(clickable){
+                        li.children[0].checked=clickable
+                        clickable=false
+                      }else{
+                        li.children[0].checked=clickable
+                        clickable=true
+                      }
+                    }) 
+                } 
+                div.insertAdjacentElement("afterbegin",creat_ul)  
+         div.insertAdjacentElement("afterbegin",divtwo)
+    return div 
+}  
+function rendomId(){
+    let e_id="";
+    let alphabet ="abcdefghijklmnopqrstwxuvyz"
+    for(let i=0;i<alphabet.length;i++){
+      let rendompick=Math.floor(Math.random() *36 )
+       e_id+=alphabet.charAt(rendompick)
+    }
+    return  e_id.slice(0,6)
+  }
+
+/*=========================================seccess Or errors==============================================================*/   
+    
+function seccess(tag,seccessMassage){
+  tag.innerHTML=`
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     ${seccessMassage}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    `
+  setTimeout(()=>{
+    tag.innerHTML=``
+  },3000)  
+}
+
+function errors(tag,errormassage){
+  tag.innerHTML=`
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    ${errormassage}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    `
+  setTimeout(()=>{
+    tag.innerHTML=``
+  },5000)  
+}
+/*=========================================seccess Or errors==============================================================*/   
+  
+                        
+     
+
+</script>
+</html>

@@ -1,0 +1,648 @@
+<html>
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>C QUIZ ADDMIN</title>
+    <link rel="icon" href="./popcorn_1f37f.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+  </head>
+<body>
+<style>
+   .li:hover{
+     cursor: pointer;
+     background-color: rgba(0, 255, 55, 0.294);
+   }
+   .litwo:hover{
+     cursor: pointer;
+     background-color: rgba(136, 255, 0, 0.274);
+   }
+
+</style>
+        
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #e3f2fd;">
+           <a class="navbar-brand" href="#">
+              <img src="./puzzle-piece.png" width="40" height="40" class="d-inline-block align-top" alt="">
+              QuiZmakeR
+            </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link active"  href="./quizAdmin.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./s_ans_history.html">Quiz History </a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" >
+            <button class="btn btn-outline-success text-light my-2 my-sm-0 clipboard"  data-toggle="modal" data-target="#exampleModalCenter12" type="button" disabled>Share Question</button>
+          </form>
+    </div>
+</nav>
+<div class="container">
+  <div class="row">
+      <div class="col-lg-10 main-contents">
+         
+      </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div>
+            <label for="quiz_info"><h5>Quiz Date</h5></label>
+            <ul class="list-group list-group-flush" id="quiz_info">
+              <li class="list-group-item border rounded mb-1">Cras justo odio</li>
+              <li class="list-group-item border rounded mb-1">Dapibus ac facilisis in</li>
+              <li class="list-group-item border rounded mb-1">Morbi leo risus</li>
+              <li class="list-group-item border rounded mb-1">Porta ac consectetur ac</li>
+              <li class="list-group-item border rounded mb-1">Vestibulum at eros</li>
+           </ul>
+        </div> 
+        <div>
+          <label for="quiz_info"><h5>Quiz Date</h5></label>
+          <ul class="list-group list-group-flush" id="quiz_info">
+            <li class="list-group-item border rounded mb-1">Cras justo odio</li>
+            <li class="list-group-item border rounded mb-1">Dapibus ac facilisis in</li>
+            <li class="list-group-item border rounded mb-1">Morbi leo risus</li>
+            <li class="list-group-item border rounded mb-1">Porta ac consectetur ac</li>
+            <li class="list-group-item border rounded mb-1">Vestibulum at eros</li>
+         </ul>
+      </div> 
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> 
+<!-- Modal -->
+<!-- copy clipbord Modal -->
+<div class="modal fade" id="exampleModalCenter12" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+         <h6>Copy this link and shara</h6>
+      </div>
+      <div class="modal-body modal-body-url">
+         
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" id="copycomponemtdeletemodal" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- copy clipbord Modal-->
+
+<script type="module">
+  /* Firebase import module*/
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+  import { getDatabase, ref, set,onValue,remove,push,child,update} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+  /* Firebase import module*/
+  
+  /*Firebase Config*/
+  const firebaseConfig = {
+      apiKey: "AIzaSyAMkjf6MFvBJdE7li8fx0Y6Dj0BZiOnVd0",
+      authDomain: "moviesdownloaders.firebaseapp.com",
+      databaseURL: "https://moviesdownloaders-default-rtdb.firebaseio.com",
+      projectId: "moviesdownloaders",
+      storageBucket: "moviesdownloaders.appspot.com",
+      messagingSenderId: "426710588024",
+      appId: "1:426710588024:web:119bfd2cb3ffe2e5f8ab8d",
+      measurementId: "G-E1341ZVKWS"
+   };
+    const app = initializeApp(firebaseConfig);
+    const datebase=getDatabase(app)
+  /*Firebase Config*/ 
+
+
+
+let main_contents=document.querySelector(".main-contents")
+     onValue(ref(datebase,"QuizApp"),snapshot=>{
+      main_contents.innerHTML=" "
+        let ul =document.createElement("ul")
+        ul.classList.add(["list-group"],["list-group-flush"],["mt-2"])
+        let quiz_count=1
+         for(let qbio in snapshot.val()){
+              let quesyiondil=snapshot.val()[qbio]
+
+            //  console.log(quesyiondil.questionBio.subject)
+             let li =document.createElement("li")
+                 li.classList.add(["list-group-item"],["border"],["rounded"],["mb-2"],["li"])
+                 li.setAttribute("data-colloapse",`coll${quesyiondil.quiz_id}`)
+                 li.setAttribute("id",`${quesyiondil.quiz_id}`)
+                
+                 let child_div=document.createElement('div')
+                     child_div.classList.add(["collapse"],["mb-2"])
+                     child_div.setAttribute("id",`coll${quesyiondil.quiz_id}`)
+                         let child_child_div=document.createElement('div')
+                             child_child_div.classList.add(["card"],["card-body"])
+                                let child_child_ul=document.createElement("ul")
+                                child_child_ul.classList.add(["list-group"],["list-group-flush"])
+                                let student_count=0
+                                for(let qcom in quesyiondil.completeTask){
+                                    student_count++
+                                  // console.log(quesyiondil.completeTask[qcom])
+                                  let child_child_li =document.createElement("li")
+                                    child_child_li.setAttribute("q_id",`${quesyiondil.quiz_id}`)
+                                    child_child_li.setAttribute("s_id",`${quesyiondil.completeTask[qcom].studentBio.addid}`)
+                                    child_child_li.classList.add(["list-group-item"],["border"],["border-secondary"],["mb-2"],["litwo"])
+                                    child_child_li.innerHTML=`Student Name : ${quesyiondil.completeTask[qcom].studentBio.name} &nbsp&nbsp Date: ${quesyiondil.completeTask[qcom].studentBio.date} </br> ${quesyiondil.completeTask[qcom].studentBio.id}`                                    
+                                    child_child_ul.appendChild(child_child_li)                       
+                                  }
+                                child_child_div.appendChild(child_child_ul)
+                        child_div.appendChild(child_child_div)
+                 ul.appendChild(li)
+                 ul.appendChild(child_div)
+                 li.innerHTML=`<strong>${quiz_count++}.. ${quesyiondil.questionBio.subject}</strong> &nbsp&nbsp${quesyiondil.questionBio.date} &nbsp&nbsp&nbsp&nbspTotal Students ${student_count++}</br>${quesyiondil.questionBio.description}`
+
+           }
+      main_contents.insertAdjacentElement("beforeend",ul)    
+        
+      
+      let liclick=document.querySelectorAll(".li").forEach(values=>{
+          values.addEventListener("click",function(event){
+          values.setAttribute("data-toggle","collapse")
+          let data = values.getAttribute("data-colloapse")
+          values.setAttribute("data-target",`#${data}`)
+             document.querySelector(".clipboard").disabled=false 
+             document.querySelector(".clipboard").setAttribute("quiz",`${values.id}`)
+            })
+         
+ 
+       })
+       let liclicktwo=document.querySelectorAll(".litwo").forEach(values=>{
+        // data-toggle="modal" data-target="#exampleModalCenter"
+        values.addEventListener("click",function(event){
+            values.setAttribute("data-toggle","modal")
+            values.setAttribute("data-target","#exampleModalCenter")
+            let student_id=values.getAttribute("s_id")
+            let quiz_id=values.getAttribute("q_id") 
+            show(student_id,quiz_id)
+          
+          })
+         
+       })
+
+  }) 
+
+     function show(sid,qid){
+  document.querySelector('.modal-body').innerHTML=" "
+   onValue(ref(datebase,"QuizApp/"+qid+"/question"),snapshot=>{
+     onValue(ref(datebase,"QuizApp/"+qid+"/completeTask/"+sid),s_snapshot=>{
+       document.querySelector("#exampleModalLongTitle").innerHTML=`${s_snapshot.val().studentBio.name}`
+        let check_student_answer=s_snapshot.val().get_answer
+        let quiz_question=snapshot.val()
+        let question_count=1
+        for(let question in quiz_question){
+            if(quiz_question[question].q_type=='radio'){
+            
+              let model_body_div=document.createElement('div')
+              let model_body_divtwo=document.createElement('div')
+                  model_body_divtwo.innerHTML=`
+                 <label for="quiz_info"><h6>${question_count++}. ${quiz_question[question].q_name}</h6></label>
+                 `
+                let creat_ul=document.createElement("ul")
+                    creat_ul.classList.add(["list-group"],["list-group-flush"])
+                    creat_ul.setAttribute("id","quiz_info")
+
+                if(quiz_question[question].q_name==check_student_answer[question].q_qname){
+                    for(let list in quiz_question[question].q_option){
+                      let li=document.createElement('li')  
+                          li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"])
+                          li.innerHTML=`<input type="radio" class="mr-2 mb-1" name="${1}" id=""  value="${quiz_question[question].q_option[list]}" disabled>${quiz_question[question].q_option[list]} 
+                                        <i></i>`           
+                          creat_ul.appendChild(li)    
+                                   
+                       } 
+                      model_body_divtwo.appendChild(creat_ul)  
+                    model_body_div.appendChild(model_body_divtwo)  
+
+
+                    ;[...creat_ul.children].forEach(get_li=>{
+                      let getIcon=get_li.children[1]
+                        if(get_li.children[0].value.trim() == quiz_question[question].q_answer.trim()){
+                            get_li.classList.add(["border-success"])
+                            getIcon.classList.add(["far"],["fa-check-circle"])
+                          }
+                        if(get_li.children[0].value.trim() == check_student_answer[question].q_qanswer[0].trim() && quiz_question[question].q_answer.trim() != check_student_answer[question].q_qanswer[0].trim()){
+                            get_li.classList.add(["border-danger"])                
+                            getIcon.classList.add(["far"],["fa-times-circle"])
+                         } 
+                     })           
+                  }         
+              document.querySelector('.modal-body').appendChild(model_body_div)      
+           }
+
+            if(quiz_question[question].q_type=='hidden'){           
+               let model_body_div=document.createElement('div')
+               let model_body_divtwo=document.createElement('div')
+                   model_body_divtwo.innerHTML=`
+                  <label for="quiz_info"><h6>${question_count++}. ${quiz_question[question].q_name}</h6></label>
+                 `
+               let creat_ul=document.createElement("ul")
+                    creat_ul.classList.add(["list-group"],["list-group-flush"])
+                    creat_ul.setAttribute("id","quiz_info")
+
+                    if(quiz_question[question].q_name==check_student_answer[question].q_qname){
+                    for(let list in quiz_question[question].q_option){
+                      let li=document.createElement('li')  
+                          li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"])
+                          li.innerHTML=`
+                          <div class="mb-1" id="shortanswer"> 
+                                ${check_student_answer[question].q_qanswer[0]}               
+                          </div>
+                          `           
+                          creat_ul.appendChild(li)    
+                                   
+                       } 
+                      model_body_divtwo.appendChild(creat_ul)  
+                    model_body_div.appendChild(model_body_divtwo)  
+                 }
+               document.querySelector('.modal-body').appendChild(model_body_div)  
+            }
+           
+            if(quiz_question[question].q_type=='text'){
+                 let model_body_div=document.createElement('div')
+                 let model_body_divtwo=document.createElement('div')
+                     model_body_divtwo.innerHTML=`
+                         <label for="quiz_info"><h6>${question_count++}. ${quiz_question[question].q_name}</h6></label>
+                        `
+                 let creat_ul=document.createElement("ul")
+                     creat_ul.classList.add(["list-group"],["list-group-flush"])
+                     creat_ul.setAttribute("id","quiz_info")
+
+                   if(quiz_question[question].q_name==check_student_answer[question].q_qname){
+                       let option_count=1
+                       for(let list in quiz_question[question].q_option){
+                              let li=document.createElement('li')  
+                                  li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"])
+                                  li.innerHTML=`
+                                           <div class="mb-1" id="shortanswer"> 
+                                             <span>${option_count++})</span> <span>${quiz_question[question].q_option[list]}</span><span><i></i></span>
+                                           </div>
+                                         `           
+                          creat_ul.appendChild(li)    
+                                   
+                       } 
+                      model_body_divtwo.appendChild(creat_ul)  
+                    model_body_div.appendChild(model_body_divtwo) 
+
+                    ;[...creat_ul.children].forEach(get_li=>{
+                      let getIcon=get_li.children[0].children[2].children[0]
+                        if(get_li.children[0].children[1].textContent.trim() == quiz_question[question].q_answer.trim()){
+                            get_li.classList.add(["border-success"])
+                            getIcon.classList.add(["far"],["fa-check-circle"],["ml-2"])
+                          }
+                        if(get_li.children[0].children[1].textContent.trim() == check_student_answer[question].q_qanswer[0].trim() && quiz_question[question].q_answer.trim() != check_student_answer[question].q_qanswer[0].trim()){
+                            get_li.classList.add(["border-danger"])                
+                            getIcon.classList.add(["far"],["fa-times-circle"],["ml-2"])
+                         } 
+                    }) 
+                 }
+               document.querySelector('.modal-body').appendChild(model_body_div)     
+             }
+           
+            if(quiz_question[question].q_type=='checkbox'){
+                let model_body_div=document.createElement('div')
+                let model_body_divtwo=document.createElement('div')
+                    model_body_divtwo.innerHTML=`
+                    <label for="quiz_info"><h6>${question_count++}. ${quiz_question[question].q_name}</h6></label>
+                    `
+                let creat_ul=document.createElement("ul")
+                    creat_ul.classList.add(["list-group"],["list-group-flush"])
+                    creat_ul.setAttribute("id","quiz_info")
+
+                if(quiz_question[question].q_name==check_student_answer[question].q_qname){
+                    for(let list in quiz_question[question].q_option){
+                      let li=document.createElement('li')  
+                          li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"])
+                          li.innerHTML=`<input type="checkbox" class="mr-2 mb-1" name="${1}" id=""  value="${quiz_question[question].q_option[list]}" disabled>${quiz_question[question].q_option[list]} 
+                                        <i></i>`           
+                          creat_ul.appendChild(li)    
+                                   
+                       } 
+                      model_body_divtwo.appendChild(creat_ul)  
+                    model_body_div.appendChild(model_body_divtwo)  
+
+                  let database_answer=[quiz_question[question].q_answer]
+                  let U_answer=check_student_answer[question].q_qanswer
+                
+                  let rightAnswer=U_answer.filter(value=>{
+                     for(let data_Exites of database_answer){
+                       if(data_Exites==value){
+                        return value
+                       }
+                     }
+                  })  
+                  let len=rightAnswer.length
+                  let worngAnswer=U_answer.filter((value1,index)=>{
+                      if(len==0){
+                        return value
+                      }
+                      else{
+                        return !rightAnswer.find(vai=>{
+                            return vai == value1
+                        })
+                      }
+                    })
+
+                    ;[...creat_ul.children].forEach(get_li=>{
+                      let getIcon=get_li.children[1]
+                        if(database_answer[0]==get_li.children[0].value.trim()){
+                            get_li.classList.add(["border-success"])
+                            getIcon.classList.add(["far"],["fa-check-circle"],["ml-2"])
+                        }
+                        worngAnswer.forEach(value=>{
+                            if(value==get_li.children[0].value.trim()){
+                              get_li.classList.add(["border-danger"])                
+                              getIcon.classList.add(["far"],["fa-times-circle"],["ml-2"])
+                            }
+                        })
+ 
+                    })
+
+                }
+             document.querySelector('.modal-body').appendChild(model_body_div)  
+           }
+        }
+      })
+   })
+}
+
+/*==============================================SharLink=========================================================*/        
+let sharalink=document.querySelector(".btn-outline-success")
+
+let modal_body = document.querySelector(".modal-body-url")
+sharalink.addEventListener("click",function(envent){
+  let creatquizId =sharalink.getAttribute("quiz")
+    if(creatquizId!==""){
+        modal_body.innerHTML=``
+        let body=document.createElement("div")
+            body.innerHTML=`
+              <div class="input-group mb-3">
+                 <input type="text" class="form-control" placeholder="Copy Url " aria-label="Recipient's username" aria-describedby="basic-addon2" id="copyurl_value" value="http://127.0.0.1:5501/makequiz/New%20folder/student.html?id=${creatquizId}">
+                 <div class="input-group-append">
+                  <span class="input-group-text" id="copycomponemt" id="basic-addon2"><i class="fas fa-paste"></i></span>
+                 </div>
+               </div>
+            `
+         modal_body.appendChild(body)   
+         let copyText=document.querySelector('#copyurl_value')
+         let copybtn=document.querySelector('#copycomponemt')
+            copybtn.addEventListener("click",function(envent){
+               let copy =navigator.clipboard.writeText(copyText.value);
+                  copy.then(res=>{
+                    copybtn.setAttribute("data-toggle","Copy Success")
+                    copybtn.setAttribute("data-placement","top")
+                    copybtn.setAttribute("title","Copy Success")
+                    copybtn.classList.add(["input-group-text"],["bg-success"])
+                    copybtn.style.color="white"
+                  }).catch(errors=>{
+                    copybtn.setAttribute("title","Copy fail")
+                  })
+              
+             })
+    }else{
+      modal_body.innerHTML=``
+      let body=document.createElement("div")
+            body.innerHTML=`
+              <div class="input-group mb-3">
+                 <input type="text" class="form-control" placeholder=" No Url Here" aria-label="Recipient's username" aria-describedby="basic-addon2" disabled>
+                 <div class="input-group-append">
+                  <span class="input-group-text" id="basic-addon2" disabled><i class="fas fa-paste"></i></span>
+                 </div>
+               </div>
+               <span class="input-group-text font-weight-bold border-danger" id="basic-addon2">Please creat quiz </span>
+
+            `
+         modal_body.appendChild(body)   
+    }
+})
+
+/*==============================================SharLink=========================================================*/        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// function show(student_data,quiz_data){
+//   document.querySelector('.modal-body').innerHTML=" "
+//   quiz_data.forEach((q_value,q_index)=>{
+//         if(q_value.question_Option_type=="radio"){
+//             let model_body_div=document.createElement('div')
+//             let model_body_divtwo=document.createElement('div')
+//                 model_body_divtwo.innerHTML=`
+//                <label for="quiz_info"><h6>${q_index+1} ${q_value.question_Name}</h6></label>
+//               `
+//               let creat_ul=document.createElement("ul")
+//                   creat_ul.classList.add(["list-group"],["list-group-flush"])
+//                   creat_ul.setAttribute("id","quiz_info")
+//                   student_data.forEach(s_value=>{
+//                     if(q_value.question_Name==s_value.q_question){
+//                         for(let lis in q_value.question_Option){
+//                           let li=document.createElement('li')      
+//                                 li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"])
+//                                          li.innerHTML=`
+//                                          <input type="radio" class="mr-2 mb-1" name="${1}" id=""  value="${q_value.question_Option[lis]}" disabled>${q_value.question_Option[lis]} 
+//                                          <i></i>
+//                                         `           
+//                            creat_ul.appendChild(li)    
+//                            model_body_divtwo.appendChild(creat_ul)        
+//                            model_body_div.appendChild(model_body_divtwo)
+//                            ;[...creat_ul.children].forEach(get_li=>{
+//                            let getIcon=get_li.children[1]
+//                             if(get_li.children[0].value.trim() == q_value.question_Answer.trim()){
+//                                get_li.classList.add(["border-success"])
+//                                getIcon.classList.add(["far"],["fa-check-circle"])
+//                              }
+//                              if(get_li.children[0].value.trim() == s_value.s_answer[0].trim() && q_value.question_Answer.trim() != s_value.s_answer[0].trim()){
+//                                get_li.classList.add(["border-danger"])                
+//                                getIcon.classList.add(["far"],["fa-times-circle"])
+//                               } 
+//                           })
+                        
+//                     }
+                  
+//                   } 
+
+//               })  
+               
+//         document.querySelector('.modal-body').appendChild(model_body_div) 
+          
+//           }
+
+//         if(q_value.question_Option_type=="hidden"){
+//           /* creat html*/
+//            let model_body_div=document.createElement('div')
+//            let model_body_divtwo=document.createElement('div')
+//                model_body_divtwo.innerHTML=`
+//               <label for="quiz_info"><h6>${q_index+1} ${q_value.question_Name}</h6></label>
+//               `
+//               let creat_ul=document.createElement("ul")
+//                   creat_ul.classList.add(["list-group"],["list-group-flush"])
+//                   creat_ul.setAttribute("id","quiz_info")
+
+//                   student_data.forEach(s_value=>{
+//                     if(q_value.question_Name==s_value.q_question){
+//                       let li =document.createElement('li')
+//                            li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"])
+//                            li.innerHTML=`
+//                              <div class="mb-1" id="shortanswer"> 
+//                                 ${s_value.s_answer[0]}
+                                
+//                              </div>
+//                               `
+//                               creat_ul.appendChild(li)
+//                             }
+                         
+//                         })   
+                          
+//                       model_body_divtwo.appendChild(creat_ul)
+//                     model_body_div.appendChild(model_body_divtwo)
+           
+//         document.querySelector('.modal-body').appendChild(model_body_div)  
+//          /* creat html*/
+//        }  
+
+//         if(q_value.question_Option_type=="text"){
+//           let model_body_div=document.createElement('div')
+//             let model_body_divtwo=document.createElement('div')
+//                 model_body_divtwo.innerHTML=`
+//                <label for="quiz_info"><h6>${q_index+1} ${q_value.question_Name}</h6></label>
+//               `
+//               let creat_ul=document.createElement("ul")
+//                   creat_ul.classList.add(["list-group"],["list-group-flush"])
+//                   creat_ul.setAttribute("id","quiz_info")
+//                   student_data.forEach((s_value,indexi) =>{
+//                     if(q_value.question_Name==s_value.q_question){
+//                         for(let lis in q_value.question_Option){
+//                           let li=document.createElement('li')      
+//                                 li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"])
+//                                          li.innerHTML=`
+//                                          <div class="mb-1" id="shortanswer"> 
+//                                              <span>${indexi++}.</span> <span>${q_value.question_Option[lis]}</span><span><i></i></span>
+//                                           </div>
+                                        
+//                                          `           
+//                            creat_ul.appendChild(li)    
+//                            model_body_divtwo.appendChild(creat_ul)        
+//                            model_body_div.appendChild(model_body_divtwo)
+//                            ;[...creat_ul.children].forEach(get_li=>{
+//                            let getIcon=get_li.children[0].children[2].children[0]
+//                            console.log(getIcon)
+//                             if(get_li.children[0].children[1].textContent.trim() == q_value.question_Answer.trim()){
+//                                get_li.classList.add(["border-success"])
+//                                 getIcon.classList.add(["far"],["fa-check-circle"],["ml-2"])
+//                              }
+//                              if(get_li.children[0].children[1].textContent.trim() == s_value.s_answer[0].trim() && q_value.question_Answer.trim() != s_value.s_answer[0].trim()){
+//                                get_li.classList.add(["border-danger"])                
+//                                 getIcon.classList.add(["far"],["fa-times-circle"],["ml-2"])
+//                               } 
+//                           })
+                        
+//                     }
+                  
+//                   } 
+
+//               })  
+    
+//           document.querySelector('.modal-body').appendChild(model_body_div)  
+        
+//        }
+      
+//        if(q_value.question_Option_type=="checkbox"){
+//         let model_body_div=document.createElement('div')
+//             let model_body_divtwo=document.createElement('div')
+//                 model_body_divtwo.innerHTML=`
+//                <label for="quiz_info"><h6>${q_index+1} ${q_value.question_Name}</h6></label>
+//               `
+//               let creat_ul=document.createElement("ul")
+//                   creat_ul.classList.add(["list-group"],["list-group-flush"])
+//                   creat_ul.setAttribute("id","quiz_info")
+//                   student_data.forEach(s_value=>{
+//                     if(q_value.question_Name==s_value.q_question){
+//                         for(let lis in q_value.question_Option){
+//                           let li=document.createElement('li')      
+//                                 li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"])
+//                                          li.innerHTML=`
+//                                          <input type="checkbox" class="mr-2 mb-1" name="${1}" id=""  value="${q_value.question_Option[lis]}" disabled>${q_value.question_Option[lis]} 
+//                                          <i></i>
+//                                         `           
+//                            creat_ul.appendChild(li)    
+//                            model_body_divtwo.appendChild(creat_ul)        
+//                            model_body_div.appendChild(model_body_divtwo)
+//                            ;[...creat_ul.children].forEach(get_li=>{
+//                            let getIcon=get_li.children[1]
+//                               let correct =q_value.question_Answer.trim()
+//                                  let ceck= s_value.s_answer.indexOf(correct) 
+                              
+//                                 if(ceck >0){
+//                                   get_li.classList.add(["border-success"])
+//                                   getIcon.classList.add(["far"],["fa-check-circle"])
+//                                  }
+//                                  s_value.s_answer.forEach(value=>{
+//                                   if(get_li.children[0].value == q_value.question_Answer){
+//                                   get_li.classList.add(["border-success"])
+//                                   getIcon.classList.add(["far"],["fa-check-circle"])
+//                                     }
+//                                  if(get_li.children[0].value == value && q_value.question_Answer != value){
+//                                   get_li.classList.add(["border-danger"])                
+//                                   getIcon.classList.add(["far"],["fa-times-circle"])
+//                                    } 
+//                               })
+                              
+//                           })
+                        
+//                     }
+                  
+//                   } 
+
+//               })  
+//         document.querySelector('.modal-body').appendChild(model_body_div)  
+//          /* creat html*/
+//        }
+//   })           
+// }
+
+
+      
+
+
+</script>
+
+</body>
+</html>

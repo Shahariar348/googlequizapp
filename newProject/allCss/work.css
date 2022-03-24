@@ -1,0 +1,22 @@
+.firstModel{
+    padding-top: 100px;
+}
+.row12snd{
+    padding-top: 40px;
+}
+.row13rd{
+    padding-top: 20px;
+    overflow-x: auto;
+    padding-bottom: 10px;
+}
+.row21st,.row22nd{
+    overflow-x: auto;
+}
+.row21st::-webkit-scrollbar {
+    display: none;
+  }
+#salaryInfo{
+    background-color: gray;
+    color: white;
+    font-weight: 500;
+}

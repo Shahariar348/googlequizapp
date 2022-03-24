@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Focus/Blur</title>
+</head>
+<body>
+    <style>
+     #form{
+       text-align: center;
+       margin-top: 200px;
+       font-size: 28px;
+     }
+     #form input{
+         font-size: 25px;
+         padding: 5px;
+     }
+     .invalid{
+         border: 1px solid red;
+     }
+     .valid{
+         border: 1px solid green;
+     }
+    </style>
+    <form id="form">
+        Enter your email : <input id="input" type="email" name="email" placeholder="UserEmail">
+        <div id="massage">
+           <br>
+        </div>
+        Enter your password : <input id="input1" type="password" name="email" placeholder="UserEmail">
+        <div id="massage">
+           
+        </div>
+    </form>
+</body>
+<script>
+    let input=document.getElementById('input')
+    let input1=document.getElementById('input1')
+    let massage =document.getElementById('massage')
+    input.onblur=function(){
+        if(!input.value.includes('@')){
+            input.classList.add('invalid')
+            massage.innerText='Fill Valid email'
+            massage.style.color='red'
+            }
+            else{
+            input.classList.remove('invalid')
+            massage.innerText=''
+            }
+}
+           input.onfocus=function(){
+           input.classList.add('valid')
+           
+        }
+
+        input1.onblur=function(){
+        if(input1.value.length>6){
+            input1.classList.add('invalid')
+            massage.innerText='less then 6'
+            massage.style.color='red'
+            }
+            else{
+            input1.classList.remove('invalid')
+            massage.innerText=''
+            }
+}
+           input1.onfocus=function(){
+           input1.classList.add('valid')
+           
+        }
+</script>
+
+</html>

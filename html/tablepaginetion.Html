@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      #div{
+        width: 500px;
+        height: 400px;
+        border: 1px solid red;
+      }
+   table tr td{
+    border: 1px solid black;
+   }
+   table tr{
+    height: 35px;
+    border: 1px solid black;
+   }
+   
+   .ax{
+    background-color: black;
+    color: wheat;
+   
+   }
+  
+    </style>
+</head>
+<div id="div">
+  <table id="table">
+       <thead>
+         <td>Name</td>
+         <td>Notionality</td>
+         <td>Age</td>  
+       </thead>
+       <tbody id="tbody">
+
+       </tbody>
+  </table>
+</div>
+<div id="paginator">
+</div>
+<body>
+  <script>
+       let paginationArray=[{
+         name:'Ashik',
+         age:24,
+         Nationality:"bd"
+       },
+       {
+         name:'Nunna',
+         age:22,
+         Nationality:"bd"
+       },
+       {
+         name:'Bappy',
+         age:25,
+         Nationality:"bd"
+       },
+       {
+         name:'Ashik',
+         age:24,
+         Nationality:"bd"
+       },
+       {
+         name:'Nunna',
+         age:22,
+         Nationality:"bd"
+       },
+       {
+         name:'Bappy',
+         age:25,
+         Nationality:"bd"
+       },
+       {
+         name:'Ashik',
+         age:24,
+         Nationality:"bd"
+       },
+       {
+         name:'Nunna',
+         age:22,
+         Nationality:"bd"
+       },
+       {
+         name:'Bappy',
+         age:25,
+         Nationality:"bd"
+       }
+       ,
+       {
+         name:'Ashik',
+         age:24,
+         Nationality:"bd"
+       },
+       {
+         name:'Nunna',
+         age:22,
+         Nationality:"bd"
+       },
+       {
+         name:'Bappy',
+         age:25,
+         Nationality:"bd"
+       }
+       ,{
+         name:'Ashik',
+         age:24,
+         Nationality:"bd"
+       },
+       {
+         name:'Nunna',
+         age:22,
+         Nationality:"bd"
+       },
+       {
+         name:'Bappy',
+         age:25,
+         Nationality:"bd"
+       }
+       ,
+       {
+         name:'Ashik',
+         age:24,
+         Nationality:"bd"
+       },
+       {
+         name:'Nunna',
+         age:22,
+         Nationality:"bd"
+       },
+       {
+         name:'Bappy',
+         age:25,
+         Nationality:"bd"
+       },
+       {
+         name:'Ashik',
+         age:24,
+         Nationality:"bd"
+       },
+       {
+         name:'Nunna',
+         age:22,
+         Nationality:"bd"
+       },
+       {
+         name:'Bappy',
+         age:25,
+         Nationality:"bd"
+       },
+       {
+         name:'Ashik',
+         age:24,
+         Nationality:"bd"
+       },
+       {
+         name:'Nunna',
+         age:22,
+         Nationality:"bd"
+       },
+       {
+         name:'Bappy',
+         age:25,
+         Nationality:"bd"
+       },
+       {
+         name:'Ashik',
+         age:24,
+         Nationality:"bd"
+       },
+       {
+         name:'Nunna',
+         age:22,
+         Nationality:"bd"
+       },
+       {
+         name:'Bappy',
+         age:25,
+         Nationality:"bd"
+       }
+       ,
+       {
+         name:'Ashik',
+         age:24,
+         Nationality:"bd"
+       },
+       {
+         name:'Nunna',
+         age:22,
+         Nationality:"bd"
+       },
+       {
+         name:'Bappy',
+         age:25,
+         Nationality:"bd"
+       }
+       ,{
+         name:'Ashik',
+         age:24,
+         Nationality:"bd"
+       },
+       {
+         name:'Nunna',
+         age:22,
+         Nationality:"bd"
+       },
+       {
+         name:'Bappy',
+         age:25,
+         Nationality:"bd"
+       }
+       ,
+       {
+         name:'Ashik',
+         age:24,
+         Nationality:"bd"
+       },
+       {
+         name:'Nunna',
+         age:22,
+         Nationality:"bd"
+       },
+       {
+         name:'Bappy',
+         age:25,
+         Nationality:"bd"
+       }
+
+
+      ]
+     
+       let currentpage=1
+       let perpage=2
+       let pagenumber=Math.ceil(paginationArray.length/perpage) 
+       let paginator =document.getElementById('paginator')
+
+
+       paginator.innerHTML+=`<button id="perviousbtn" class=" btn btn-primary"
+          data-nutok="pervious" data-pervious="${1}" >Pervious</button>`
+     
+     for (let i=0; i<pagenumber; i++) {
+      //  let btn =document.createElement('btn')
+      paginator.innerHTML+=`<button id="btn1" class=" btn btn-primary"
+        value="${i+1}">${i+1}</button>`
+       
+    }
+
+          paginator.innerHTML+=`<button id="nextbtn" class=" btn btn-primary"
+          data-nutok="next" data-next="${1}">Next</button>`
+     
+     
+   
+      var slicearray;
+      let valuewa =document.querySelectorAll('#btn1')
+ 
+      let perviousbtn =document.getElementById('perviousbtn')
+      let nextbtn =document.getElementById('nextbtn')
+     
+      let startapge=0
+      let endpage=0
+      
+      startapge=(currentpage-1)*(perpage)
+                    endpage =startapge+perpage
+                    slicearray = paginationArray.slice(startapge,endpage)
+                    addhtml(slicearray)
+                    pervioushidden(currentpage)
+                    nextshidden(currentpage)
+                     
+    
+    ;[...valuewa].forEach((btn,index)=> {
+           
+             btn.addEventListener('click',function(e){
+                   
+
+                  currentpage=e.target.value 
+                    startapge=(currentpage-1)*(perpage)
+                    endpage =startapge+perpage
+                    slicearray = paginationArray.slice(startapge,endpage)
+               
+                    addhtml(slicearray)  
+                    pervioushidden(currentpage)
+                    nextshidden(currentpage)
+                    active(currentpage)
+                   
+                   })
+     
+    })
+    
+
+    perviousbtn.onclick=function(e){
+               let intpre =parseInt(currentpage)
+                  let perviouspage=intpre-1
+                   startapge=(perviouspage-1)*(perpage)
+                    endpage =startapge+perpage
+                     slicearray = paginationArray.slice(startapge,endpage)
+                     currentpage=perviouspage
+                   
+                     addhtml(slicearray)
+                     pervioushidden(currentpage)
+                     active(currentpage)
+                     nextshidden(currentpage)
+                   // console.log(btn)
+                   }
+            
+    nextbtn.onclick=function(e){
+         let int =parseInt(currentpage)
+              let nextpage=int+1
+                startapge=(nextpage-1)*(perpage)
+                    endpage =startapge+perpage
+                    slicearray = paginationArray.slice(startapge,endpage)
+                     currentpage=nextpage
+                     addhtml(slicearray)
+                     nextshidden(currentpage)
+                     pervioushidden(currentpage)
+                     active(currentpage)
+            }
+
+   function active (btnname){
+    ;[...valuewa].forEach((btn1,index1)=> {
+      let indexss=index1+1
+            if(indexss==btnname){
+               var current = document.getElementsByClassName("ax");
+                    if (current.length > 0) {
+                          current[0].className = current[0].className.replace(" ax", "");
+                           }
+                          btn1.className += " ax";
+   
+              }  
+    
+    })
+  }  
+         
+ 
+function pervioushidden(show){
+  if(show<2){
+     perviousbtn.setAttribute('hidden','hidden')
+  }
+  else{
+    perviousbtn.removeAttribute('hidden')
+  }
+}
+function nextshidden(show){
+  if(show==pagenumber){
+    nextbtn.setAttribute('hidden','hidden')
+  }
+  else{
+    nextbtn.removeAttribute('hidden')
+
+  }
+}
+
+
+
+function addhtml(slicearray){
+  let table =document.getElementById('table')
+    let tablebody =table.tBodies.item(0)
+      tbody.innerHTML=''
+
+      for(let lis=0;lis<slicearray.length;lis++){
+
+        let rowsd=tablebody.insertRow()
+         
+         let cell1=rowsd.insertCell(0).innerText=`${slicearray[lis].name} id ${lis}`
+         let cell2=rowsd.insertCell(1).innerText=`${slicearray[lis].Nationality}`
+         let cell3 = rowsd.insertCell(2).innerText=`${slicearray[lis].age}`
+      
+        }
+}
+
+
+
+
+
+
+
+
+
+
+
+   let ary=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99,100]
+  
+   function tenNumber(total,max,c_page){
+     
+    let slicary=ary.slice(5,100)
+    console.log(slicary)
+
+   }
+
+   tenNumber()
+ 
+     
+</script>
+
+</body>
+</html>
+

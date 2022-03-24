@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+<style>
+#maincontain{
+    position:absolute;
+    top: 10px;
+    left: 200px;
+    text-align: center;
+}
+#timer{
+    text-align: center;
+    margin-bottom: 50px;
+}
+#timer span{
+    font-size: 28px;
+}
+button{
+    margin-left: 8px;
+}
+</style>
+</head>
+<body>
+    <div id="maincontain">
+        <div class="input-group mb-3">
+            <input type="number" id="settime" class="form-control" placeholder="Choose minute like 25 min" min="1" data-toggle-id="showme">
+            <div class="input-group-append">
+              <span class="input-group-text" id="basic-addon2" onclick="settime()">Set time</span>
+            </div>
+          </div>
+          <div> 
+              <h3>Finishing Time : <span id="finish">00 Minutes</span></h3>
+          </div>
+          <div id="timer">
+        <span  id="min">00</span><span  id="sec"> : 00</span><span id="minisec"> :00</span>
+          </div>
+        <button class="btn btn-primary" id="start">Start</button>
+        <button id="stop" class="btn btn-danger">Stop</button>
+        <button id="reset" class="btn btn-warning">Reset</button>
+    </div>
+<script>
+  
+
+  window.onload = function() {
+  // Some code
+
+    let min=document.getElementById('min')
+    let sec=document.getElementById('sec')
+    let minisec=document.getElementById('minisec')
+   
+    
+  
+    
+    let start=document.getElementById('start')
+    let stops=document.getElementById('stop')
+    let reset=document.getElementById('reset')
+    let setTime=document.getElementById('settime') 
+    let finishingtime=document.getElementById('finish') 
+      let counts=0
+      let mins=0
+      let second=0
+      let setimer;
+      function settime(){
+         setimer =parseInt(setTime.value)
+         finishingtime.innerText=setTime.value=='' ? `00 Minutes` : setTime.value <10 ?`0${setTime.value} Minutes`:`${setTime.value} Minutes` 
+         setTime.value=""
+      }
+
+
+    start.addEventListener('click',()=>{
+      count()
+    })
+   
+    function count(){
+    let inetrva= setInterval(()=>{
+       let cons=counts+=1
+       minisec.innerHTML=` : 0${cons}`
+        if(cons>9){
+          minisec.innerHTML=` : ${cons}`
+        }
+       if(counts==100){
+          counts=0
+         let seco= second+=1
+         sec.innerHTML=` : 0${seco}`
+         if(seco>9){
+          sec.innerHTML=` : ${seco}`
+         }
+      
+         if(seco>59){
+          sec.innerHTML=` : 0${seco=0}`
+            second=0
+            let mit= mins+=1
+            min.innerHTML=` 0${mit}`
+          if(mit>9){
+           min.innerHTML=`  ${mit}`
+           }
+           if(mit==setimer){
+               if(confirm("Time Up If Increase your time press cencel button")){
+                finishingtime.innerText=`00 Minutes`
+                setimer=0
+                clearInterval(inetrva)
+               
+               }
+              else{
+                  count()
+              }
+             
+            }
+          }
+         }
+
+         },10)
+         stops.addEventListener('click',()=>{ 
+          clearInterval(inetrva)
+       })
+
+       reset.addEventListener('click',()=>{
+         counts=0
+         mins=0
+        second=0
+        clearInterval(inetrva)
+      minisec.innerHTML=`: 00`
+      sec.innerHTML=`: 00`
+      min.innerHTML=`00`
+       })
+    }
+  };
+</script>    
+</body>
+</html>

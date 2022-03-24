@@ -1,0 +1,572 @@
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#" style=" font-size: 25px; margin-left: 70px;">
+                  <span><i class="far fa-building" style=" font-size: 36px;"></i></span>
+                   Bootstrap Canvas
+        </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                 <span class="navbar-toggler-icon"></span>
+            </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav navMargin">
+                <a class="nav-item nav-link active" href="#firstModel"> Employees <span class="sr-only">(current)</span></a>
+                <a class="nav-item nav-link" href="#secondModel">Employees Information</a>
+                <a class="nav-item nav-link" href="#thridModel">Attendance</a>
+                <a class="nav-item nav-link" href="#fourth">Work history</a>
+                <a class="nav-item nav-link disabled" href="#">Company Cost</a>
+            </div>
+    </div>
+</nav>
+    <div class="bodydiv float-sm-left">
+            <div class="firstModel" id="firstModel">
+                   <div class="newUser">
+                       <h4>Add New Empolyee</h4>
+                       <div class="formdiv float-sm-left">
+                            <form action="#secondModel">
+                                <div class="form-group">
+                                    <label for="exampleInputName">Empolyee Name</label>
+                                    <input type="text" class="form-control" id="exampleInputName1" aria-describedby="nameHelp" placeholder="Enter Name">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPhone">Phone Number</label>
+                                    <input type="text" class="form-control" id="exampleInputPhone" aria-describedby="phoneHelp" placeholder="Enter Phone Number">
+                                </div>
+                                <div class="form-group">
+                                     <label for="exampleInputaddress">Home Address</label>
+                                     <input type="text" class="form-control" id="exampleInputAddress" aria-describedby="addressHelp" placeholder="Enter Address">
+                                </div>
+                                <div class="form-group">
+                                     <label for="exampleInputPosition">Position</label>
+                                     <input type="text" class="form-control" id="exampleInputPosition" aria-describedby="positionHelp" placeholder="Enter Position">
+                                </div>
+                                <div class="form-group">
+                                     <label for="exampleInputSalary">Salary</label>
+                                     <input type="text" class="form-control" id="exampleInputSalary" aria-describedby="salaryHelp" placeholder="Enter Saraly">
+                                </div>
+                                <div class="form-group">
+                                     <label for="exampleInputDate">Starting Date</label>
+                                     <input type="date" class="form-control" id="exampleInputDate">
+                                </div>
+                                <div class="form-group">
+                                     <label for="exampleInputDate">Select Shift</label>
+                                     <select class="form-control" id="exampleInputselect">
+                                         <option value="night">Night</option>
+                                         <option value="day">Day</option> 
+                                     </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="submitform">Submit</button>
+                           </form>
+                       </div>
+                   </div>
+                   <div class="companycal">
+                         <div>
+                            
+                         </div>
+                   </div>
+            </div>
+           
+    </div>
+    <div class="secondModel" id="secondModel">
+        <div>
+            <h4 id="secondModel">Empolyee Information</h4>
+        </div>
+        <div class="searchmodel">
+            <div class="form-group">
+                <span for="exampleInputFilter"><i class="fas fa-sort-amount-up-alt"></i>Filter</span>
+                <select class="form-control" id="exampleInputselectFilter">
+                <option value="night">Night</option>
+                <option value="day">Day</option> 
+                </select>
+            </div>
+            <div class="form-group">
+                <span for="exampleInputsearchFilter"><i class="fas fa-sort-amount-up-alt"></i>Filter Row</span>
+                <select class="form-control" id="exampleInputsearchFilter">
+                    <option value="2">2</option>
+                    <option value="4">4</option> 
+                    <option value="6">6</option> 
+                    <option value="8">8</option> 
+                    <option value="10">10</option> 
+                </select>
+            </div>
+            <div class="form-group">
+                <span for="exampleInputsearchFilter"></span>
+                <input type="text" class="form-control" id="exampleInputSearch" aria-describedby="searchHelp" placeholder="Search by ID">
+           </div>
+        </div>
+        <div class="tablemodel" id="tablemodel">
+            <table class="table table-hover tableboder">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Position</th>
+                    <th scope="col">Salary</th>
+                    <th scope="col">Shift</th>
+                    <th scope="col">Delete Or Edit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>01957484848</td>
+                    <td>Font in developer</td>
+                    <td>4800000</td>
+                    <td>Night</td>
+                    <td><input type="button" class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button" class="btn btn-danger" onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button" class="btn btn-danger" onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button" class="btn btn-danger" onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button"  class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button"  class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button"  class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button"  class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button"  class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button"  class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button"  class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button"  class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button"  class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button"  class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td> 
+                    <td>Night</td>
+                    <td><input type="button"  class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button"  class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                  <tr>
+                    <td>179</td>
+                    <td>Shahariar</td>
+                    <td>0195748</td>
+                    <td>Font in developer</td>
+                    <td>4800</td>
+                    <td>Night</td>
+                    <td><input type="button"  class="btn btn-danger"  onclick='deletes(this)' value="Delete">
+                        <input type="button" class="btn btn-warning" onclick="edit(this)" value="Edit">
+                    </td> 
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div id="btngroup">
+          <button id="preveouse" class="btn btn-success">preveouse</button>
+          <button id="1"    class="btn btn-success">1</button>
+          <button id="2"    class="btn btn-success">2</button>
+          <button id="3"    class="btn btn-success">3</button>
+          <button id="4"    class="btn btn-success">4</button>
+          <button id="5"    class="btn btn-success">5</button>
+          <button id="6"    class="btn btn-success">6</button>
+          <button id="next" class="btn btn-success">next</button>
+        </div>
+    </div>
+    <div class="thrid" id="thridModel">
+        <div>
+            <h4 id="Attendance">Attendance</h4>
+        </div>
+        <div class="attendancemodel">
+            <div class="form-group">
+                <span for="exampleInputAttendance"><i class="fas fa-sort-amount-up-alt"></i>Filter</span>
+                <select class="form-control" id="exampleInputAttendance">
+                <option value="night">Night</option>
+                <option value="day">Day</option> 
+                </select>
+            </div>
+            <div class="form-group">
+                <span for="exampleInputAttendanceday">Attendance Date</span>
+                <input type="date" class="form-control" id="exampleInputAttendanceday">
+            </div>
+            <div class="form-group">
+                <span for="exampleInputstarttime">Start Time</span>
+                <input type="time" class="form-control" id="exampleInputstarttime">
+            </div> 
+            <div class="form-group">
+                 <span for="exampleInputendtime">End Time</span>
+                 <input type="time" class="form-control" id="exampleInputendtime">
+            </div>
+            <div class="form-group">
+                <span for="exampleInputattendancebtn"></span>
+                <input type="button" class="form-control btn-success" id="exampleInputattendancebtn" aria-describedby="attendancebtnHelp" value="Attendance Submit">
+           </div>
+        </div>
+        <div class="thridtablemodel" id="thridtablemodel">
+            <table class="table table-hover tableboder">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Shift</th>
+                    <th scope="col">Check</th>
+                    <th scope="col">Edit</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit"  >
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>179-35-2247789656</td>
+                    <td>Shahariar Alom</td>
+                    <td>Night</td>
+                    <td>
+                        <input id="checkbox" type="checkbox"><snap>Attend</snap>
+                    </td> 
+                    <td>
+                        <input type="button" onclick="edit(this)" value="Edit">
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+    <div class="fourth" id="fourth">
+         <div>
+           <h4>Wo</h4>  
+         </div>
+    </div>
+
+    
+                  <div class="col border " id="monthName">
+                        <h6>Feruary</h6>
+                    </div>
+                      <div class="col border" id="present">
+                          <p>Present&nbsp;:&nbsp;7day</p>
+                      </div>
+                      <div class="col border" id="absent">
+                        <p>Absence&nbsp;:&nbsp;7day</p>
+                    </div>
+                     <div class="col border" id="totalSaraly">
+                         <p>Salary &nbsp; : &nbsp;200000 Taka</p>
+                     </div>
+
+
+            <div class="row row14th">
+            <div class="col">
+            
+           </div>
+        </div> 
+
+        <td>Feruary</td>
+                                  <td>Present&nbsp;:&nbsp;7day</td>
+                                  <td>Absence&nbsp;:&nbsp;7day</td>
+                                  <td>Salary &nbsp; : &nbsp;200000</td>

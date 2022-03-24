@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work History</title>
+    <link rel="icon" href="https://www.pngrepo.com/png/177788/180/clock-square.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/newProject/allCss/work.css"/>
+</head>
+<body>
+            <!--Navber  -->
+<nav class="navbar  navbar-expand-lg fixed-top navbar-dark bg-dark">
+    <div class="container">
+    <a class="navbar-brand " href="#">
+        <span><i class="far fa-building d-inline-block align-top" style="font-size: 40px;"></i></span>
+        My Company
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link active" href="./adduser.html"> Employees & info <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="./singleInfo.html">Single Employee</a>
+            <a class="nav-item nav-link" href="./attendance.html">Attendance</a>
+            <a class="nav-item nav-link" href="./workhistory.html">Work history</a>
+            <a class="nav-item nav-link disabled" href="#">Company Cost</a>
+        </div>
+    </div>
+</div>
+</nav>
+<section class="firstSection">
+    <div class="firstModel">
+        <div class="container">
+            <!-- First Row -->
+            <div class="row row11st">
+               <div class="col">
+                   <h1>Work History</h1>
+               </div>
+            </div>
+            <div class="row12snd">
+                <form id="workhistoryform">
+                    <div class="row">
+                       <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group ">
+                            <label for="exampleInputselectDate">Select Date</label>
+                            <input type="date" class="form-control" id="exampleInputselectDate" name="selectDate">
+                        </div>
+                       </div>
+                   
+                       <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group ">
+                            <label for="exampleInputempolyeeId">Empolyee Id</label>
+                            <input type="text" class="form-control" id="exampleInputempolyeeId" name="empolyeeId" placeholder="Enter ID">
+                        </div>
+                       </div>
+
+                       <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="form-group ">
+                            <label for="exampleInputName">.</label>
+                            <input type="submit" class="btn btn-success form-control" id="exampleInputsubmit" name="submit" value="Submit">
+                        </div>
+                       </div>
+                   </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="secondSection">
+     <div class="secondModel">
+            <div class="container">
+                <div class="row row21st">
+                    <div class="col-sm-12">
+                        <table class="table table-hover border" id="salaryInfo">
+                            <tbody>
+                                <td>Feruary</td>
+                                <td>Present&nbsp;:&nbsp;7day</td>
+                                <td>Absence&nbsp;:&nbsp;7day</td>
+                                <td>Salary&nbsp;:&nbsp;200000</td>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+                <div class="row row22nd">
+                    <div class="col">
+                        <div id="singlealerworkhistorytone">          
+                        </div>
+                        <table class="table table-hover border" id="siglepersonworkhistorytable">
+                            <thead>
+                              <tr>
+                                <th scope="col  col-sm-12">Shift</th>
+                                <th scope="col  col-sm-12">Date</th>
+                                <th scope="col  col-sm-12">Day Name</th>
+                                <th scope="col col-sm-12">Entry</th>
+                                <th scope="col col-sm-12">Exits</th>
+                                <th scope="col  col-sm-12">P/A</th>
+                                <th scope="col  col-sm-12">Edit</th>
+                                <!-- <th scope="col  col-sm-12">Monthly Salary</th> -->
+                              </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                          </table>
+                    </div>
+                </div>
+            </div>
+     </div>
+</section>
+<section class="modelsecton">
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div id="updatealerworkhistorytone">          
+        </div>
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">UPDATE</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+        <form action="" id="editform">
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group ">
+                        <input type="text" hidden class="form-control" id="exampleInputID" name="E_Id">
+                    </div>
+                </div> 
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <div class="form-group ">
+                        <input type="text" hidden class="form-control" id="exampleInputID" name="shift_Id">
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="form-group ">
+                        <label for="exampleInputforeditdate">Date</label>
+                        <input type="date" class="form-control" id="exampleInputforeditdate" name="editdate" disabled>
+                    </div>
+                </div> 
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="exampleInputfotEditstarttime">Edit start time</label>
+                        <input type="time" class="form-control" id="exampleInputfotEditstarttime" name="editstarttime">
+                    </div>
+                </div>  
+                     
+                <div class="col-sm-12 col-md-4 col-lg-4">
+                    <div class="form-group">
+                        <label for="exampleInputEditendtime">Edit end time</label>
+                        <input type="time" class="form-control" id="exampleInputeditendtime" name="editendtime">
+                   </div>
+                </div> 
+                
+            </div>
+        </form>
+            <div class="row">
+                <div class="col-sm-12 col-md-12 col-lg-12">
+                    <table  class="table table-hover border" id="editTable">
+                        <tbody>
+                            <tr>
+                                 <td class=" border"></td>
+                                 <td class=" border"></td>
+                                 <td class=" border"></td>
+                            </tr>
+                        </tbody>
+                   </table>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <input type="button" class="btn btn-primary" id="UpdateAttendance" value="Update Attendance">
+        </div>
+      </div>
+    </div>
+</div>
+</section>
+<script type="module" src="../allscript/workhis.js"></script>
+</body>
+</html>

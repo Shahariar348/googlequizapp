@@ -1,0 +1,134 @@
+.totalDiv{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+}
+.mainDiv{   
+    position: absolute;
+    width: 50%;
+    height: 80vh;
+    border: none;
+    top: 60px;
+    left:360px;
+    padding: 5px;
+    box-shadow: 5px 10px 18px #000000;
+    z-index: 1;
+}
+.score{
+   font-size: 21px;
+   top:5px;
+   right: 10px;
+   width: 100%;
+   height: 10vh;
+   font-weight: lighter;
+   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.humanScore{ 
+    font-size: 21px;
+    display: inline-block;
+    padding: 10px;
+    outline: none;
+    box-shadow: 1px 5px 5px #857878;
+    color: rgb(0, 0, 0);
+ }
+ .computerScore{
+    float: right; 
+    color: rgb(0, 0, 0);
+    font-size: 21px;
+    display: inline-block;
+    padding: 10px;
+    outline: none; 
+    box-shadow:  1px 5px 5px #857878;
+ }
+
+.seleteItem{
+  font-size: 21px;
+   top:5px;
+   right: 10px;
+   width: 100%;
+   height: 30vh;
+ }
+ .item{
+     width:100%;
+ }
+ .itemUl{
+    width:100%;
+    height: 100%;
+    padding-top: 60px;  
+ }
+ .itemLi{
+    display: inline-block;
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    padding-top: 20px;
+    margin-left: 25px;
+    border: 1px solid olivedrab;
+    border-radius: 8px;
+    box-shadow:  1px 5px 5px olivedrab;
+ }
+ .itemLi  i,h5{
+    display: block;
+    font-size: 40px;
+ }
+ .itemLi h5{
+    color: rgb(0, 0, 0);
+ }
+ .itemLi:hover{
+     color: orangered;
+ }
+.itemLi h5{
+    font-size: 35px;
+}
+ .seletedItem{
+   width: 100%;
+   height: 20vh; 
+ }
+ .seletedCustomItem{
+    width:100%;
+    
+ }
+ #human{
+    width: 200px;
+    height: 100px;
+    text-align: center;
+    border:1px solid;
+    margin-left: 80px;
+    box-shadow:  1px 5px 5px olivedrab;
+ }
+ #human i{
+    margin-top: 10px;
+    font-size: 35px;
+ }
+
+ #computer{
+    float: right;
+   width: 200px;
+   height: 100px;
+   text-align: center;
+   border:1px solid;
+   margin-top: -100px;
+   margin-right: 100px;
+   box-shadow:  1px 5px 5px olivedrab;
+}
+#computer i{
+   margin-top: 10px;
+   font-size: 35px;
+}
+ 
+ .winner{
+     width: 100%;
+     height: 15vh;
+     text-align: center;
+     
+ }
+ #winner{
+    width: 100%;
+    height: 12vh;
+    padding: 10px;
+    border-radius: 5px;
+    color: rgb(42, 255, 23);
+    font-size: 35px;
+    box-shadow:  1px 5px 5px olivedrab;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+ }

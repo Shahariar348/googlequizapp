@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table js</title>
+  
+  <style>
+        table {
+          border-collapse: collapse;
+         
+        }
+    
+        td {
+          border: 1px solid black;
+          padding: 3px 5px;
+        }
+        .alert {
+  padding: 15px;
+  border: 1px solid #d6e9c6;
+  border-radius: 4px;
+  color: #3c763d;
+  background-color: #dff0d8;
+}
+  section{
+ 
+  width: 80%;
+  height: 80vh;
+  position: relative;
+}
+#by{
+  position: absolute;
+  transition: 1s all;
+  border: 1px solid green;
+
+}
+.titles{
+  cursor: pointer;
+}
+ul li{
+  list-style: none;
+  cursor: pointer;
+}
+
+</style>
+
+</head>
+<body>
+ <section>
+
+
+ 
+ 
+     <!-- <table id="table">
+        <tr>
+          <td>1:1</td>
+          <td>2:1</td>
+          <td>3:1</td>
+          <td>4:1</td>
+          <td>5:1</td>
+        </tr>
+        <tr>
+          <td>1:2</td>
+          <td>2:2</td>
+          <td>3:2</td>
+          <td>4:2</td>
+          <td>5:2</td>
+        </tr>
+        <tr>
+          <td>1:3</td>
+          <td>2:3</td>
+          <td>3:3</td>
+          <td>4:3</td>
+          <td>5:3</td>
+        </tr>
+        <tr>
+          <td>1:4</td>
+          <td>2:4</td>
+          <td>3:4</td>
+          <td>4:4</td>
+          <td>5:4</td>
+        </tr>
+        <tr>
+          <td>1:5</td>
+          <td>2:5</td>
+          <td>3:5</td>
+          <td>4:5</td>
+          <td>5:5</td>
+        </tr>
+      </table> -->
+
+<!-- <div>Users:</div>
+   <ul>
+    <li>John</li>
+    <li>Pete</li>
+   </ul> -->
+
+
+   <!-- <ul>
+    <li>The</li>
+    <li>test</li>
+  </ul>
+  <ul>
+    <li>has</li>
+    <li>passed</li>
+  </ul> -->
+
+<!-- 
+  <a href="http://example.com/file.zip" name="link"> Link 1</a>
+  <a href="http://ya.ru">Link 1 ...</a> -->
+
+<!-- <div class="contents">
+  <ul class="book">
+    <li class="chapter">Chapter 1</li>
+    <li class="chapter">Chapter 1</li>
+  </ul>
+</div> -->
+
+
+<!-- <table id="table">
+    <tr>
+      <td>Your age:</td>
+  
+      <td>
+        <label>
+          <input type="radio" name="age" value="young" > less than 18
+        </label>
+        <label>
+          <input type="radio" name="age" value="mature"> from 18 to 50
+        </label>
+        <label>
+          <input type="radio" name="age" value="senior"> more than 60
+        </label>
+      </td>
+    </tr>
+  </table>
+
+  <input type="radio" name="bio" value="Hi I am sajal"> Hi I am sajal -->
+
+
+  <!-- <div data-widget-name="menu">Choose the genre</div> -->
+  <!-- <input type="date" id="birthday" name="birthday" placeholder="45/28/69">
+  <div id="calendar"></div>
+  
+  <script src="cal.js"></script> -->
+  <!-- <button id="by">Click me</button> -->
+
+  <input type="tex" id="valu" onchange="inputs()">
+  <input type="tex" id="file" onchange="inputs()" placeholder="File Name">
+  <a  href='#' id="link">Download</a>
+  <span id="length"></span>
+  <ul id="ul">
+
+  </ul>
+  
+
+</section>
+
+<script>
+  // last to first 
+//  function inputs(){
+//     let valu=document.getElementById('valu').value
+//     let file=document.getElementById('file').value
+//      let creatfile=file+'.html'
+//      let blob = new Blob([valu], {type: 'text/plain'});
+//      link.href = URL.createObjectURL(blob);
+//      link.setAttribute('download',creatfile);
+//      console.log(link.href)
+     
+//   }
+ let phonesss=[]
+let incre= setInterval(()=>{
+let phone='123456789'
+let BD='+88019'
+//let phoneNumber=''
+ for(let i=0;i<8;i++){
+   let randoms=Math.floor(Math.random()*9)
+   BD+=phone.charAt(randoms)    
+ } 
+ console.log(BD)
+  phonesss.push(BD)
+},100)  
+ 
+setTimeout(()=>{
+  clearInterval(incre)
+  let ul=document.getElementById('ul')
+  let phn=document.getElementById('length')
+   phn.innerText=phonesss.length
+  for(let m=0;m<phonesss.length;m++){
+    let li=document.createElement('li')
+      li.innerHTML=`(${phonesss[m]})`
+      ul.append(li)
+  }
+
+  
+
+},1000)
+
+function inputs(){
+  let file=document.getElementById('file').value
+  let valu=document.getElementById('valu').value
+     let creatfile=file+'.txt'
+     let blob = new Blob([valu], {type: 'text/plain'});
+     link.href = URL.createObjectURL(blob);
+     link.setAttribute('download',creatfile);
+    }
+
+  // "Hello" in binary form
+
+ 
+//  let btnpositon =document.getElementById('by')
+//     btn.onclick=function(e){
+//       let fieldCoords = this.getBoundingClientRect();
+//        console.log(fieldCoords.top)
+//        let y =event.clientY-fieldCoords.top-btn.clientTop-btnpositon.clientHeight / 2
+//       let x =event.clientX - fieldCoords.left - btn.clientLeft - btnpositon.clientWidth / 2
+//        console.log(y)
+//        btnpositon.style.top=y+'px'
+//        btnpositon.style.left=x+'px'
+//     }
+ 
+ 
+ 
+ 
+ 
+  /*
+function alet(massage){
+  let div=document.createElement('div')
+  div.innerHTML=`  <h1><strong>Hi there!</strong> ${massage} <strong id="close">Close</strong> </h1>  `
+  div.classList.add('alert');
+  document.body.append(div)
+  return div
+}
+  
+   let alert=alet
+   alert("You've  an important message.")
+
+   let closes=document.querySelector('#close')
+  closes.addEventListener('click',()=>{
+    let alertremovebtn=alet
+   document.body.remove(alertremovebtn)
+  }) 
+  */
+ 
+ /*
+ <!-- <a name="list">the list</a>
+<ul>
+  <li><a href="http://google.com">http://google.com</a></li>
+  <li><a href="/tutorial">/tutorial.html</a></li>
+  <li><a href="local/path">local/path</a></li>
+  <li><a href="ftp://ftp.com/my.zip">ftp://ftp.com/my.zip</a></li>
+  <li><a href="http://nodejs.org">http://nodejs.org</a></li>
+  <li><a href="http://internal.com/test">http://internal.com/test</a></li>
+</ul> -->
+
+  let as = document.querySelectorAll('a');
+
+for (let a of as) {
+  let link = a.getAttribute('href');
+  if (!link) continue; 
+    if(link.includes('://')){
+      a.style.color = 'orange';
+    continue;
+    }
+}
+*/
+ 
+
+
+
+
+
+
+   /*
+     for(let i=0;i<5;i++){
+      let td = table.rows[i].cells[i]
+       td.style.backgroundColor = "red"; 
+     }
+     */
+   
+   /*
+
+<!-- <div>Users:</div>
+   <ul>
+    <li>John</li>
+    <li>Pete</li>
+   </ul> 
+-->
+
+
+   let div=document.body.firstElementChild //print : div 
+    or
+    let div=document.body.children[0]
+
+  let ul=  document.body.children[1]
+  let li=  document.body.children[1].firstElementChild
+         or
+ let li=  document.body.children[1].children// return children array 
+        // li access by 
+           let li=  document.body.children[1].children[0]
+           li.style.backgroundColor = "red"; 
+          console.log( li.value)
+  */ 
+   /*
+ /*
+  <!-- <ul>
+    <li>The</li>
+    <li>test</li>
+  </ul>
+  <ul>
+    <li>has</li>
+    <li>passed</li>
+  </ul> -->
+
+   let elements=document.querySelectorAll('li:last-child ')
+   for(i of elements){
+    i.style.backgroundColor = "red"; 
+     i.innerText='Hi'
+    console.log(i)
+   }
+
+    /*
+    <!-- <a href="http://example.com/file.zip"> Link 1</a>
+  <a href="http://ya.ru">Link 1 ...</a> -->
+
+ for(elem of document.body.children){
+     if(elem.matches('a[href$=".zip"]')){
+        console.log(elem)
+     }
+   
+ }
+  for(elem of document.body.children){
+    console.log(elem.href)
+    console.log(elem.name)
+ }
+*/
+
+/*
+
+let chapter =document.querySelector('.chapter')
+console.log(chapter.closest('.chapter'))
+*/
+
+/*
+
+let table=document.getElementById('table')
+let tables=table.getElementsByTagName('input')
+table.addEventListener('change',()=>{
+    for (tab of tables){
+      
+    if(tab.checked){
+        console.log(tab.value)
+    }
+ }
+})
+ */
+/*
+  <!-- <div data-widget-name="menu">Choose the genre</div> -->
+ let div =document.querySelector('[data-widget-name]') 
+ //div.getAttribute('data-widget-name')
+   or
+   //
+ console.log( div.dataset.widgetName )
+ */
+</script>
+</body>
+
+</html>

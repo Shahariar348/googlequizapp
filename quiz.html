@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz app</title>
+    <link rel="icon" href="./popcorn_1f37f.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
+</head>
+<body>
+<style>
+body{
+    font-family: 'Times New Roman', Times, serif;
+}    
+.maindiv{
+    display: flex;
+   flex-flow: wrap;
+    flex-direction: row;
+    justify-content:space-between;  
+}
+.card{
+    width:230px;
+    height: 400px;
+    margin-bottom: 30px;
+    border: 1px solid rgb(8, 8, 8);
+}
+.card img{
+    width:228px;
+    height: 235px;
+    object-fit: cover;
+}
+.addcart{
+    width:600px;
+    height: auto;  
+}
+.addcart .card-body ul li{
+   font-size: 20px;
+}
+#error{
+  color: red;
+}
+#userchose{
+  background: red;
+}
+#unoderlist li:hover{
+  cursor: pointer;
+}
+
+</style>
+
+<!--Navber  -->
+<nav class="navbar navbar-expand-lg bg-dark navbar-dark sticky-top">
+     <div class="container">
+        <a class="navbar-brand" href="#">Quiz App  </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+     </div>
+</nav> 
+<!--Navber  -->
+
+<!--Main Div  -->
+<div class="container" style="margin-top:30px">
+    <div class="row">
+      <!-- left div  -->
+    <div class="col-lg-8 col-sm-12" id="leftdiv">
+        <div class="maindiv" id="maindiv">       
+          <div class="col-lg-4  col-sm-12 mt-5 ">
+            <div>
+               <div class="card addcart">
+                   <div class="card-header">
+                      <h4 id="error"></h3>                          
+                       
+                       <h5><i class='fas fa-question'></i>  <small id="item"></small></h5>
+                        <h4 id="questionname">How old are you</h3>                          
+                      </div>
+                     <div class="card-body">
+                        <ul class="list-group list-group-flush" id="unoderlist">
+                           
+                        </ul>
+                     </div>
+                     <div class="card-footer">
+                        <button id="btn" class="btn btn-success">Go to next Q</button>
+                      </div>
+                  </div>
+            </div>
+          </div>
+        </div>
+    </div>
+      <!-- left div  -->
+    </div>
+</div>
+<!--Main Div  --> 
+
+
+
+<script>
+const database=[
+      {
+      questionId:"1",
+      questionName:"What is the country calling code for Bangladesh ?",
+       option:{
+         a:"+49",
+         b:"+449",
+         c:"+97",
+         d:"+880"
+       },
+      answer:"+880"
+},
+{
+      questionId:"2",
+      questionName:"Internet tld of Bangladesh is",
+       option:{
+         a:".bd",
+         b:".in",
+         c:".uk",
+         d:".us"
+       },
+      answer:".bd"
+},
+{
+      questionId:"3",
+      questionName:"National game of Bangladesh is",
+       option:{
+         a:"Cricket",
+         b:"Kabadi",
+         c:"Hockey",
+         d:"Football"
+       },
+      answer:"Kabadi"
+ },
+{
+      questionId:"4",
+      questionName:"Which of following river is longest in Bangladesh",
+       option:{
+         a:"Surma",
+         b:"None of these",
+         c:"Kobadak",
+         d:"Padma"
+       },
+      answer:"Surma"
+},
+{
+      questionId:"5",
+      questionName:"Kazi Nazrul Islam is Associated with",
+       option:{
+         a:"Poetry",
+         b:"Politics",
+         c:"Hockey",
+         d:"Cricket"
+       },
+      answer:"Poetry"
+},
+{
+      questionId:"6",
+      questionName:"Who is the first female pilot of Bangladesh",
+       option:{
+         a:"Kaniz fatema Roksana",
+         b:"Nayma Haque",
+         c:"Nasim begum",
+         d:"None of these"
+       },
+      answer:"Kaniz fatema Roksana"
+},
+{
+      questionId:"7",
+      questionName:"Which river flows across the India-Bangladesh border?",
+       option:{
+         a:"Hooghly River",
+         b:"Ichamati River",
+         c:"Brahmaputra River",
+         d:"Suma River"
+       },
+      answer:"Ichamati River"
+},
+{
+      questionId:"8",
+      questionName:" Situated in South Asia, Bangladesh is bordered by India and which country to the south-east?",
+       option:{
+         a:"Myanmar",
+         b:"Nepal",
+         c:"India",
+         d:"Bhutan"
+       },
+      answer:"Myanmar"
+},
+{
+      questionId:"9",
+      questionName:"How many rivers are there in Dhaka?",
+       option:{
+         a:"6",
+         b:"7",
+         c:"7",
+         d:"8"
+       },
+      answer:"7"
+},
+{
+      questionId:"10",
+      questionName:" Which city is called the Healthy City of Bangladesh?",
+       option:{
+         a:"Dhaka",
+         b:"Barishal",
+         c:"Bogra",
+         d:"Chittagong"
+       },
+      answer:"Chittagong"
+},
+     
+]
+const userattemt=[]
+let score=0   
+    let questionname=document.getElementById("questionname")
+    let item=document.getElementById("item")
+    let unoderlist=document.getElementById("unoderlist")
+    let error=document.getElementById("error")
+ 
+
+let lenght=0;
+let indext=0;
+quiz(lenght)
+ 
+
+document.getElementById("btn").addEventListener("click",function(event){
+   let inputs =document.querySelectorAll("input")
+   const errorfind=[]
+try {
+    for(input of inputs){
+         if(input.checked){
+                userattemt.push({
+                     u_questionid:database[lenght].questionId,
+                     u_questionname:database[lenght].questionName,
+                     u_answer:input.value,
+                      }) 
+           
+                indext+=1
+                   if(indext >= database.length){
+                        result()  
+                        checkueranswer()
+                        throw "Thank you for playing Game"
+            
+                    }else{
+                      lenght+=1
+                       quiz(lenght)
+                       }
+          }else{
+           errorfind.push(input.value)
+          }  
+      }
+      if(errorfind.length==4){
+            error.innerHTML="Please Check Any One Option"
+
+        }else{
+            error.innerHTML=" "
+        }
+  }catch(errors) {
+     error.innerHTML=`${errors} <br> Quiz Over`
+     document.getElementById("btn").disabled = true;   
+  }
+})
+
+function quiz(lenght){  
+for(let i=0;i<=lenght;i++){
+  item.innerHTML=` Question ${i+1} / ${database.length}`
+  questionname.innerHTML=database[i].questionName
+  unoderlist.innerHTML=" "
+     for (const key in database[i].option) {
+         let li=document.createElement("li")
+         li.classList.add(["list-group-item"],["border"],["border-dark"],["rounded"],["mb-3"])
+         li.innerHTML=`
+         <input type="radio" name="${database[i].questionName}" id="${database[i].option[key]}" value="${database[i].option[key]}"> ${database[i].option[key]}
+         `
+         unoderlist.append(li)
+    } 
+  } 
+} 
+
+function result(){
+unoderlist.innerHTML=""
+  for(let data in database){
+    let creatdiv=document.createElement("div")
+     creatdiv.innerHTML=`<h3>${database[data].questionName}</h3>`   
+      let creatul=document.createElement('ul')
+      creatul.classList.add(["list-group"],["list-group-flush"],["mb-4"])
+           for(optionk in database[data].option){
+             let li=document.createElement("li")
+               li.classList.add(["list-group-item"],["mb-3"],["border"],["rounded"])
+                li.innerHTML=`
+                <input type="radio" name="${database[data].questionName}" id="${database[data].option[optionk]}"  value="${database[data].option[optionk]}"> ${database[data].option[optionk]}
+                <i></i>
+                `
+              creatul.appendChild(li)
+            } 
+           creatdiv.appendChild(creatul)   
+     unoderlist.appendChild(creatdiv)
+  }
+}
+
+function checkanswer(){
+ let correct=[]
+   for(let data in database){
+     if(database[data].answer==userattemt[data].u_answer){
+       score +=10
+       correct.push(data)
+     } 
+   }
+   return {
+     score,
+     correctans:correct.length
+   }
+}
+
+function checkueranswer(){
+let get_all_li=unoderlist.querySelectorAll("li")
+let {score,correctans}=checkanswer()
+questionname.innerHTML=`<h3> Your Score ${score} </h3>`
+item.innerHTML=` Correct Answer ${correctans} <b>/</b> ${database.length}`
+
+get_all_li.forEach(values=>{
+  let icon=values.childNodes[3]
+  for(let data in database){
+        if(values.childNodes[1].value == database[data].answer &&  values.childNodes[1].name==database[data].questionName) {
+           values.classList.add(["border-success"]) 
+           icon.classList.add(["far"],["fa-check-circle"])
+         }
+        if(values.childNodes[1].value == userattemt[data].u_answer &&  values.childNodes[1].name==database[data].questionName && database[data].answer !== userattemt[data].u_answer) 
+          {
+          values.classList.add(["border-danger"])
+          icon.classList.add(["far"],["fa-times-circle"])
+          values.childNodes[1].checked=true
+          }
+          if(values.childNodes[1].value == userattemt[data].u_answer &&  values.childNodes[1].name==database[data].questionName && database[data].answer == userattemt[data].u_answer) 
+          {
+          values.childNodes[1].checked=true
+          }
+              
+     }
+ })
+
+
+}
+
+
+</script>
+</body>
+</html>

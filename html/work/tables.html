@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+    <style>
+   table, th, td {
+   border:1px solid black;
+   width: 600px;
+   text-align: justify;
+ 
+    }
+     td{
+        padding: 5px;
+    }
+    #singleTable{
+    border:1px solid black;
+    width: 600px;
+    text-align: justify;
+    margin-top: 10px;
+    }
+    </style>
+</head>
+
+<body>
+
+    <div>
+    <input type="text" id="fillervalue" placeholder="Filler with name " onkeyup="search()" style="width: 300px; height: 25px; border: 1px solid black; margin-bottom: 10px; padding-left:  10px; border-radius: 50px; font-size: 17px;"> 
+    <table id="myTable">
+        <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Positon</th>
+                <th>Salary</th> 
+                <th>Delete Record</th> 
+        </thead>
+        <tbody>
+            <tr >
+                <td>Ashik Islam</td>
+                <td>ashikislam@gamil.com</td>
+                <td>Backend Developer</td>
+                <td>20,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="delete"></td> 
+            </tr>
+            <tr >
+                <td>Shabbir</td>
+                <td>Shabbir@gamil.com</td>
+                <td>Backend Developer</td>
+                <td>20,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="delete"></td> 
+            </tr>
+            <tr >
+                <td>Ashik</td>
+                <td>ashik@gamil.com</td>
+                <td>Font-in-Developer</td>
+                <td>10,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="delete"></td> 
+            </tr>
+            <tr>
+                <td>Nayem</td>
+                <td>nayem@gamil.com</td>
+                <td>Font-in-Developer</td>
+                <td>8,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="delete"></td> 
+            </tr>
+            <tr>
+                <td>Shakibul</td>
+                <td>shakibul@gamil.com</td>
+                <td>Project Manager</td>
+                <td>25,000</td>
+                <td><input type="button" onclick='deletes(this)' value="delete"></td>  
+            </tr>
+        </tbody>
+    </table>
+</div>
+    <div>
+        <table id="singleTable">
+        <tbody>
+            <h1>Single Person</h1>
+            <tr>
+                <td> Name</td>
+                <td> Email</td>
+                <td> Position</td>
+                <td> Salary</td>
+            </tr>
+        </table>
+    </div>
+</body>
+<script>
+  var table = document.getElementById("myTable");
+
+ let row=table.insertRow()
+
+var cell1 = row.insertCell(0).innerText='Hassan';
+var cell2 = row.insertCell(1).innerText='hassan@gmail.com';
+var cell3 = row.insertCell(2).innerText='Market analysis';
+var cell4 = row.insertCell(3).innerText='16,000';
+var cell5 =  row.insertCell(4).innerHTML=`
+<input type="button" onclick='deletes(this)' value="delete">
+`;
+
+function deletes(tr){
+    let index=tr.parentElement.parentElement.rowIndex
+    table.deleteRow(index)
+}
+let tableRow=table.tBodies.item(0)
+ 
+tableRow.onclick=function(event){
+     let indextr=event.target.parentElement.rowIndex
+     let cellvalue =table.rows[indextr].cells
+       
+let singleTable = document.getElementById("singleTable");   
+let singlercell1 = singleTable.rows[0].cells[0].innerText=cellvalue[0].innerText
+let singlercell2 = singleTable.rows[0].cells[1].innerText=cellvalue[1].innerText
+let singlercell3 = singleTable.rows[0].cells[2].innerText=cellvalue[2].innerText
+let singlercell4 = singleTable.rows[0].cells[3].innerText=cellvalue[3].innerText
+    //       let cell12 = singlerow.insertCell(0).innerText=cellvalue[0]  
+ console.log(singlercell2)
+
+}
+
+function search(){
+  let searchvalue=document.getElementById('fillervalue').value.toUpperCase()
+     let tr =table.getElementsByTagName('tr')
+      for(let t=0;t<tr.length;t++){
+            let td=tr[t].getElementsByTagName('td')[0]
+            if(td){
+                let tdvalue=td.textContent.toUpperCase()
+                   if(tdvalue.indexOf(searchvalue)>-1){
+                       tr[t].style.display=''
+                   }
+                   else{
+                    tr[t].style.display='none'
+                   }
+            }
+      }
+}
+
+
+  //   for( let i=0;i<table.length;i++){
+//     console.log(table[i].innerText)
+//   }
+
+
+</script>
+</html>

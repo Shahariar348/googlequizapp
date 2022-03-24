@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+<h1>My First Heading</h1>
+<p>My first paragraph.</p>
+
+</body>
+<script>
+
+// let kilometer =5
+
+// const miles=0.621371
+// const feet=5280
+
+// let totalMile=kilometer*miles
+// console.log(`kilometer to miles ${totalMile}`)
+// //how many kilo are 
+// let totalKilo=totalMile/miles
+// console.log(`There are ${totalKilo} kilometer`)
+// //how many feet are
+// let totalFeet=totalMile*feet
+// console.log(`There are ${totalFeet} Feet`)
+
+// function random(number1){
+//     let random1=Math.floor(Math.random()*number1+1)
+//     console.log(random1)
+// }
+// random(6);
+// //factorial number is
+
+// let factorial=5;
+// let factorialNumber=1;
+// if(factorial<0){
+//     console.log(`Nagetive number is not count`)
+// }
+// else if(factorial===0)
+// {
+//     console.log(`Factorial number is 1`)
+// }
+// else{
+//     for(let i=1;i<=factorial;i++){
+//         factorialNumber *=i
+//     }
+//     console.log(`Factorial number is ${factorialNumber}`)
+// }
+
+// let multi=10
+// let input=12
+// for(let j=1;j<=10;j++){
+//    multiplication=input*j
+//    console.log(`${input} * ${j} = ${multiplication} `)
+
+// }
+
+// function myname(name){
+//     console.log("my name is "+name)
+// }
+// myname('Shahariar alom')
+
+// let x =function(num){
+//     return num*num
+// }
+// let c=function(n){
+//     console.log('Right '+n)
+// }
+// let y = x(5)<30 ? c:'worng' 
+
+// console.log(y(4))
+
+// let ans=1  
+// function fact(num,condi){
+//   let anss=0
+//     if(num===0){
+//             console.log('sorry')
+//         }
+//         else{
+          
+//             if(num<=condi){
+//                 ans *= num
+//              let upade = num +1
+//              fact(upade,condi)
+            
+//             }
+//             else{
+//                 console.log('sorry')
+//             }
+           
+//         }
+       
+// }
+// fact(1,5)
+// console.log(ans)
+
+/*const student=
+  {
+    firstName:'Shahariar',
+    class:10,
+    roll:27,
+    pass:null,
+    semester:{
+        mid:900,
+        fainal:null
+      },
+    passingrate: [
+        {
+         class: 6,
+         roll: 25, 
+         pass: true},
+         {
+         class: 7,
+         roll: 15, 
+         pass: true},
+         {
+         class: 8,
+         roll: 31, 
+         pass: true},
+         {
+         class:9,
+         roll: 27, 
+         pass: true}
+         
+
+    ],
+    currentdata : function(){
+        console.log(`Name ${this.firstName} Roll No : ${this.roll}`)
+        console.log(`Class ${ this.class} Mid Result ${this.semester.mid} Final Result ${this.semester.fainal}`)
+    
+    }
+}
+student.age=25
+student['address']='Puthia'
+
+
+let studentpass={
+     class:student.class,
+     roll:student.roll,
+     pass:student.pass
+ }
+
+
+ if(student.pass===true){
+ student.passingrate.push(studentpass)  
+ }
+ 
+student.currentdata()
+for(let r=0;r<student.passingrate.length;r++){
+console.log(`Class ${student.passingrate[r].class} Roll-->${student.passingrate[r].roll} Passing ${student.passingrate[r].pass}`)
+ }
+console.log('pass' in student)
+*/
+
+// const phone = [
+// {
+//     id:12,
+//  operatorname:'019xxxxxxxx',
+//  point:"90%"
+// },
+// {
+//     id:123,
+//  operatorname:'017xxxxxxxx',
+//  point:"100%"
+
+// },
+// {
+//     id:1234,
+//  operatorname:'018xxxxxxxx',
+//  point:"60%"
+// },
+// {
+//     id:12345,
+//  operatorname:'016xxxxxxxx',
+//  point:"30%"
+// },
+// ]
+
+// // semester:{
+// //         mid:900,
+// //         fainal:null
+// //       },
+// phone.forEach(element=>{
+//     if(element.id===123){
+//         console.log(`Operator name ${element.operatorname} point: ${element.point}`)
+//        }
+    
+// })
+
+// function Obj(word,word1){
+//     this.name=word
+//     this.pass=word1
+//     this.show=(gender)=>{
+//         console.log(this.name + this.pass+gender)
+//         }
+// }
+
+// let object1=new Obj('shahariar', '123456')
+
+//  object1.show( object1.name)
+
+//  console.log(Object.isPrototypeOf(object1))
+
+
+
+// function Person(c_name,c_team){
+//    // const person =Object.create(Person.prototype)
+//     this.name=c_name
+//     this.team=c_team
+//   //  return person
+// }
+// Object.prototype.checker=function(age){
+//     if(age>18){
+//         console.log('Person is a Adult')
+//     }
+//     else if(age<18 && age>10){
+//         console.log('Person is a Not Adult')
+//     }
+//     else if(age<10){
+//         console.log('Person is a Childen')
+//     }
+    
+//   }
+// Person.prototype={
+//     age:25,
+//     bat(c_name){
+//         console.log(`${c_name} is Batsman`)
+//     },
+//     boll(c_name){
+//         console.log(`${c_name} is Boller`)
+//     }
+//     ,
+//     allrounder(c_name){
+//         console.log(`${c_name} is All rounder`)
+//     }
+// }
+
+// Person.prototype.age=35
+
+
+// const sakib= new Person('Sakib','Bangladesh')
+// sakib.allrounder(sakib.name)
+// console.log(sakib.age)
+// const tamim= n=new Person('Tamim','Bangladesh')
+// // tamim.bat(tamim.name)
+
+// //class in Javascript 
+
+// class Persoon {
+//     constructor(name,age){
+//         this.name=name,
+//         this.age=age
+//     }
+//   player(){
+//     console.log(`${this.name} is a Cricketer,Her age is ${this.age}`)
+//   }
+// }
+// class Cricketer extends Persoon{
+//     constructor(name,age,country,type){
+//         super(name,age)
+//         this.country=country
+//         this.type=type
+//     }
+//     tpyeinfo(){
+//     console.log(`${this.name} is a ${this.country} Cricketer.Her age is ${this.age}.He is ${this.type}`)
+
+//     }
+//     player(){
+//         super.player()
+//        console.log(`Tamim is very good cricketer`)
+               
+//     }
+// }
+
+// let tamimk = new Cricketer('Tamim',35,'Bangladesh','Batsman')
+
+// tamimk.player()
+
+// tamimk.checker(9)
+
+
+
+
+
+// class CoffeeMachine {
+//   _waterAmount = 0;
+
+//   set waterAmount(value) {
+//     if (value < 0) {
+//       value = value;
+//     }
+//     this._waterAmount = value;
+//   }
+
+//   get waterAmount() {
+//     return this._waterAmount;
+//   }
+
+//   constructor(power) {
+//     this._power = power;
+//   }
+
+// }
+
+// // create the coffee machine
+// let coffeeMachine = new CoffeeMachine(100);
+
+// // add water
+// coffeeMachine.waterAmount = -10;
+// console.log(coffeeMachine._waterAmount)
+
+
+
+
+// Array.prototype.nan=function()  {
+//  console.log('Hello Bangladesh')
+// }  
+
+// const array =[4,58,28,96,23]
+// const array2=[1,2,5,6,8]
+// const nmae=['Shahariar','alom','sajal','bappy','ashik']
+// array.push(45)
+// console.log(array)
+// array.unshift(100)
+// console.log(array)
+
+// array.pop()
+// array.shift()
+// array.sort()
+// array.splice(1,1)
+// const newarray=array.slice(1,3)
+// let new2=array.concat(array2)
+
+// new2.forEach((i,index,arr)=>{
+   
+//     console.log(i)
+    
+// })
+
+
+// new2.indexOf(58,0)
+// console.log(nmae.indexOf('ashik')+" hi")
+
+// let resuldi=nmae.find((i,index)=>{
+//     if(index===2){
+//         return i
+//     }
+// })
+// //find return item value 
+
+// console.log(resuldi)
+// let con =nmae.filter((i,index)=>{
+//   if(index==0){
+//     return i
+//   }
+   
+// })
+// //filter return item array
+
+// console.log(con)
+
+// const para =['Hello','helln','jjjjj']
+
+// let lengths = [58, "Gandalf", "Nazgul"].map(item => item.length);
+// console.log(lengths);
+
+// // let bndh =para.split('')
+// // console.log(bndh)
+//  let njdj=para.join(',')
+//  console.log(njdj)
+// // bndh.forEach(i=>{
+// //     console.log(i)
+// // })
+
+
+//===========Not improtant====================\\
+
+// const array=[1,2,5,6,9,18,8,2]
+// const secondarray=[50,52,5,4,9,14,8,200]
+// let users = [                     // array of Object
+//   {id: 1, name: "John"},
+//   {id: 2, name: "Pete"},
+//   {id: 3, name: "Mary"}
+// ]
+
+// array.push(45)        // add item to the array as a last item
+// array.unshift(100)    // add item to the array as a first item
+// array.pop()          //remove last item in the array
+// array.shift()        //remove first item in the array
+
+
+// array.splice(2,1)     // splice are used delete item in the array 
+                    //'2' is a index number and '1' is how many item are delete
+
+
+// let oneItem = array.concat(secondarray) // Multiple array are join by useing concat
+                                       //[1, 2, 5, 6, 9, 18, 8, 2, 50, 52, 5, 4, 9, 14, 8, 200]
+
+
+// array.forEach((i,index,arr)=>{  // forEach like for loop get item one by one 
+//   console.log(i)
+// })
+
+
+// console.log(array.indexOf(8))//index number
+// console.log(array.lastIndexOf(3))//index conut only lest element 
+// console.log(array.includes(3))//all time return true or false
+
+
+// let oneItem=array.find(function(item,index,arr){  // Find method will take function and returns the first value of an array element that passes a test.
+//    // That function with three argument(item.index,array itself)check conditon and return array of object element 
+//    if(item===2){
+//        return item //return only one item at Time
+//    }
+// })
+
+// let oneItem=array.findIndex(function(index){// FindIndex method will take function and returns the first index of an array element that passes a test
+//     if(index>9){
+//         return index 
+//     }
+// })
+
+
+
+// let oneItem=users.filter(function(item,index,arr){// Filter method will take function and returns an array of all matching elements
+//       if(index>=1){
+//           return item //returns an array of all matching elements
+//       }
+// })
+
+// console.log(oneItem) 
+
+// let oneItem=array.map(function(item,index,arr){ //It calls the function for each element of the array and returns the array of results.
+//     return item*2 // The main array not effected
+// })
+// console.log(array)
+
+
+
+// let oneItem =array.sort(function(a,b){//sorts the array in place, changing its element order and return sort element
+//                                        // The main array effected by sort function
+//    return a-b
+// }) 
+// console.log(oneItem) // [1, 2, 2, 5, 6, 8, 9, 18]
+
+
+// let oneItem =array.sort(function(a,b){
+//     return b-a
+// }) 
+// console.log(oneItem)//[18, 9, 8, 6, 5, 2, 2, 1]
+
+
+// console.log(array) //[1,2,5,6,9,18,8,2]
+// console.log(array.reverse()) //[2, 8, 18, 9, 6, 5, 2, 1] The method arr.reverse reverses the order of elements in arr It also returns the array arr after the reversal
+
+
+// let name="My Name Is Rakibul Alom Rakib"    //It splits the string into an array by the given delimiter delim and return an array
+// //convert String to Array 
+// let oneItem =name.split(' ')//replace by 'space' 
+// console.log(oneItem) //['My', 'Name', 'Is', 'Rakibul', 'Alom', 'Rakib']
+
+
+// let string="VIVO"
+// let oneItem =string.split('')
+// console.log(oneItem)  // ['V', 'I', 'V', 'O']
+
+
+// let oneItem =array.join('- ') //The call arr.join(glue) does the reverse to split. It creates a string of arr items joined by glue between them
+// console.log(oneItem)       //1- 2- 5- 6- 9- 18- 8- 2
+
+
+// let oneItem =array.reduce(function(sum,currentdata){ //The methods arr.reduce and arr.reduceRight also belong to that breed, but are a little bit more intricate.
+//                                                        // They are used to calculate a single value based on the array
+//  return sum=sum+currentdata
+// },51)
+// console.log(oneItem)  //102
+
+
+// console.log(typeof {})// object
+// console.log(typeof [])// object
+
+// console.log(Array.isArray({}) ) //fasle
+// console.log(Array.isArray(users) ) //true
+
+//=============================================\\
+//==============Not Improtant 2================\\
+
+
+
+let string="Bangladesh"
+let string1="Small country"
+
+// let oneString=string.concat(' ',string1)
+
+console.log(string.replace(string,"red"))
+
+const rendon=['1','2','3','4','5','6']
+
+const rendom=Math.floor(Math.random()*rendon.length)
+console.log(rendon[rendom])
+
+console.log(string.charAt(1))//Access to the string letter
+
+// let substring = string.substr(1,8)//He take a two argument no 1 is starting point number and the length number
+//let substring = string.slice(1,8)
+
+// let substring = string.substring(1,8)
+let substring = string.search('a')
+
+console.log(substring)
+// ,'','dad mongo',"How to","how to make","how to creat","how to get" ,"how to fixed"
+const tag=[
+{
+    video:{
+       videoname:'How to',
+       videoUrl:'https://www.youtube.com/watch?v=2Hpet11EHrM',
+       videolength:'150 MB',
+       tags:['how to','make','coffe' ],
+      }
+   
+ },
+{
+   
+    video:{
+       videoname:'how to make a cup of tea',
+       videoUrl:'https://www.youtube.com/watch?v=2Hpet11EHrM',
+       videolength:'15 MB',
+       tags:['how to make','tea' ],
+       
+    }
+},
+{
+    video:{
+       videoname:'dad villa',
+       videoUrl:'https://www.youtube.com/watch?v=2Hpet11EHrM',
+       videolength:'110 MB',
+       tags:['how to','how to creat', ],
+       }
+},
+
+{
+    video:{
+       videoname:'how to creat a website',
+       videoUrl:'https://www.youtube.com/watch?v=2Hpet11EHrM',
+       videolength:'220 MB',
+       tags:['how to','website','creat' ],
+    }
+},
+{
+    video:{
+       videoname:'how to get a Domain and Hosting',
+       videoUrl:'https://www.youtube.com/watch?v=2Hpet11EHrM',
+       videolength:'22 MB',
+       tags:['how to ', 'get','domain and dosting' ],
+    }
+},
+
+]
+// let rentos;
+// let returnTag =tag.filter(item=>{
+//     item.video.tags.push(item.video.videoname)
+//   for(i in item.video.tags){
+//       let tagTostring=item.video.tags.join('')
+//       if(tagTostring.match('dad')){
+//         if(item.video.tags[i].match('dad')){
+//             return item.video 
+//         }
+     
+//    }
+      
+//   }
+// })
+ //console.log(returnTag)
+// returnTag.forEach(i=>{
+//      console.log(i.video)
+// })
+
+
+// let sen = 'abcdefghijklmnopqrstwxyz0123456789'
+
+// let fullsen=''
+
+// for(let k =0;k<sen.length;k++){
+//    let ra=Math.floor(Math.random()*sen.length) 
+//    fullsen+=sen.charAt(ra)
+// }
+// console.log(fullsen)
+
+let hello =[1,2,5,4,6,3]
+let hello1=[...hello]
+hello.push(9)
+console.log(hello1)
+
+localStorage.setItem('tagage',JSON.stringify(tag))
+let pas=JSON.parse(localStorage.getItem('tagage'))
+console.log(pas)
+ 
+    //  pas.forEach(i=>{
+    //      console.log(i.video.videoname)
+    //  })
+
+
+let returnTag =pas.filter(item=>{
+    item.video.tags.push(item.video.videoname)
+  for(i in item.video.tags){
+      let tagTostring=item.video.tags.join('')
+      if(tagTostring.match('dad')){
+        if(item.video.tags[i].match('dad')){
+            return item.video 
+        }
+     
+   }
+      
+  }
+})
+returnTag.forEach(i=>{
+     console.log(i.video)
+})
+
+
+
+let ago =[]
+let creat = new Date()
+localStorage.setItem('time',creat)
+
+
+let mid='Singlequotes and are double quotes are practically thesame and you can use either of them.Backticks are generally used when you need to include variables or expressions into a string. This is done by wrapping variables or expressions with'
+
+let bbb =mid.match('are')
+
+console.log(bbb)
+if(mid.length>200){
+    let hi =mid.slice(0,201)
+    console.log(hi+'...')
+}
+let buto= true  //false//true
+if(buto){
+    console.log(mid)
+ }
+else{
+    if(mid.length>200){
+    let hi =mid.slice(0,201)
+    console.log(hi+'...')
+}
+}
+
+
+
+
+
+//=============================================\\
+</script>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First</title>
+    <style>
+        table, th, td {
+          border:1px solid black;
+          text-align: left;
+        }
+        </style>
+</head>
+<body>
+
+    <div class="schooldel">
+          <div class="studentditail">
+              <form id="from">
+                 <input id="name" type="text" placeholder="Student name" name="name">
+                 <input id="roll" type="text" placeholder="Roll" name="roll">
+                 <select id="class"  name="class">
+                     <option  value="null">Select class</option>
+                     <option  value="10">10</option>
+                     <option  value="9">9</option>
+                     <option  value="8">8</option>
+                     <option  value="7">7</option>
+                     <option   value="6">6</option>
+                 </select>
+                    <input  type="submit" value="submit">
+                    <input id="btn" type="button" value="Update">
+                </form>
+          </div>
+    </div>
+    <div class="student">
+       <h1>
+         <span style="color: red;">Dirty</span>  Students list
+       </h1>
+       <div>
+            <table style="width: 600px;">
+                <tr>
+                    
+                    <th>Class</th>
+                    <th>Name</th> 
+                    <th>Roll</th>
+                    <th>Delete</th>
+                    <th>Update</th>
+                </tr>
+                <tbody id="tbody">
+                    
+                </tbody>
+                
+            </table> 
+       </div>
+    </div>
+
+<script>
+    
+        window.onload = function() {
+            show()
+   
+        }; 
+    
+        let student=[]
+        let idss=0
+        let from=document.getElementById('from')
+        
+        from.addEventListener('submit',function(e){
+            
+            let elemest =from.elements;
+            let studentsdetail={};
+            [...elemest].forEach(ele=>{ 
+              if(ele.type !== 'submit'){
+                studentsdetail[ele.name]=ele.value
+                  
+                } 
+           
+            })
+             add(studentsdetail)
+       
+        })
+   
+        function add(studentsdetail){
+        let studentdata =JSON.parse(localStorage.getItem('student'))
+        if(studentdata==null){
+            student=[]
+         }
+        else{
+            student=studentdata
+         }
+         studentsdetail.id=student.length 
+         student.push(studentsdetail) 
+        localStorage.setItem('student',JSON.stringify(student))
+         }
+        function show(){
+
+        let showdata =JSON.parse(localStorage.getItem('student'))
+        let tbody=document.getElementById('tbody')
+        showdata.forEach((element,inds)=>{
+            let tr=document.createElement('tr')
+              tr.innerHTML=`<td>${element.class}</td>
+                           <td>${element.name}</td> 
+                           <td id='download'>${element.roll} id:${element.id}) </td>
+                           <td> <a onClick="delelet(this,${element.id})">Delete</a> </td>
+                           <td> <a onClick="updata(${element.id})">Updata</a> </td>
+                        `
+                     
+                         tbody.append(tr)
+
+                   })
+  
+        }
+
+    function delelet(td,indexs){
+        if(confirm('Are you sure ?')){
+      let Td = td.parentElement.parentElement
+      let datadelait =JSON.parse(localStorage.getItem('student'))
+       datadelait.forEach(function(values,index){
+        if(indexs==values.id){
+            console.log(`giveng id ${indexs} dataid ${values.id} arrayI ${index}`)
+            datadelait.splice(index,1)
+            localStorage.setItem('student',JSON.stringify(datadelait))
+            Td.remove()
+        }
+        })
+     }
+    }
+
+    function updata(indexs){
+        let updatavalue =JSON.parse(localStorage.getItem('student'))
+        let s_btn=document.getElementById('btn')
+        let s_name=document.getElementById('name')
+        let s_roll=document.getElementById('roll')
+        let s_class=document.getElementById('class')
+        updatavalue.forEach(function(values,indx){
+            if(indexs==values.id){
+                s_name.value =values.name 
+                s_roll.value =values.roll
+                s_class.value =values.class 
+                console.log(values.id)
+               
+                s_btn.addEventListener('click',function(ex){
+                    let updateopton={
+                    name:s_name.value,
+                    roll:s_roll.value,
+                    class: s_class.value,
+                    id:indexs
+                    }
+                    updatavalue[indx]=updateopton
+                    console.log(updateopton)
+                    localStorage.setItem('student',JSON.stringify(updatavalue))
+                    window.location.reload(true);
+                })
+              
+           
+             }
+        })
+       
+       
+    }
+
+    function allupdate(all){
+
+    }
+
+
+
+
+
+
+    //    datadelait.splice(sort,1)
+    //    localStorage.setItem('student',JSON.stringify(datadelait))
+    //    Td.remove()
+    // if(indexs==values.id){
+    //           console.log(`giveng id ${indexs} dataid ${indexs}`  
+    //       }
+      
+      
+    
+       
+                  
+   
+ 
+        //    function make (nam,rol,cls)  {
+           
+
+        //       let creatfile='nam'+'.txt'
+             
+        //        a.href = URL.createObjectURL(blob); 
+        //        a.setAttribute('download',creatfile);
+        //    }
+
+/*
+let creatfile='file'+'.txt'
+     let blob = new Blob([[element.name,element.roll,element.class], {type: 'text/plain'});
+     link.href = URL.createObjectURL(blob);
+     link.setAttribute('download',creatfile);
+
+
+      
+*/
+
+//         function inputs(){
+//   let file=document.getElementById('file').value
+//   let valu=document.getElementById('valu').value
+//      let creatfile=file+'.txt'
+//      let blob = new Blob([valu], {type: 'text/plain'});
+//      link.href = URL.createObjectURL(blob);
+//      link.setAttribute('download',creatfile);
+//     }
+</script>
+</body>
+</html>

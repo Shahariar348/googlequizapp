@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> <%= tital %></title>
+    <link rel="stylesheet" href="../public/css/blooddonorlist.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+</head>
+<body>
+   <header class="headers">
+        <div class="logos">
+            <img src="../public/images/p3.png">
+            <h3>Blood Donote</h3>
+        </div>
+        <div class="navber">
+            <nav>
+                <ul>
+                    <li><a href="/blood/home" class="color">Home</a></li>
+                    <li><a href="/blood/donorlist">Donor list</a></li>
+                    <li><a href="/blood/creatnewdonor">Donote</a></li>
+                    <li><a href="/blood/contectus">Contect</a></li>
+                    <li><a href="/blood/aboutus">About us</a></li>
+                </ul>
+            </nav>
+        </div>
+   </header>
+ <main>
+    <div class="donor-form">
+        <% for(let u of c) { %> 
+        <div class="donor-list">
+            <div class="card">
+                 <div class="card-img">
+                         <img src=" <%= u.img.nm %>" alt="Avatar" style="width:100%" height="100%">
+                 </div>
+          <div class="donor-info">
+                    <h4><%= u.name %></h4>
+            <div class="donor-info-list">
+                  <p >Blood Group : <b> <%= u.bloodgroup%></b></p>
+                  <p >phone : <%= u.phone %></p>
+                  <p >email : <%= u.email %></p>
+                  <ul>
+                    <li>  <a class="button" href="/blood/<%= u.id %>  "  >More information</a></li>
+                </ul>
+                </div>
+           </div>
+       </div>
+    </div>
+<% } %> 
+</div>
+</main>
+</body>
+</html>

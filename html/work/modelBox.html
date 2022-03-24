@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Box</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">Open modal for @getbootstrap</button>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-ml" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">New Form</h5>
+          </div>
+          <div class="modal-body">
+            <form id="modelform">
+            <div class="form-group">
+                <label for="recipient-name" class="col-form-label">Name:</label>
+                <input type="text" class="form-control" id="recipient-name">
+                <div class="" id="vai">
+                   
+                </div>
+            </div>
+              <div class="form-group">
+                <label for="recipient-email" class="col-form-label">Email:</label>
+                <input type="text" class="form-control" id="recipient-email">
+                <div class="" id="vai1">
+                   
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button"  id="btn" class="btn btn-primary">Send message</button>
+                  </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button"  id="btn" class="btn btn-primary">Send message</button>
+          </div>
+        </div>
+      </div>
+    </div>
+   <script>
+       const form=document.getElementById("modelform")
+   
+        const btn=document.getElementById("btn")
+         btn.onclick=()=>{
+             namevali(form[0].value)
+             emailvali(form[1].value)
+            //  form.reset()
+         }
+       
+   function namevali(name){
+       let div=document.getElementById("vai")
+          if(name==""){
+            invalid(form[0],div,"Fill Name")
+            }
+          else{
+            valid(form[0],div,"Good")
+           }
+
+   }
+   function emailvali(email){
+    let div=document.getElementById("vai1")
+          if(email==""){
+            invalid(form[1],div,"Fill Email")
+            }
+          else{
+            valid(form[1],div,"Good")
+           }
+
+   }
+   function valid(value,divvalue,text){
+    value.classList.add("is-valid")
+    value.classList.remove("is-invalid")
+    divvalue.classList='valid-feedback'
+    divvalue.innerHTML=`<p>${text}...</p>`
+   }
+   function invalid(value,divvalue,text){
+    value.classList.add("is-invalid")
+    value.classList.remove("is-valid")
+    divvalue.classList='invalid-feedback'
+    divvalue.innerHTML=`<p>${text}...</p>`
+   }
+   </script> 
+</body>
+</html>

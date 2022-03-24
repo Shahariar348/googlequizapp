@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Picker</title>
+    <style>
+         #showme{
+            z-index: 10; 
+            transition: 5s;
+         }
+         #timepicker{
+             display: flex;
+             width:160px;
+             height: 285px;
+             z-index: 10;
+             background-color:  rgb(3, 25, 44);
+            box-shadow: 2px 2px 2px   rgb(3, 25, 44);
+            margin-top: 1px;
+         }
+         #settime{
+            width:70px;
+            padding: 5px;
+            outline: none;
+            font-weight: lighter;
+         }
+         #timepicker  #timehour,#timemint,#timeampm{
+            width:40px;
+            margin-left: 10px;
+         
+         }
+         #timehour ,#timemint{
+            height: 280px;
+            scroll-behavior: smooth;
+            overflow-y: auto;
+         }
+         .highlight{
+            background-color: aqua;
+            color: black;
+        }
+         #timehour p,#timemint p,#timeampm p{
+             width:30px;
+             height: 20px;
+             text-align: center;
+             border: 2px solid   aqua;;
+             padding-top: 5px;
+             color: orangered; 
+             font-weight: bold;
+         }
+         #timeampm p{
+            padding-right: 2px;
+         }
+      
+         #timehour::-webkit-scrollbar {
+            display: none;
+          }
+          #timemint::-webkit-scrollbar {
+            display: none;
+          }
+    </style>
+</head>
+<body>
+<input id="settime" readonly  type="text" placeholder="-- : -- --" data-toggle-id="showme" pattern="[0-9]{2}:[0-9]{2}">
+<div id="showme" hidden>
+    <div id="timepicker">
+        <div  id="timehour"></div>
+        <div id="timemint"></div>
+        <div id="timeampm">
+            <p>Am</p>
+            <p>Pm</p>
+        </div>
+    </div>
+</div>
+<!-- Input calender and time -->
+<div>
+<input type="date" id="birthdaytime" name="birthdaytime">
+<input type="time" id="time" name="time">
+<input type="button" id="btn" name="btn" onclick="show()" value="Submit" data-toggle-id="showme">
+</div>
+
+<script>
+let div =document.getElementById('timehour')
+for(let i=1;i<13;i++){
+   let p =document.createElement("p")
+   let pappend=(i<10) ? p.innerHTML=`0${0+i}`: p.innerHTML=`${i}`
+   div.append(p)
+}
+let div1 =document.getElementById('timemint')
+for(let j=0;j<60;j++){
+   let p =document.createElement("p")
+   let pappend=(j<10) ? p.innerHTML=`0${0+j}`: p.innerHTML=`${j}`
+   div1.append(p)
+}
+let timeinput=document.getElementById('settime')
+        timeinput.onclick=function(eventlisterners){
+            let taggleId=eventlisterners.target.dataset.toggleId
+               let hiddenElement=document.getElementById(taggleId)
+                hiddenElement.hidden =!hiddenElement.hidden
+}
+
+  let date =new Date()     
+  let hours = date.getHours() 
+  let minutes = date.getMinutes();    
+  const ampm = hours >= 12 ? 'Pm' : 'Am';
+
+  hours %= 12;
+  hours = hours || 12;    
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  let hourcal=hours <10 ?`0${hours}` : hours;
+        let mincal=minutes;
+        let amOrpm=ampm;
+
+   let hourdiv=document.getElementById('timehour')//timemint,timeampm
+   let hourpicker=hourdiv.querySelectorAll("p") 
+       hourpicker.forEach((picker)=>{
+          
+           picker.onclick=function(pickerevent){
+             let hour=pickerevent.target.innerText
+                highlight0(pickerevent.target)
+                 hourcal=hour
+                timeinput.value=`${hourcal} : ${mincal} ${amOrpm} `
+               }
+           
+})
+
+
+   let mindiv=document.getElementById('timemint')//timemint,timeampm
+   let minpicker=mindiv.querySelectorAll("p")
+      
+       minpicker.forEach((picker)=>{
+          
+           picker.onclick=function(pickerevent){
+             let min=pickerevent.target.innerText
+             highlight1(pickerevent.target)
+                 mincal=min
+             timeinput.value=`${hourcal} : ${mincal} ${amOrpm} `
+               }
+           
+})
+
+     let ampmdiv=document.getElementById('timeampm')//timemint,timeampm appt-time
+     let ampmdivpicker=ampmdiv.querySelectorAll("p")
+     ampmdivpicker.forEach((picker)=>{
+           picker.onclick=function(pickerevent){
+            let ampm=pickerevent.target.innerText
+            amOrpm=ampm
+            highlight2(pickerevent.target)
+            timeinput.value=`${hourcal} : ${mincal} ${amOrpm} `
+             }
+           
+})     
+
+let selectedTd;
+function highlight0(td) {
+  if (selectedTd) { // remove the existing highlight if any
+    selectedTd.classList.remove('highlight');
+  }
+  selectedTd = td;
+  selectedTd.classList.add('highlight'); // highlight the new td
+}
+let selectedTd1;
+function highlight1(td) {
+  if (selectedTd1) { // remove the existing highlight if any
+    selectedTd1.classList.remove('highlight');
+  }
+  selectedTd1 = td;
+  selectedTd1.classList.add('highlight'); // highlight the new td
+}
+let selectedTd2;      
+function highlight2(td) {
+  if (selectedTd2) { // remove the existing highlight if any
+    selectedTd2.classList.remove('highlight');
+  }
+  selectedTd2 = td;
+  selectedTd2.classList.add('highlight'); // highlight the new td
+}
+
+
+// <!-- Input calender and time Javascript-->
+function show(){
+    let dateyear=document.getElementById('birthdaytime')
+    let timeis=document.getElementById('time')
+    
+    let [month, date, year] = new Date().toLocaleDateString("en-US").split("/");
+  //   let [hour12, minute12, second12] = timeis.value
+  //  .toLocaleTimeString("en-US")
+  //  .split(/:| /);
+     let [currentYear, currentMonth,currentDay]=dateyear.value.split("-")
+     let [currentHour, currentMin]=timeis.value.split(":")
+      console.log(currentYear+"-"+currentMonth+"-"+currentDay)
+
+  let hours = currentHour
+  let minutes = currentMin   
+  const ampm = hours >= 12 ? 'Pm' : 'Am';
+
+  hours %= 12;
+  hours = hours || 12;    
+  minutes = minutes < 10 ? `0${minutes}` : minutes;
+  const strTime = `${hours}:${minutes} ${ampm}`;
+  console.log(strTime)
+
+}
+
+</script>
+</body>
+</html>

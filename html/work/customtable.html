@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Table</title>
+    <style>
+        table, th, td {
+        border:1px solid black;
+        width: 800px;
+        text-align: justify;
+      
+         }
+          td{
+             padding: 5px;
+         }
+        
+</style>
+
+</head>
+<body>
+<form id="form">
+
+    <input type="text" id="name" name="name" placeholder="Name "style="width: 200px; height: 25px; font-size: 15px; margin-bottom: 10px;"> 
+    <br>
+    <input type="text" id="email" name="email" placeholder="Email" style="width: 200px; height: 25px;  font-size: 15px; margin-bottom: 10px;"> 
+    <br>
+    <input type="text" id="position" name="position" placeholder="Position " style="width: 200px; height: 25px;  font-size: 15px; margin-bottom: 10px;"> 
+    <br>
+    <input type="text" id="salary" name="salary" placeholder="Salary" style="width: 200px; height: 25px; font-size: 15px; margin-bottom: 10px; "> 
+    <br>
+    <input type="submit" id="btn" value="Add Data" style="width: 205px; height: 33px; font-size: 22px;" >
+    <input type="text" id="id" name="id" placeholder="id" hidden> 
+
+</form>
+<input type="date" id="birthdaytime" name="birthdaytime">
+<button onclick="persent()">Persent Submit</button>
+<input type="button" id="btn" name="btn" onclick="show()" value="Submit" data-toggle-id="showme">
+<input type="button" id="btn1" name="btn" onclick="workingchecker()" value="Working Checker" >
+<div style="margin-top: 10px;">
+    <table id="myTable">
+        <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Positon</th>
+                <th>Salary</th> 
+                <th>Delete oR Edit</th> 
+                <th>Check</th>
+        </thead>
+        <tbody>
+            <tr >
+                <td>Ashik Islam</td>
+                <td>ashikislam@gamil.com</td>
+                <td>Backend Developer</td>
+                <td>20,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" onclick="edit(this)" value="Edit">
+                </td>
+                <td><input id="checkbox" type="checkbox"><snap>Attend</snap> </td>
+              
+            </tr>
+            <tr >
+                <td>Shabbir</td>
+                <td>Shabbir@gamil.com</td>
+                <td>Backend Developer</td>
+                <td>20,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" onclick="edit(this)" value="Edit">
+                </td>
+                <td><input id="checkbox" type="checkbox" onclick="myFunction(this)"><snap>Attend</snap> </td>
+               
+            </tr>
+            <tr >
+                <td>Ashik</td>
+                <td>ashik@gamil.com</td>
+                <td>Font-in-Developer</td>
+                <td>10,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" onclick="edit(this)" value="Edit">
+                </td> 
+                <td><input id="checkbox" type="checkbox" onclick="myFunction(this)"><snap>Attend</snap> </td>
+            
+            </tr>
+            <tr>
+                <td>Nayem</td>
+                <td>nayem@gamil.com</td>
+                <td>Font-in-Developer</td>
+                <td>8,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" onclick="edit(this)" value="Edit">
+                </td> 
+                <td><input id="checkbox" type="checkbox" onclick="myFunction(this)"><snap>Attend</snap> </td>
+            </tr>
+            <tr>
+                <td>Shakibul</td>
+                <td>shakibul@gamil.com</td>
+                <td>Project Manager</td>
+                <td>25,000</td>
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" onclick="edit(this)" value="Edit">
+                </td> 
+                <td><input id="checkbox" type="checkbox" onclick="myFunction(this)"><snap>Attend</snap> </td>
+              
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+
+<!-- <a download="https://image.shutterstock.com/image-vector/beautiful-village-farmlands-trees-meadows-260nw-718204132.jpg" href='#' id="link">Download</a> -->
+<script>
+     let userarray=[]
+     let form =document.getElementById('form')
+     let table =document.getElementById('myTable')
+      form.addEventListener('submit',function(event){
+          event.preventDefault();
+          let userinfo={};
+           [...this].forEach(element=>{
+               if(element.value ==='adddata'){
+                    if(element.type !== 'submit'){
+                       userinfo[element.name]=element.value
+                       }
+                }
+                else{
+                     if(element.type !== 'submit'){
+                          userinfo[element.name]=element.value
+                         
+                         }
+                     
+                  }
+            
+            }) 
+              
+             saveuser(userinfo)
+            form.reset()      
+          })
+
+
+    function saveuser(s_user){
+        if(s_user.id){
+            updateuser(s_user,s_user.id)
+         }
+         else{
+            adduser(s_user) 
+           
+         }
+        
+    }
+
+
+  function adduser(userinfos){
+     let tablebody =table.tBodies.item(0)
+          let rowsd=tablebody.insertRow(0)
+         
+                  let cell1=rowsd.insertCell(0).innerText=userinfos.name
+                  let cell2=rowsd.insertCell(1).innerText=userinfos.email
+                  let cell3 = rowsd.insertCell(2).innerText=userinfos.position
+                  let cell4 = rowsd.insertCell(3).innerText=userinfos.salary
+                  let cell5 = rowsd.insertCell(4).innerHTML=`<input type="button" onclick='deletes(this)' value="Delete">
+                  <input type="button" onclick="edit(this)" value="Edit">`
+
+                  let cell6 = rowsd.insertCell(5).innerHTML=` <td><input id="checkbox" type="checkbox" onclick="myFunction(this)"><snap>Attend</snap> </td> `
+                   let showuser=JSON.parse(localStorage.getItem("user")) 
+                     if(showuser==null){
+                        userarray=[]
+                      }
+                      else{
+                          userarray=showuser
+                        
+                       }
+                        userinfos.working=[]
+                        userinfos.salarypaning=[]
+                        userarray.push(userinfos)
+                  localStorage.setItem('user',JSON.stringify(userarray))
+                }
+ 
+  function deletes(tr){
+      let deleterows=tr.parentElement.parentElement.rowIndex
+       table.deleteRow(deleterows) 
+  }
+
+  function edit(str){
+    let rowid=str.parentElement.parentElement.rowIndex
+     let selectdata=str.parentElement.parentElement
+          form[0].value=selectdata.cells[0].innerText
+          form[1].value=selectdata.cells[1].innerText
+          form[2].value=selectdata.cells[2].innerText
+          form[3].value=selectdata.cells[3].innerText
+          form[4].value='Upgrade'
+          form[5].value=rowid
+                    
+  }
+  function updateuser(userin,id){
+      let row1=table.rows[id].cells[0].innerText=userin.name
+      let row2=table.rows[id].cells[1].innerText=userin.email
+      let row3=table.rows[id].cells[2].innerText=userin.position
+      let row4=table.rows[id].cells[3].innerText=userin.salary
+      form[4].value='Add Data'
+                  
+  }
+//   let checkbox=document.querySelectorAll('checkbox')
+    
+// function myFunction(rowsid){
+
+//     var checkBox = document.getElementById("checkbox");
+//     let selectdata=rowsid.parentElement.parentElement
+//     var time = document.getElementById("appt");
+ 
+//           if (checkBox.checked == true){
+//             //  let time =new Date()
+//              console.log(selectdata.cells[0].innerText)
+//              console.log(time.value)
+//             }
+//        else{
+//            console.log("selectdata.cells[0].innerText")
+//            }
+// }
+
+function show(){
+   
+    let monthname=["","January","february","march","april","may","june","july","august","september","october","november","december"]
+    let dateyear=document.getElementById('birthdaytime')
+     let [currentYear, currentMonth,currentDay]=dateyear.value.split("-")
+     // console.log
+     let currentdate=`${currentYear} - ${currentMonth} - ${currentDay}`
+     
+     
+      monthname.forEach((month,index)=>{
+          if(index==parseInt(currentMonth)){
+           let userinfoadd=JSON.parse(localStorage.getItem("user"))
+           let monthNameis=monthname[currentMonth] 
+           userinfoadd.forEach(nameid=>{
+           if(monthNameis==monthNameis && nameid.name=="Ashik Islam"){//november is set date
+                let workingHour={
+                    name:nameid.name,
+                    mname:monthNameis,
+                    date:currentdate,
+                    appsend:" "||"A",
+                    persent:"P"
+                } 
+                   let ture1=nameid.working.filter(dateis=>{
+                        if(dateis.date==currentdate){
+                            return true
+                        }
+                        else{
+                            return false
+                        }
+                      
+                    })
+                    if(ture1==true){
+                      console.log("Sorry")
+                    }
+                    else{
+                        nameid.working.push(workingHour)
+                    }
+            localStorage.setItem('user',JSON.stringify(userinfoadd))
+              console.log(nameid)
+          }
+          else{
+            console.log(userinfoadd)
+              }
+           })
+        }
+  
+    })
+         
+       
+  
+}
+ function workingchecker(){
+    let userinfoshow=JSON.parse(localStorage.getItem("user"))
+      userinfoshow.forEach(shoe=>{
+         shoe.working.forEach((elemt)=>{
+          if(elemt.mname=="december" && elemt.name=="Shabbir"){
+              console.log(elemt)
+           }
+       
+        })
+       
+      })
+    
+
+ }  
+
+  function calculatesalary(){
+    let userinfoshow=JSON.parse(localStorage.getItem("user"))
+    userinfoshow.forEach(shoe=>{
+        let salary = shoe.working.map((elemt)=>{
+          if(elemt.mname=="december" && elemt.name=="Shabbir"){
+               return elemt.persent  
+           }
+       
+        })
+        let sum =0;
+         let totals;
+    for(let s=0;s<salary.length;s++){
+           if(salary[s]=="P"){
+             sum +=200
+             totals=sum
+           }
+          
+      
+    }
+    console.log(totals)
+       
+      })
+  }
+ calculatesalary()
+  
+  function myFunction(td){
+      let trid=td.parentElement.parentElement.rowIndex
+      let tr=td.parentElement.parentElement
+       
+       
+  }
+
+function persent(){
+    let checher=document.querySelectorAll("#checkbox")
+     for(check of checher){
+    
+//  ==============================================================================
+     let trid=check.parentElement.parentElement.rowIndex
+      let tr=check.parentElement.parentElement
+      let empolyname= table.rows[trid].cells[0].innerText
+
+      console.log(empolyname)
+    let monthname=["","January","february","march","april","may","june","july","august","september","october","november","december"]
+    let dateyear=document.getElementById('birthdaytime')
+     let [currentYear, currentMonth,currentDay]=dateyear.value.split("-")
+     // console.log
+     let currentdate=`${currentYear} - ${currentMonth} - ${currentDay}`
+     
+     
+      monthname.forEach((month,index)=>{
+          if(index==parseInt(currentMonth)){
+           let userinfoadd=JSON.parse(localStorage.getItem("user"))
+           let monthNameis=monthname[currentMonth] 
+           userinfoadd.forEach(nameid=>{
+           if(monthNameis==monthNameis && nameid.name==empolyname){//november is set date
+                let workingHour={
+                    name:nameid.name,
+                    mname:monthNameis,
+                    date:currentdate,
+                    persent: check.checked ? "P" : "A" 
+                } 
+                   let ture1=nameid.working.filter(dateis=>{
+                        if(dateis.date == null || dateis.date==currentdate){
+                            console.log(dateis.date)
+                            return true
+                        }
+                        else{
+                            console.log("f2")
+                            return false
+                        }
+                      
+                    })
+                    if(ture1==false){
+                        nameid.working.push(workingHour)
+                     
+                    }
+                    else{
+                        console.log("Sorry")
+                    }
+            localStorage.setItem('user',JSON.stringify(userinfoadd))
+              console.log(nameid)
+          }
+          else{
+                 console.log("userinfoadd")
+              }
+           })
+        }
+  
+    })
+         
+//===================================================================================         console.log(check)
+   
+ }  
+}  
+  let renId=""
+function rendomId(){
+    let settext="123456789"
+    for(let jb=0;jb<settext.length;jb++){
+    let company=Math.floor(Math.random()*settext.length)
+        
+        renId +=`${settext.charAt(company)}`
+ 
+      
+       
+    }
+  
+    return renId
+}
+let divide = rendomId()
+
+let f1=divide.slice(0,3)
+let f2=divide.slice(3,6)
+let f3=divide.slice(6,10)
+
+let mainidv=`JB-${f1}-${f2}-${f3}`
+console.log(mainidv)
+
+//let mainID=`JB-${rendomId(01234567)}`
+//console.log(mainID)
+
+/*
+function Duesalary(){
+    let monthname=["","January","february","march","april","may","june","july","august","september","october","november","december"]
+    let dateyear=document.getElementById('birthdaytime')
+    let [currentYear, currentMonth,currentDay]=dateyear.value.split("-")
+    let currentdate=`${currentYear} - ${currentMonth} - ${currentDay}`
+    monthname.forEach((month,index)=>{
+          if(index==parseInt(currentMonth)){
+           let userinfoadd=JSON.parse(localStorage.getItem("user"))
+           let monthNameis=monthname[currentMonth] 
+           userinfoadd.forEach(nameid=>{
+           if(monthNameis==monthNameis && nameid.name==empolyname){//november is set date
+                let workingHour={
+                    name:nameid.name,
+                    mname:monthNameis,
+                    date:currentdate,
+                    persent: check.checked ? "P" : "D" 
+                } 
+                   let ture1=nameid.working.filter(dateis=>{
+                        if(dateis.date == null || dateis.date==currentdate){
+                            return true
+                        }
+                        else{
+                            return false
+                        }
+                      
+                    })
+                    if(ture1==false){
+                        nameid.salarypaning.push(workingHour)
+                     
+                    }
+                    else{
+                        console.log("Sorry")
+                    }
+            localStorage.setItem('user',JSON.stringify(userinfoadd))
+              console.log(nameid)
+          }
+          else{
+                 console.log("userinfoadd")
+              }
+           })
+        }
+  
+    })
+}
+*/
+
+
+</script>
+</body>
+
+ <!-- improtant think  -->
+
+</html>

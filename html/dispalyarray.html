@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dispaly</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="brithday.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   
+</head>
+
+<body>
+  <script type="module" src="datas.js"></script>
+<style>
+       .leftbar{
+        width:40%;
+        height: 50%;
+       }
+       .leftbar img{
+         width: 100px;
+         height: 100px;
+       }
+       .leftbar span{
+         font-size: 36px;
+         height: 50%;
+         width:50%;
+        
+       }
+      
+       .Rightbar .unoderlist li{
+            display: block;
+            float: right;
+            margin-right: 150px;
+            width: 100px;
+            height: 50px;
+            cursor: pointer;
+            text-align: center;
+            padding-top: 15px;
+            border-radius: 20px;
+            font-size: 21px;
+
+       }
+       .center{
+         text-align: center;
+         width: 100%;
+         height: 80vh;
+         border: 1px solid black;
+       }
+       .question{
+        text-align: center;
+        width: 500px;
+        height: auto;
+        margin-left: 500px;
+        border: 1px solid black;
+       }
+     
+
+</style>
+     
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Dropdown
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+    </div>
+  </nav>
+
+<div class="center">
+  <div class="question">
+    <h1 id="question1"></h1>
+    <small id="count"></small>
+    <br>
+    <ul id="addopt">
+      
+    </ul>
+    <button id="btn" class="btn btn-success" type="submit">submit</button>
+  </div>
+  <div id="sore">
+    <h3 id="errro"></h3>
+         <h1 id="score"></h1>
+        <h3 id="finish"></h3>
+      
+  </div>
+</div>
+   <script>
+ 
+      
+
+
+        // let firstnode=document.body.children[document.body.children.length-2].children
+        // console.log(firstnode)
+     
+   
+
+//       let username=[]
+//       let value=document.getElementById('input')
+//        value.addEventListener('change',function(){
+        
+     
+//         username.push(value.value)
+//             add()
+    
+           
+      
+//        })
+
+//      function add(){
+//    let div= document.getElementById('ul')
+//      let vai=``
+//          for(let i=0 ; i<username.length;i++){
+//             vai +=`<li  onclick="deleteTasks(${i})">  ${username[i]} </li>`
+//             div.innerHTML=vai
+//             console.log(vai)
+//             value.value=''
+//            }
+      
+//      }
+
+     
+//        function deleteTasks(deled){
+//         username.splice(deled,1)
+//         if(username.length==0){
+//             console.log(username.length)
+//             let div= document.getElementById('ul')
+//              div.lastChild.remove()
+           
+//          }
+//         else{
+//             add()
+//         }        
+            
+//         }
+// let name=document.getElementById('name')
+// // let email=document.getElementById('email')
+// // let age=document.getElementById('age')
+// const myObject={
+//      name:'Shahria',
+//      email:'abc@gamil.com',
+//      age:25
+// }
+//  name.innerText=`Name is ${myObject.name} \n Email is  ${myObject.email} \n Age is ${myObject.age}`
+ 
+
+</script>
+</body>
+</html>

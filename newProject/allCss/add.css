@@ -1,0 +1,17 @@
+.firstmodel{
+    padding-top: 100px;
+}
+.secondModel{
+    padding-top: 40px;
+}
+.secondModel .row12nd{
+    padding-top: 20px;
+}
+.secondModel .row13rd{
+    padding-top: 20px;
+    overflow-x: auto;
+}
+
+#modelform .form-group .input-group input{
+   width: 200px;
+}

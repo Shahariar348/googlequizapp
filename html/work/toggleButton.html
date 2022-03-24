@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toggle System</title>
+</head>
+<body>
+    <button id="btn" data-toggle-id="box"> toggle button </button>
+
+    <div id="box" hidden style="overflow: hidden; width: 300px; height: 200px; border: 2px solid red; margin-top: 10px; padding:5px;">
+         <h1>Bangladesh</h1>
+         <p>constitutional name of Bangladesh is the People's Republic of Bangladesh . Geopolitically, Bangladesh is bounded on the west by West Bengal of India , on the north by West Bengal, Assam and Meghalaya , on the eastern border by Assam .</p>
+    </div>
+
+    <script>
+        const togglebutton=document.getElementById('btn')
+        togglebutton.addEventListener('click',function(event){
+             let toggleid=event.target.dataset.toggleId
+             let showdiv=document.getElementById(toggleid)
+             showdiv.hidden =!showdiv.hidden
+        })
+    </script>
+</body>
+</html>

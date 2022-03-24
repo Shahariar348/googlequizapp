@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        .contain{
+            position: absolute;
+            width: 1240px;
+            height: 90vh;
+           
+        }
+        .contain2{
+            width: 500px;
+            margin-left: 400px;
+            margin-top: 100px;
+
+        }
+    </style>
+    <div class="contain">
+        <div class="contain2">
+            <strong id="ic"></strong>
+            <form id="form">
+                <input id="ia" type="text" name='username' placeholder="User Name">
+                <input id="ib" type ="password" name='password' placeholder="password">
+              <input id="sub" type="button" value="log in">
+              </form>
+              <strong id="id"></strong>
+        </div>
+    </div>
+   
+</body>
+<script>
+    
+    const sub=document.getElementById('sub')
+    sub.addEventListener('click',function(e){
+      e.preventDefault()
+      let name=document.getElementById('ia').value
+      let password=document.getElementById('ib').value
+      const data=localStorage.getItem('singup')
+      let objdata=JSON.parse(data)
+     
+       if(name==objdata.name && password ==objdata.password){
+        document.getElementById('ic').innerText=`
+        Log in successfully
+        Mr.${objdata.name} Welcome to  homePage`
+       }
+    
+       else{
+           alert('Sorry your name and pass incorret')
+       }
+    })
+
+
+//  let obj={
+
+//  }
+// obj.name=function(){
+//    console.log(' My anme is sayed')
+// }
+
+// obj.name()
+ 
+// let obj={
+//     name:'sayed',
+//     age:24
+// }
+// console.log(`${obj.name} age ${obj.age}`)
+
+// let obj=new Object()
+// obj.name="Sayed"
+// console.log(obj.name)
+let ages=45
+
+const age=13<ages?console.log('adult') : console.log('child')
+
+let quizdata=[
+     {
+      number:1, 
+        Question:'What is the name of the longest river in South America',
+        option:{
+             a:'Amazon River',
+             b:'Lakes of South America',
+             c:'Marshes and swamps',
+             d:'Soils',
+        } ,
+        answer:'Amazon River'
+     },
+     {
+         number:2, 
+         Question:'What does Na stand for on the periodic table?',
+         option:{
+              a:'Hydrogen',
+              b:'Sodium',
+              c:'Nitrogen',
+              d:'Carbon',
+         } ,
+         answer:'Sodium'
+      },
+      { 
+         number:3,
+         Question:'What is the name of the musical artist who sings the song “Watermelon Sugar”?', 
+         option:{
+              a:'Serge Gainsbourg',
+              b:'Harry Styles',
+              c:'Helmet',
+              d:'Hank Williams',
+         } ,
+         answer:'Harry Styles'
+      },
+     
+ ]
+
+ quizdata.forEach(els=>{
+     console.log(els.answer)
+ })
+
+</script>
+</html>

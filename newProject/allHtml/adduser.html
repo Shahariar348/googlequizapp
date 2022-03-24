@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="icon" href="https://www.pngrepo.com/png/177788/180/clock-square.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/newProject/allCss/add.css"/>
+</head>
+<body>
+<!--Navber  -->
+<nav class="navbar  navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <div class="container">
+        <a class="navbar-brand " href="#">
+            <span><i class="far fa-building d-inline-block align-top" style="font-size: 40px;"></i></span>
+            My Company
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link active" href="./adduser.html"> Employees & info <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="./singleInfo.html">Single Employee</a>
+            <a class="nav-item nav-link" href="./attendance.html">Attendance</a>
+            <a class="nav-item nav-link" href="./workhistory.html">Work history</a>
+            <a class="nav-item nav-link disabled" href="#">Company Cost</a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- First Section -->
+<section class="firstSection">
+     <div class="firstmodel">
+        <div class="container">
+            <div class="row ">
+                <!-- Col 1 -->
+                <div class="col col-sm-12">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal-md" data-whatever="@getbootstrap">Join New User</button>
+                    <div class="modal fade" id="exampleModal-md" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                             
+                            <div class="modal-content">
+                                <!-- modal-header -->
+                                <div id="alet">
+                                
+                                </div>
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">New Employee</h5>
+                                </div>
+                                <!-- modal-body -->
+                                <div class="modal-body">
+                                    <!-- First Form -->
+                                    <form id="addform">
+                                        <div class="form-group ">
+                                            <input type="text" hidden class="form-control" id="exampleInputID" name="E_Id">
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                                <div class="form-group ">
+                                                    <label for="exampleInputName">Empolyee Name</label>
+                                                    <input type="text" class="form-control" id="exampleInputName1" name="name" placeholder="Enter Name">
+                                                </div>
+                                               
+                                            </div>
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPhone">Phone Number</label>
+                                                    <input type="text" class="form-control" id="exampleInputPhone" name="phone" aria-describedby="phoneHelp" placeholder="Enter Phone Number">
+                                                </div>
+                                                
+                                            </div>
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputaddress">Home Address</label>
+                                                    <input type="text" class="form-control" id="exampleInputAddress" name="address" aria-describedby="addressHelp" placeholder="Enter Address">
+                                               </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputPosition">Position</label>
+                                                    <input type="text" class="form-control" id="exampleInputPosition" name="position" aria-describedby="positionHelp" placeholder="Enter Position">
+                                               </div>
+                                              
+                                            </div>
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputSalary">Salary</label>
+                                                    <input type="text" class="form-control" id="exampleInputSalary" name="salary" aria-describedby="salaryHelp" placeholder="Enter Saraly">
+                                               </div>
+                                               
+                                            </div>
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputDate">Starting Date</label>
+                                                    <input type="date" name="joindate" class="form-control" id="exampleInputDate">
+                                               </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-sm-12 col-md-4 col-lg-4">
+                                                <div class="form-group">
+                                                    <label for="exampleInputDate">Select Shift</label>
+                                                    <select class="form-control" name="shift" id="exampleInputselect">
+                                                        <option value="Night">Night</option>
+                                                        <option value="Day">Day</option> 
+                                                    </select>
+                                               </div>
+                                           </div> 
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <input type="submit"  id="addsubmit" class="btn btn-primary" value="Save Date"></input>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- modal-footer -->
+                                <!-- <div class="modal-footer">
+                                    <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit"  id="btn" class="btn btn-primary" value="Save Date"></input>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        <!-- Col 1 F -->
+            </div>
+        </div>
+     </div>
+</section>
+<section class="secondSection">
+    <div class="secondModel">
+        <div class="container">
+            <!-- First Row -->
+            <div class="row row11st">
+               <div class="col">
+                   <h1>Employees Information</h1>
+               </div>
+            </div>
+            <!-- First Row F-->
+            <!-- Second Row -->
+            <div class="row row12nd">
+                <div class="col-lg-4 col-md-4 col-sm-12" id="inline">
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <label class="input-group-text" for="inputGroupSelect01"><i class="fas fa-sort-amount-up-alt"></i>&nbsp;Filter</label>
+                        </div>
+                        <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="Alldata">All data</option>
+                            <option value="night">Night</option>
+                            <option value="day">Day</option> 
+                        </select>
+                      </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4 col-sm-12" >
+                        <div class="input-group mb-3">
+                            <div class="input-group-prepend">
+                              <label class="input-group-text" for="inputGroupSelect01"><i class="fas fa-sort-amount-up-alt"></i>&nbsp;Filter Row</label>
+                            </div>
+                            <select class="custom-select" id="inputGroupSelect01">
+                            <option selected >Select Row No</option>
+                            <option value="12">See All</option>
+                            <option value="2">2</option>
+                            <option value="4">4</option> 
+                            <option value="6">6</option> 
+                            <option value="8">8</option> 
+                            <option value="10">10</option> 
+                            </select>
+                          </div>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-12" > 
+                    <div class="form-group">
+                        <input type="text" class="form-control"  id="exampleInputSearch"  aria-describedby="searchHelp" placeholder="Search by ID">
+                    </div>
+                </div>
+            </div>
+            <!-- Second Row F-->
+            <!-- Third Row -->
+            <div class="row row13rd">
+                 <div class="col">
+                    <table class="table table-hover border" id="addpersontable">
+                        <thead>
+                          <tr>
+                            <th scope="col col-sm-12">Id</th>
+                            <th scope="col col-sm-12">Name</th>
+                            <th scope="col col-sm-12">Shift</th>
+                            <th scope="col col-sm-12">Position</th>
+                            <th scope="col col-sm-12">Delete</th>
+                            <th scope="col col-sm-12">Edit</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                            <!-- <tr>
+                                <td>179-35-2247789656</td>
+                                <td>Shahariar Alom</td>
+                                <td>Night</td>
+                                <td>Font in developer</td>
+                                <td><input type="button" class="btn btn-danger mb-1"  onclick='deletes(this)' value="Delete">
+                                    <input type="button" class="btn btn-warning mb-1" data-toggle="modal" data-target="#exampleModal-md" data-whatever="@getbootstrap" onclick="edit(this)" value="Edit">
+                                </td> 
+                            </tr>
+     -->
+                        </tbody>
+                    </table> 
+                 </div>
+            </div>
+            <!-- Third Row F-->
+        </div>
+    </div>
+</section>
+<section class="thirdsection">
+   <div class="container">
+       <div class="row">
+        <div class="col col-sm-12">
+                <div class="modal fade" id="exampleModalup-md" tabindex="-1" role="dialog" aria-labelledby="exampleModalupLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-lg" role="document">
+                         
+                        <div class="modal-content">
+                            <!-- modal-header -->
+                            <div id="aletone">
+                            
+                            </div>
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Update Employee Details</h5>
+                            </div>
+                            <!-- modal-body -->
+                            <div class="modal-body">
+                                <!-- First Form -->
+                                <form id="updateform">
+                                    <div class="form-group ">
+                                        <input type="text" hidden class="form-control" id="exampleInputID" name="E_Id">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4 col-lg-4">
+                                            <div class="form-group ">
+                                                <label for="exampleInputName">Empolyee Name</label>
+                                                <input type="text" class="form-control" id="exampleInputName1" name="name" placeholder="Enter Name">
+                                            </div>
+                                           
+                                        </div>
+                                        <div class="col-sm-12 col-md-4 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputPhone">Phone Number</label>
+                                                <input type="text" class="form-control" id="exampleInputPhone" name="phone" aria-describedby="phoneHelp" placeholder="Enter Phone Number">
+                                            </div>
+                                            
+                                        </div>
+                                        <div class="col-sm-12 col-md-4 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputaddress">Home Address</label>
+                                                <input type="text" class="form-control" id="exampleInputAddress" name="address" aria-describedby="addressHelp" placeholder="Enter Address">
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputPosition">Position</label>
+                                                <input type="text" class="form-control" id="exampleInputPosition" name="position" aria-describedby="positionHelp" placeholder="Enter Position">
+                                           </div>
+                                          
+                                        </div>
+                                        <div class="col-sm-12 col-md-4 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputSalary">Salary</label>
+                                                <input type="text" class="form-control" id="exampleInputSalary" name="salary" aria-describedby="salaryHelp" placeholder="Enter Saraly">
+                                           </div>
+                                           
+                                        </div>
+                                        <div class="col-sm-12 col-md-4 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputDate">Starting Date</label>
+                                                <input type="date" name="joindate" class="form-control" id="exampleInputDate">
+                                           </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-12 col-md-4 col-lg-4">
+                                            <div class="form-group">
+                                                <label for="exampleInputDate">Select Shift</label>
+                                                <select class="form-control" name="shift" id="exampleInputselect">
+                                                    <option value="Night">Night</option>
+                                                    <option value="Day">Day</option> 
+                                                </select>
+                                           </div>
+                                       </div> 
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" id="upclose" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                        <input type="submit"  id="updatesubmit" class="btn btn-warning" value="Update"></input>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- modal-footer -->
+                            <!-- <div class="modal-footer">
+                                <button type="button" id="close" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <input type="submit"  id="btn" class="btn btn-primary" value="Save Date"></input>
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+       </div>
+   </div>
+</section>
+<script type="module" src="/newProject/allscript/addandread.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+.co{
+   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+   }
+
+.co1{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+   }
+.row1{
+   margin-top: 50px; 
+  
+}
+.row2{
+       height:auto; 
+       margin-top: 30px;   
+    }
+.text1{
+        font-weight: bolder;
+        
+       } 
+.text2{
+        font-weight: bold;
+     
+       }           
+.text3{
+   margin-bottom:20px ;
+   font-weight: lighter;
+ } 
+ #text4{
+     margin-top: 39px;
+     font-weight: bold;
+ }
+ 
+ #text5{
+    padding: 6px;
+    border-radius: 4px;
+    
+ }
+ #text6{
+    margin-top:10px;
+    padding: 6px;
+    border-radius: 4px;
+    visibility: hidden;
+    
+ }
+   
+.col1{
+       
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+}
+
+.col2{
+    height: 100vh;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif
+
+}
+.namedis{
+    margin-bottom: 20px;
+}
+span{
+    font-size: 12px;
+}
+label{
+    font-weight: bold;
+}
+.btn-info{
+    margin-top: 25px;
+    width: 200px;
+
+}
+.btn-danger{
+    margin-top: 25px;
+}
+.btn-warning{
+   margin-top:13px;  
+}
+
+#vali1{
+    visibility: hidden;
+}
+#vali2{
+    visibility: hidden;
+}
+#vali3{
+    visibility: hidden;
+}
+#vali4{
+    visibility: hidden;
+}

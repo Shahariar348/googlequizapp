@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Two</title>
+    <style>
+        table, th, td {
+        border:1px solid black;
+        width: 800px;
+        text-align: justify;
+      
+         }
+          td{
+             padding: 5px;
+         }
+        
+         </style>
+
+</head>
+<body>
+   <form id="form">
+    <input type="text" id="name" name="name" placeholder="Name "style="width: 200px; height: 25px; font-size: 15px; margin-bottom: 10px;"> 
+    <br>
+    <input type="text" id="email" name="email" placeholder="Email" style="width: 200px; height: 25px;  font-size: 15px; margin-bottom: 10px;"> 
+    <br>
+    <input type="text" id="position" name="position" placeholder="Position " style="width: 200px; height: 25px;  font-size: 15px; margin-bottom: 10px;"> 
+    <br>
+    <input type="text" id="salary" name="salary" placeholder="Salary" style="width: 200px; height: 25px; font-size: 15px; margin-bottom: 10px; "> 
+    <br>
+    <input type="submit" id="btn" value="Add Data" style="width: 205px; height: 33px; font-size: 22px;" >
+    <input type="text" id="id" name="id" placeholder="id" hidden> 
+
+</form>
+
+   <div style="margin-top: 10px;">
+    
+    <table id="myTable">
+        <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Positon</th>
+                <th>Salary</th> 
+                <th>Delete oR Edit</th> 
+        </thead>
+        <tbody>
+            <tr >
+                <td>Ashik Islam</td>
+                <td>ashikislam@gamil.com</td>
+                <td>Backend Developer</td>
+                <td>20,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" onclick="edit(this)" value="Edit">
+                </td> 
+              
+            </tr>
+            <tr >
+                <td>Shabbir</td>
+                <td>Shabbir@gamil.com</td>
+                <td>Backend Developer</td>
+                <td>20,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" onclick="edit(this)" value="Edit">
+                </td> 
+               
+            </tr>
+            <tr >
+                <td>Ashik</td>
+                <td>ashik@gamil.com</td>
+                <td>Font-in-Developer</td>
+                <td>10,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" onclick="edit(this)" value="Edit">
+                </td> 
+            
+            </tr>
+            <tr>
+                <td>Nayem</td>
+                <td>nayem@gamil.com</td>
+                <td>Font-in-Developer</td>
+                <td>8,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" onclick="edit(this)" value="Edit">
+                </td> 
+            </tr>
+            <tr>
+                <td>Shakibul</td>
+                <td>shakibul@gamil.com</td>
+                <td>Project Manager</td>
+                <td>25,000</td>
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" onclick="edit(this)" value="Edit">
+                </td>  
+              
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+  
+<script>
+     let form =document.getElementById('form')
+     let table =document.getElementById('myTable')
+      form.addEventListener('submit',function(event){
+          event.preventDefault();
+          let userinfo={};
+           [...this].forEach(element=>{
+               if(element.value ==='adddata'){
+                    if(element.type !== 'submit'){
+                       userinfo[element.name]=element.value
+                       }
+                }
+                else{
+                     if(element.type !== 'submit'){
+                          userinfo[element.name]=element.value
+                         
+                         }
+                     
+                  }
+            
+            }) 
+              
+             saveuser(userinfo)
+            form.reset()      
+          })
+
+
+    function saveuser(s_user){
+        if(s_user.id){
+            updateuser(s_user,s_user.id)
+         }
+         else{
+            adduser(s_user) 
+           
+         }
+        
+    }
+
+
+  function adduser(userinfos){
+     let tablebody =table.tBodies.item(0)
+          let rowsd=tablebody.insertRow(0)
+         
+                  let cell1=rowsd.insertCell(0).innerText=userinfos.name
+                  let cell2=rowsd.insertCell(1).innerText=userinfos.email
+                  let cell3 = rowsd.insertCell(2).innerText=userinfos.position
+                  let cell4 = rowsd.insertCell(3).innerText=userinfos.salary
+                  let cell5 = rowsd.insertCell(4).innerHTML=`<input type="button" onclick='deletes(this)' value="Delete">
+                  <input type="button" onclick="edit(this)" value="Edit">`
+  }
+ 
+  function deletes(tr){
+      let deleterows=tr.parentElement.parentElement.rowIndex
+       table.deleteRow(deleterows) 
+  }
+
+  function edit(str){
+    let rowid=str.parentElement.parentElement.rowIndex
+     let selectdata=str.parentElement.parentElement
+          form[0].value=selectdata.cells[0].innerText
+          form[1].value=selectdata.cells[1].innerText
+          form[2].value=selectdata.cells[2].innerText
+          form[3].value=selectdata.cells[3].innerText
+          form[4].value='Upgrade'
+          form[5].value=rowid
+                    
+  }
+  function updateuser(userin,id){
+      let row1=table.rows[id].cells[0].innerText=userin.name
+      let row2=table.rows[id].cells[1].innerText=userin.email
+      let row3=table.rows[id].cells[2].innerText=userin.position
+      let row4=table.rows[id].cells[3].innerText=userin.salary
+      form[4].value='Add Data'
+                  
+  }
+
+ 
+</script>
+ </body>
+
+ <!-- 
+     improtant think 
+       let cell5 =row.cells[4].innerHTML=`<input type="button" onclick='deletes(this)' value="Delete">
+         <input type="button" onclick="edit(this)" value="Update">`
+==========================================
+      onclick='edit(this)'
+      =====================================
+  <input type="submit" id="updatabtn" value="Update">
+  ======================================================
+   let cell12=row.cells[0].innerHTML=userin.name
+                  let cell22=row.cells[1].innerText=userin.email
+                  let cell32 =row.cells[2].innerText=userin.position
+                  let cell42 =row.cells[3].innerText=userin.salary
+               
+  ========================================================
+         <tr >
+                <td>Ashik Islam</td>
+                <td>ashikislam@gamil.com</td>
+                <td>Backend Developer</td>
+                <td>20,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" id="updatabtn"  value="Update">
+                </td> 
+              
+            </tr>
+            <tr >
+                <td>Shabbir</td>
+                <td>Shabbir@gamil.com</td>
+                <td>Backend Developer</td>
+                <td>20,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" id="updatabtn"  value="Update">
+                </td> 
+               
+            </tr>
+            <tr >
+                <td>Ashik</td>
+                <td>ashik@gamil.com</td>
+                <td>Font-in-Developer</td>
+                <td>10,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" id="updatabtn" value="Update">
+                </td> 
+            
+            </tr>
+            <tr>
+                <td>Nayem</td>
+                <td>nayem@gamil.com</td>
+                <td>Font-in-Developer</td>
+                <td>8,000</td> 
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" id="updatabtn" value="Update">
+                </td> 
+            </tr>
+            <tr>
+                <td>Shakibul</td>
+                <td>shakibul@gamil.com</td>
+                <td>Project Manager</td>
+                <td>25,000</td>
+                <td><input type="button" onclick='deletes(this)' value="Delete">
+                    <input type="button" id="updatabtn"  value="Update">
+                </td>  
+              
+            </tr>
+
+
+
+  -->
+</html>

@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rich Editor</title>
+    <link rel="icon" href="https://www.pngrepo.com/png/177788/180/clock-square.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
+</head>
+<body>
+    <style>
+     #fdiv{
+         margin-left: 10px;
+         margin-top: 10px;
+         font-family: Verdana, Geneva, Tahoma, sans-serif;
+     }
+     #fdiv section:hover{
+         background-color: black;
+         color: white;
+     }
+     #sdiv{
+         padding-bottom: 10px;
+     }
+     #sdiv button{
+         margin-left: 10px;
+         outline: none;
+     }
+     #sdiv button:hover{
+         background-color: black;
+         color: white;
+     }
+     #output{
+         margin-left: 10px;
+         padding: 10px;
+         width: 900px;
+         height: 500px;
+         border: 1px solid royalblue;
+         overflow-y: scroll;
+        
+     }
+    </style>
+<form action="">
+        <div id="fdiv">
+            <select title="Title"  onchange="formatDoc('formatblock',this[this.selectedIndex].value);this.selectedIndex=0;">
+                <option selected>Title line</option>
+                <option value="h1">H1</option>
+                <option value="h2">H2</option>
+                <option value="h3">H3</option>
+                <option value="h4">H4</option>
+                <option value="h5">H5</option>
+                <option value="h6">H6</option>
+                <option value="p">P</option>
+            </select>
+      
+            <select title="Selecte Text Size" onchange="formatDoc('fontsize',this[this.selectedIndex].value);this.selectedIndex=0;">
+                <option selected>Text Size</option>
+                <option value="2">2</option>
+                <option value="2">4</option>
+                <option value="6">6</option>
+                <option value="8">8</option>
+                <option value="10">10</option>
+                <option value="12">12</option>
+                <option value="14">14</option>
+            </select>
+
+            <select title="Selecte Font Family" onchange="formatDoc('fontname',this[this.selectedIndex].value);this.selectedIndex=0;">
+                <option selected> Font Family</option>
+                <option>Arial</option>
+                <option>Impact</option>
+                <option>sans-serif</option>
+                <option>Tahoma</option>
+                <option>Verdana</option>
+                <option>Arial Black</option>
+                <option>Courier New</option>
+                <option>Lucida Sans Unicode</option>
+                <option>Trebuchet MS</option>
+                <option>Times New Roman</option>
+                <option>Franklin Gothic Medium</option>
+                </select>
+            <label for="favcolor">Text Color</label>
+            <input type="color" id="favcolor" name="favcolor"  title="Text Color" oninput="formatDoc('forecolor',this.value);">
+              
+            <label for="favBcolor">Background Color</label>
+            <input type="color" id="favBcolor" name="favBcolor"  title="Background Color"  oninput="formatDoc('backcolor',this.value);">
+        </div>
+        <div id="sdiv">
+            <button type="button" data-cmd="delete"  title="Delete">
+                <i class="fas fa-broom" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="undo" title="Undo">
+                <i class="fas fa-undo" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="redo" title="Redo">
+                <i class="fas fa-redo" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="bold" title="Bold">
+                <i class="fas fa-bold" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="italic" title="Italic">
+                <i class="fas fa-italic" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="underline" title="Under line">
+                <i class="fas fa-underline" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="justifyLeft" title="Left">
+                <i class="fas fa-align-left" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="justifyFull" title="Center">
+                <i class="fas fa-align-justify" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="justifyRight" title="Right">
+                <i class="fas fa-align-right" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="insertunorderedlist" title="Unordered list">
+                <i class="fas fa-list-ul" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="insertorderedlist" title="Ordered list">
+                <i class="fas fa-list-ol" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="createLink"  title="CreateLink">
+                <i class="fas fa-link" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="convertHtml" title="Convert Html">
+                <i class="fas fa-code" aria-hidden="true"></i>
+            </button>
+
+            <button type="button" data-cmd="cut" title="Cut">
+                <i class="fas fa-cut" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="copy" title="Copy">
+                <i class="fas fa-copy" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="paste" title="Paste">
+                <i class="fas fa-paste" aria-hidden="true"></i>
+            </button>
+            <!-- <i class="fa-solid fa-table-cells"></i> -->
+            <button type="button" data-cmd="enableInlineTableEditing" title="Table">
+                <i class="fas fa-table" aria-hidden="true"></i>
+            </button>
+            <button type="button" data-cmd="button" title="button">
+                <i class="fas fa-copy" aria-hidden="true"></i>
+            </button>
+        </div>
+      
+</form>
+  <p  id="output" name="textField" title="Editor" contenteditable="true" ></p>
+  
+  <button id="btn" type="button">Submit</button>
+  
+  <p  id="i" name="te" title="Editor" >
+    <!-- daily.dev is 100% open-source. We commit that every sell in this swag store will be channeled to improve our product and support the developers' global community.
+    <div id="human">
+        <button class="btn btn-success" data-episodeid="episod1">episode 1</button>
+        <button class="btn btn-success" data-episodeid="episod2">episode 2</button>
+    </div> -->
+  </p>
+
+<script>
+ let favcolor =document.getElementById("favcolor")
+ let b1 =document.getElementById("btn") 
+     const oDoc = document.getElementById("output");
+     const buttons =document.querySelectorAll("button")
+     function formatDoc(sCmd, sValue) {
+        document.execCommand(sCmd, false, sValue);
+         oDoc.focus()
+      }
+
+     let showhtml=false
+
+     buttons.forEach(button=>{
+       button.addEventListener("click", function(events){
+           const getCmd=button.getAttribute("data-cmd")
+            if(getCmd=="createLink"){
+                let url=prompt("Emter url link",)     
+                document.execCommand(getCmd, false,url);
+                let links =oDoc.querySelectorAll('a')
+                  links.forEach(link=>{
+                      link.target="_blank"
+                      link.style.textDecoration="none"
+                      link.addEventListener("mouseover",()=>{
+                        oDoc.removeAttribute("contenteditable")
+                        console.log(oDoc)
+                      })
+                      link.addEventListener("mouseout",()=>{
+                        oDoc.setAttribute("contenteditable","true")
+                      })
+                  })
+            }
+            else{
+                document.execCommand(getCmd, false,null);
+            }
+           
+            if(getCmd==="convertHtml"){
+                 if(showhtml){
+                 oDoc.innerHTML=oDoc.innerText.trim()
+                 showhtml=false
+                 button.style.color="red"
+                 }
+                 else{
+                    oDoc.innerText = oDoc.innerHTML
+                    showhtml=true
+                    button.style.color="green"
+                 }
+             
+            }
+           
+    if("enableInlineTableEditing"==getCmd){
+     let div=document.createElement("div")
+     div.innerHTML=`
+    <table class="table table-bordered table-dark">
+      <thead>
+        <tr>
+          <th scope="col" colspan="2">Launch</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">Launch Announcement</th>
+          <td>2022, February</td>
+        </tr>
+        <tr>
+          <th scope="row">Launch Date</th>
+          <td>Available. Released 2022, February</td>
+        </tr>
+      </tbody>
+    </table>`
+     oDoc.insertAdjacentElement("afterbegin",div)
+
+    }
+        
+
+    if("button"==getCmd){
+        
+           let span=document.createElement("span")
+           let datasetvalue=prompt("Enter Data set Value",)
+           let ButtonName=prompt("Enter Button name",)
+           span.innerHTML=`<button class="btn btn-success ml-1" data-episodeid="${datasetvalue}">${ButtonName}</button> br`
+           oDoc.insertAdjacentElement("beforeend",span) 
+    
+     }    
+   })  
+})
+    //  const btn=document.getElementById('btn')
+    //  btn.addEventListener("click",()=>{
+  
+ b1.addEventListener("click",function(enet){
+    document.getElementById("i").innerHTML=document.getElementById("output").innerHTML
+ })       
+   
+ function myFunction() {
+  var x = document.createElement("INPUT");
+  x.setAttribute("type", "range");
+  document.body.appendChild(x);
+  x.value=0
+  x.stepUp(10);
+  console.log(x.value)
+}
+myFunction()
+
+
+  </script>  
+</body>
+</html>

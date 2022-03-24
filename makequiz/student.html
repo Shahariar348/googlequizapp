@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Page</title>
+    <link rel="icon" href="./popcorn_1f37f.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+</head>
+<body>
+ <style>
+.main_question{
+    border-left: 6px solid rgba(0, 0, 255, 0.507);
+    border-top: 3px solid rgba(0, 0, 255, 0.507);
+    box-shadow: 1px  1px rgba(0, 0, 0, 0.466);
+    padding: 10px;
+}
+.main_question span{
+    color: red;
+}
+.mr-2{
+    width: 20px;
+    height: 20px;
+}
+.quiz{
+     width: 100%;
+     height: 100px;
+     position: relative;
+}
+#total_mark{
+    bottom: 0px;
+    right: 0px;
+    position: absolute;
+  
+}
+#subject_name_div{
+    bottom: 0px;
+    left: 0px;
+    position: absolute;
+}
+#quiz_content{
+    top: 5px;
+    left: 0px;
+    position: absolute;
+}
+.main_question .form-group ul li:hover{
+cursor: pointer;
+background-color: rgba(0, 255, 255, 0.185);
+height: auto;
+}
+#checkanswer{
+    width: 30%;
+}
+.modal-body ul li #shortanswer{
+    width: 100%;
+}
+</style>  
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="#">
+       <img src="./puzzle-piece.png" width="40" height="40" class="d-inline-block align-top" alt="">
+       QuiZmakeR
+     </a>
+ <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+ </button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+   <ul class="navbar-nav mr-auto">
+     <li class="nav-item active">
+       <a class="nav-link" href="#"> Quiz History <span class="sr-only">(current)</span></a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link" href="#"></a>
+     </li>
+     <li class="nav-item">
+       <a class="nav-link disabled" href="#">Disabled</a>
+     </li>
+   </ul>
+</div>
+</nav>
+
+
+
+<div class="container  hide_form">
+     <div class="row">
+         <div class="col-lg-12">
+            <form id="form">
+                <div class="quiz">
+                   <div id="quiz_content">
+                   </div>
+                   <div id="subject_name_div">
+                    <h5 id="subject_name">Subject Name</h5>
+                   </div>
+                    <div id="total_mark">
+                        <h6 id="mark"> </h6>
+                    </div>
+                </div>
+                <div class="main_question">
+                  <div class="form-group">
+                    <label for="StudentName">Student Name <span>*</span></label>
+                    <input type="text" class="form-control mb-4" id="StudentName" name="studentname" placeholder="Enter Student Name" required>
+                  </div>
+               </div>
+               <div class="mb-4 mt-4">
+                <input type="submit" id="btn" class="btn btn-success submit" value="Submit Answer">
+               </div>
+            </form>
+         </div>
+     </div>
+</div>
+
+<div class="container hide mt-5" hidden>
+     <div class="row">
+         <div class="col-lg-8">
+            <div class="">
+                <div class="card addcart ">
+                     <div class="card-body rounded bg-light">
+                         <div>
+                              <label for="bio"><h1>Thank you for finishing Quiz </h1></label>
+                              <!-- <input type="text" class="form-control" id="subject" name="bio" aria-describedby="movIdHelp" placeholder="Enter Subject Name" required> -->
+                         </div>
+                         <div>
+                             <!-- <label for="time"><h5>Quiz Date</h5></label> -->
+                             <input type="button" class="form-control btn btn-info" id="checkanswer" aria-describedby="movIdHelp" data-toggle="modal" data-target="#exampleModalCenter" value="Check Your Answer">     
+                         </div>
+                    </div>
+                  </div> 
+             </div>
+         </div>
+     </div>
+</div>  
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <!-- <label for="quiz_info"><h5>Quiz Date</h5></label>
+             <ul class="list-group list-group-flush" id="quiz_info">
+                <li class="list-group-item border rounded mb-1">Cras justo odio</li>
+                <li class="list-group-item border rounded mb-1">Dapibus ac facilisis in</li>
+                <li class="list-group-item border rounded mb-1">Morbi leo risus</li>
+                <li class="list-group-item border rounded mb-1">Porta ac consectetur ac</li>
+                <li class="list-group-item border rounded mb-1">Vestibulum at eros</li>
+            </ul> -->
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+</div> 
+ <!-- Modal -->
+
+</body>
+<script type="module">
+/* Firebase import module*/
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.7/firebase-app.js";
+import { getDatabase, ref, set,onValue,remove,push,child,update} from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
+/* Firebase import module*/
+
+/*Firebase Config*/
+const firebaseConfig = {
+    apiKey: "AIzaSyAMkjf6MFvBJdE7li8fx0Y6Dj0BZiOnVd0",
+    authDomain: "moviesdownloaders.firebaseapp.com",
+    databaseURL: "https://moviesdownloaders-default-rtdb.firebaseio.com",
+    projectId: "moviesdownloaders",
+    storageBucket: "moviesdownloaders.appspot.com",
+    messagingSenderId: "426710588024",
+    appId: "1:426710588024:web:119bfd2cb3ffe2e5f8ab8d",
+    measurementId: "G-E1341ZVKWS"
+ };
+  const app = initializeApp(firebaseConfig);
+  const datebase=getDatabase(app)
+
+let addform=document.querySelector('.main_question')
+let submitform=document.getElementById("form")
+let subjectname=document.querySelector('#subject_name')
+let totalmark=document.querySelector('#total_mark')
+let get_mark=0
+
+/*Get movies id by url */
+let currentUrl=window.location.href
+  let paramiter=(new URL(currentUrl)).searchParams
+  let paramwithid=paramiter.get('id')
+ 
+/*Get movies id by url */
+
+let get_quiz_id_by_url=paramwithid
+
+onValue(ref(datebase,"QuizApp/"+get_quiz_id_by_url),snapshot=>{
+      for(let list in snapshot.val()){
+          subjectname.textContent=snapshot.val().subjectName
+          document.querySelector("#StudentName").setAttribute("quiz_id",snapshot.val().quizId)
+          let integer=Math.floor(list)
+          for(let kist in  snapshot.val()[integer]){
+                    // snapshot.val()[integer][kist] 
+                  get_mark +=Math.floor(snapshot.val()[integer][kist].question_Mark)  
+                  totalmark.textContent=`Total mark : ${get_mark}`
+
+                  if(snapshot.val()[integer][kist].question_Option_type=="hidden"){
+                    addform.appendChild(hiddentype(snapshot.val()[integer][kist],integer+1))     
+                  }
+                  if(snapshot.val()[integer][kist].question_Option_type=="radio"){   
+                    addform.appendChild(radioBox(snapshot.val()[integer][kist],integer+1))
+                  }
+                  if(snapshot.val()[integer][kist].question_Option_type=="checkbox"){
+                    addform.appendChild(checkBox(snapshot.val()[integer][kist],integer+1))
+                  }
+                 if(snapshot.val()[integer][kist].question_Option_type=="text"){
+                    addform.appendChild(textBox(snapshot.val()[integer][kist],integer+1))
+                 } 
+
+             
+              
+          }      
+      }
+  })
+/*Firebase Config*/ 
+
+submitform.addEventListener("submit",function(event){
+    event.preventDefault()
+    let user_given={
+        ans_odj:{
+          
+        }
+    }
+    
+
+    ;[...this].forEach(value=>{
+         if(value.type!=="submit"){
+
+           if(value.type=="radio"){
+               let inputs=document.querySelectorAll(`input[name="${value.name}"]`)                
+               for(let i of inputs){
+                   if(i.checked){  
+                    user_given.ans_odj[value.name]={
+                        q_question:value.name,
+                        s_answer:[`${i.value}`]
+                      }
+                 }
+                   
+               }
+           }
+           if(value.type=="checkbox"){
+            let inputs=document.querySelectorAll(`input[name="${value.name}"]`)
+            let checkBoxvalue=[] 
+               for(let i of inputs){
+                   if(i.checked){
+                      checkBoxvalue.push(i.value)         
+                    }
+                    user_given.ans_odj[value.name]={
+                        q_question:value.name,
+                        s_answer:checkBoxvalue
+                   }
+                
+               }
+           }
+           if(value.type=="select-one"){
+            let inputs=document.querySelectorAll(`select[name="${value.name}"]`)
+                for(let i of inputs){
+                     user_given.ans_odj[value.name]={
+                        q_question:value.name,
+                        s_answer:[`${i.value}`]
+                      }              
+                }      
+           }
+           if(value.type=="text" && value.name!=="studentname"){
+            let inputs=document.querySelectorAll(`input[name="${value.name}"]`)
+                for(let i of inputs){
+                        user_given.ans_odj[value.name]={
+                        q_question:value.name,
+                        s_answer:[`${i.value}`]
+                       }                
+               }    
+             }   
+           if(value.name=="studentname"){
+                user_given.Student=value.value
+                user_given.quiz_id=value.getAttribute("quiz_id")
+             }
+         
+        }   
+    })
+    
+    console.log(user_given)
+      save(user_given)
+     
+})
+
+
+function save(user_given_data){
+    let studentId =`st-${rendomId()}`
+    user_given_data.studentId=studentId
+   set(ref(datebase,"studentanswer/"+studentId),user_given_data).then((result) => {
+        console.log("successfully Add")
+        set(ref(datebase,"QuizApp/"+get_quiz_id_by_url+"/completeTask/"+studentId),user_given_data).then((result) => {
+           console.log("successfully Add")
+          })
+        document.querySelector("#checkanswer").setAttribute("stuid",`${studentId}`)       
+        submitform.reset()
+        checkanswer()
+        
+   }).catch((err) => {
+    console.log(err)
+   });
+}
+
+function checkanswer(){
+    let mainform=document.querySelector(".hide_form").hidden=true
+    let checkdiv=document.querySelector(".hide").hidden=false
+     
+}
+
+document.querySelector("#checkanswer").addEventListener("click",function(event){
+        let get_studentId=document.querySelector("#checkanswer").getAttribute("stuid")||"st-uaojmq"      
+        onValue(ref(datebase,`studentanswer/${get_studentId}`),student_snapshot=>{        
+            let get_quiz_id=student_snapshot.val().quiz_id
+            let student_Data=[]
+            let Quiz_Data=[]
+                for(let i in student_snapshot.val().ans_odj){
+                     student_Data.push(student_snapshot.val().ans_odj[i])
+                 }
+            onValue(ref(datebase,`QuizApp/${get_quiz_id}`),quiz_snapshot=>{
+                  for(let j in quiz_snapshot.val()){
+                    let integeri=Math.floor(j)
+                        for(let k in quiz_snapshot.val()[integeri]){
+                            Quiz_Data.push(quiz_snapshot.val()[integeri][k])
+                         
+                    }
+                  }
+               show(student_Data,Quiz_Data)  
+            }) 
+          })
+   
+})
+
+function show(s_data,q_data){
+    document.querySelector('.modal-body').innerHTML=" "
+    q_data.forEach((q_value,q_index)=>{
+       if(q_value.question_Option_type=="radio"){
+          /* creat html*/
+           let model_body_div=document.createElement('div')
+           let model_body_divtwo=document.createElement('div')
+               model_body_divtwo.innerHTML=`
+              <label for="quiz_info"><h6>${q_index+1} ${q_value.question_Name}</h6></label>
+              `
+              let creat_ul=document.createElement("ul")
+                  creat_ul.classList=(["list-group"],["list-group-flush"])
+                  creat_ul.setAttribute("id","quiz_info")
+                  s_data.forEach(value=>{
+                    if(q_value.question_Name==value.q_question){
+                        for(let lis in q_value.question_Option){
+                          let li =document.createElement('li')
+                             if(q_value.question_Option[lis].trim()==value.s_answer[0].trim() && q_value.question_Answer.trim()==value.s_answer[0].trim()){
+                             li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"],["border-success"])
+                                li.innerHTML=`
+                                   <input type="radio" class="mr-2 mb-1" name="${1}" id=""  value="" disabled>${q_value.question_Option[lis]} 
+                                  <i></i>
+                                `
+                                } 
+                              else{
+                             li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"],["border-danger"])
+                             li.innerHTML=`
+                                 <input type="radio" class="mr-2 mb-1 " name="${1}" id=""  value="" disabled>${q_value.question_Option[lis]} 
+                               <i></i>
+                              `
+                              }  
+                            
+                         creat_ul.appendChild(li)    
+                       model_body_divtwo.appendChild(creat_ul)
+                     model_body_div.appendChild(model_body_divtwo)
+                    }
+                  } 
+                })  
+                   
+        document.querySelector('.modal-body').appendChild(model_body_div)  
+            
+         /* creat html*/
+       }
+       if(q_value.question_Option_type=="checkbox"){
+          /* creat html*/
+           let model_body_div=document.createElement('div')
+           let model_body_divtwo=document.createElement('div')
+               model_body_divtwo.innerHTML=`
+              <label for="quiz_info"><h6>${q_index+1} ${q_value.question_Name}</h6></label>
+              `
+              let creat_ul=document.createElement("ul")
+                  creat_ul.classList=(["list-group"],["list-group-flush"])
+                  creat_ul.setAttribute("id","quiz_info")
+                  s_data.forEach(value=>{
+                    if(q_value.question_Name==value.q_question){
+                        for(let lis in q_value.question_Option){
+                          let li =document.createElement('li')
+                             if(q_value.question_Option[lis].trim()==value.s_answer[0].trim() && q_value.question_Answer.trim()==value.s_answer[0].trim()){
+                             li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"],["border-success"])
+                                li.innerHTML=`
+                                   <input type="checkbox" class="mr-2 mb-1" name="${1}" id=""  value="" disabled>${q_value.question_Option[lis]} 
+                                  <i></i>
+                                `
+                                } 
+                              else{
+                             li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"],["border-danger"])
+                             li.innerHTML=`
+                                 <input type="checkbox" class="mr-2 mb-1 " name="${1}" id=""  value="" disabled>${q_value.question_Option[lis]} 
+                               <i></i>
+                              `
+                              }  
+                            
+                         creat_ul.appendChild(li)    
+                       model_body_divtwo.appendChild(creat_ul)
+                     model_body_div.appendChild(model_body_divtwo)
+                    }
+                  } 
+                })  
+                   
+        document.querySelector('.modal-body').appendChild(model_body_div)  
+         /* creat html*/
+       }
+       if(q_value.question_Option_type=="hidden"){
+          /* creat html*/
+           let model_body_div=document.createElement('div')
+           let model_body_divtwo=document.createElement('div')
+               model_body_divtwo.innerHTML=`
+              <label for="quiz_info"><h6>${q_index+1} ${q_value.question_Name}</h6></label>
+              `
+              let creat_ul=document.createElement("ul")
+                  creat_ul.classList=(["list-group"],["list-group-flush"])
+                  creat_ul.setAttribute("id","quiz_info")
+                   for(let lis in q_value.question_Option){
+                       let li =document.createElement('li')
+                           li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"])
+                           li.innerHTML=`
+                             <div  class="mb-1" id="shortanswer"> 
+                                ${q_value.question_Option[lis]}
+                             </div>
+                           <i></i>
+                           `
+                       creat_ul.appendChild(li)    
+                      model_body_divtwo.appendChild(creat_ul)
+                    model_body_div.appendChild(model_body_divtwo)
+                }
+        document.querySelector('.modal-body').appendChild(model_body_div)  
+         /* creat html*/
+       }
+       if(q_value.question_Option_type=="text"){
+          /* creat html*/
+           let model_body_div=document.createElement('div')
+           let model_body_divtwo=document.createElement('div')
+               model_body_divtwo.innerHTML=`
+              <label for="quiz_info"><h6>${q_index+1} ${q_value.question_Name}</h6></label>
+              `
+              let creat_ul=document.createElement("ul")
+                  creat_ul.classList=(["list-group"],["list-group-flush"])
+                  creat_ul.setAttribute("id","quiz_info")
+                   for(let lis in q_value.question_Option){
+                       let li =document.createElement('li')
+                           li.classList.add(["list-group-item"],["border"],["rounded"],["mb-1"])
+                           li.innerHTML=`
+                             <div  class="mb-1" id="shortanswer"> 
+                                ${q_value.question_Option[lis]}
+                             </div>
+                           <i></i>
+                           `
+                       creat_ul.appendChild(li)    
+                      model_body_divtwo.appendChild(creat_ul)
+                    model_body_div.appendChild(model_body_divtwo)
+                }
+        document.querySelector('.modal-body').appendChild(model_body_div)  
+         /* creat html*/
+       }
+    })
+}
+
+
+
+
+
+
+
+function hiddentype(hiddenquestion,index){
+    let div =document.createElement("div")
+    div.classList.add(["form-group"])
+        let divtwo=document.createElement("div")
+              divtwo.innerHTML=`<label for="shortAnswer">${index}. ${hiddenquestion.question_Name} <span>*</span></label>`
+                 div.innerHTML=`
+                   <input type="text" class="form-control shortanswer_${hiddenquestion.question_Id}" id="shortAnswer" name="${hiddenquestion.question_Name}" placeholder="Enter Answer" required>     
+                   `
+                  div.insertAdjacentElement("afterbegin",divtwo)
+     return div        
+}
+function textBox(redioquestion,index){
+    let div =document.createElement("div")
+       div.classList.add(["form-group"])
+          let divtwo=document.createElement("div")
+              divtwo.innerHTML=`<label for="${redioquestion.question_Id}">${index}. ${redioquestion.question_Name}</label>`
+            
+          let divthree=document.createElement("div")  
+               let select =document.createElement("select") 
+                     select.setAttribute("name",`${redioquestion.question_Name}`) 
+                     select.setAttribute("id",`${redioquestion.question_Id}`)
+                     select.required=true
+                     select.classList.add(["custom-select"],[`custom_select_${redioquestion.question_Id}`])
+                     select.innerHTML=`<option selected>Choose...</option>`
+            for(let i in redioquestion.question_Option){
+                  let option=document.createElement("option")
+                      option.setAttribute("value",`${redioquestion.question_Option[i]}`)
+                       option.innerText=redioquestion.question_Option[i]  
+                //   select.innerHTML=`<option value="${redioquestion.question_Option[i]}">${redioquestion.question_Option[i]}</option>`
+                      select.appendChild(option)
+            }
+                divthree.insertAdjacentElement("afterbegin",select)
+
+              div.insertAdjacentElement("afterbegin",divthree) 
+              div.insertAdjacentElement("afterbegin",divtwo)
+
+
+    return div 
+}  
+function checkBox(checkquestion,index){
+    let div =document.createElement("div")
+        div.classList.add(["form-group"])
+          let divtwo=document.createElement("div")
+              divtwo.innerHTML=`<label for="${checkquestion.question_Id}">${index}. ${checkquestion.question_Name}</label>`
+                let creat_ul=document.createElement('ul')
+                    creat_ul.setAttribute("id",`${checkquestion.question_Id}`)
+                creat_ul.classList.add(["list-group"],["list-group-flush"],["mb-1"])
+              for(let i in checkquestion.question_Option){
+                let li=document.createElement('li')
+                li.classList.add(["list-group-item"],["mb-3"],["border"],["rounded"])
+                li.innerHTML=`
+                <input type="checkbox" class="mr-2 checkbox_${checkquestion.question_Id}" id="${checkquestion.question_Option[i]}" name="${checkquestion.question_Name}" value="${checkquestion.question_Option[i]}">${checkquestion.question_Option[i]}<br>
+                <i></i>
+                `
+                creat_ul.appendChild(li)
+                  let clickable=true
+                li.addEventListener("click",function(e){
+                    if(clickable){
+                        li.children[0].checked=clickable
+                        clickable=false
+                      }else{
+                        li.children[0].checked=clickable
+                        clickable=true
+                      }
+                   
+                  
+                  })
+                }   
+             div.insertAdjacentElement("afterbegin",creat_ul)
+         div.insertAdjacentElement("afterbegin",divtwo)
+    return div 
+}  
+function radioBox(radioquestion,index){
+    let div =document.createElement("div")
+        div.classList.add(["form-group"])
+          let divtwo=document.createElement("div")
+              divtwo.innerHTML=`<label for="${radioquestion.question_Id}">${index}. ${radioquestion.question_Name}</label>`
+                let creat_ul=document.createElement('ul')
+                    creat_ul.setAttribute("id",`${radioquestion.question_Id}`)
+                creat_ul.classList.add(["list-group"],["list-group-flush"],["mb-1"])
+              for(let i in radioquestion.question_Option){
+                let li=document.createElement('li')
+                li.classList.add(["list-group-item"],["mb-3"],["border"],["rounded"])
+                li.innerHTML=` <input type="radio" class="mr-2 radio_${radioquestion.question_Id}" id="${radioquestion.question_Option[i]}" name="${radioquestion.question_Name}" value="${radioquestion.question_Option[i]}" required>${radioquestion.question_Option[i]}<br>
+                <i></i> `
+                creat_ul.appendChild(li)  
+                let clickable=true
+                li.addEventListener("click",function(e){
+                    if(clickable){
+                        li.children[0].checked=clickable
+                        clickable=false
+                      }else{
+                        li.children[0].checked=clickable
+                        clickable=true
+                      }
+                    }) 
+                } 
+                div.insertAdjacentElement("afterbegin",creat_ul)  
+         div.insertAdjacentElement("afterbegin",divtwo)
+    return div 
+}  
+function rendomId(){
+    let e_id="";
+    let alphabet ="abcdefghijklmnopqrstwxuvyz"
+    for(let i=0;i<alphabet.length;i++){
+      let rendompick=Math.floor(Math.random() *36 )
+       e_id+=alphabet.charAt(rendompick)
+    }
+    return  e_id.slice(0,6)
+  }
+  
+                        
+     
+
+</script>
+</html>

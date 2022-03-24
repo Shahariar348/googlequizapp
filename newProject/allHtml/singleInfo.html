@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Single Info</title>
+    <link rel="icon" href="https://www.pngrepo.com/png/177788/180/clock-square.png" type="image/icon type">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    <link rel="stylesheet" href="/newProject/allCss/single.css"/>
+</head>
+<body>
+<nav class="navbar  navbar-expand-lg fixed-top navbar-dark bg-dark">
+        <div class="container">
+        <a class="navbar-brand " href="#">
+            <span><i class="far fa-building d-inline-block align-top" style="font-size: 40px;"></i></span>
+            My Company
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav ml-auto">
+            <a class="nav-item nav-link active" href="./adduser.html"> Employees & info <span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="./singleInfo.html">Single Employee</a>
+            <a class="nav-item nav-link" href="./attendance.html">Attendance</a>
+            <a class="nav-item nav-link" href="./workhistory.html">Work history</a>
+            <a class="nav-item nav-link disabled" href="#">Company Cost</a> </div>
+        </div>
+    </div>
+</nav>
+<section class="firstSection">
+        <div class="firstModel">
+            <div class="container">
+                <!-- First Row -->
+                <div class="row row11st">
+                   <div class="col">
+                       <h1>Single Person</h1>
+                   </div>
+                </div>
+                <div class="row12snd">
+                    <div id="singlealert">          
+                    </div>
+                    <form id="singleform">
+                        <div class="row">
+                           <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="form-group ">
+                                <label for="exampleInputfindonebyid">Employee ID</label>
+                                <input type="text" class="form-control" id="exampleInputfindonebyid" name="findonebyid" placeholder="ID">
+                            </div>
+                           </div>
+                           <div class="col-lg-3 col-md-6 col-sm-6">
+                            <div class="form-group ">
+                                <label for="exampleInputfindone">.</label>
+                                <input type="submit" class=" btn btn-info form-control" id="exampleInputfindone" name="findone" value="Find One">
+                            </div>
+                           </div>
+                       </div>
+                    </form>
+                </div>
+                <div class="row row13rd">  
+                    <div class="col">
+                        <div id="singlealertone">          
+                        </div>
+                        <table class="table table-hover border" id="singlepersontable">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">ID</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Name</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Phone Number</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Home Address</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Positon</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Salary</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Joining Date</th>
+                                    <td></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Woring Info</th>
+                                    <td></td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                        
+                    </div>
+               </div>
+            </div>
+        </div>
+</section>
+<script type="module" src="../allscript/singleperson.js"></script>
+</body>
+</html>

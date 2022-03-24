@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table</title>
+</head>
+<body>
+  <style>
+  /* Navbar container */
+.navbar {
+  overflow: hidden;
+  background-color: #333;
+  font-family: Arial;
+}
+
+/* Links inside the navbar */
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+/* The dropdown container */
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+/* Dropdown button */
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit; /* Important for vertical align on mobile phones */
+  margin: 0; /* Important for vertical align on mobile phones */
+}
+
+/* Add a red background color to navbar links on hover */
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: red;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+#que,#opt {
+  margin-top: 20px;
+
+}
+#que,#opt{
+  width: 300px;
+  height: 20px;
+  padding: 10px;
+  font-size: 18px;
+}
+button{
+  width: 200px;
+  height: 44px;
+  font-size: 22px;
+  margin-top: 10px;
+}
+ul li{
+  list-style: none;
+}
+#answer{
+  width: 150px;
+  height: 40px;
+  font-size: 22px;
+}
+span{
+  font-size: 22px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: 600;
+}
+
+#bagua-table th {
+  text-align: center;
+  font-weight: bold;
+}
+
+#bagua-table td {
+  width: 150px;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: bottom;
+  padding-top: 5px;
+  padding-bottom: 12px;
+}
+
+#bagua-table .nw {
+  background: #999;
+}
+
+#bagua-table .n {
+  background: #03f;
+  color: #fff;
+}
+
+#bagua-table .ne {
+  background: #ff6;
+}
+
+#bagua-table .w {
+  background: #ff0;
+}
+
+#bagua-table .c {
+  background: #60c;
+  color: #fff;
+}
+
+#bagua-table .e {
+  background: #09f;
+  color: #fff;
+}
+
+#bagua-table .sw {
+  background: #963;
+  color: #fff;
+}
+
+#bagua-table .s {
+  background: #f60;
+  color: #fff;
+}
+
+#bagua-table .se {
+  background: #0c3;
+  color: #fff;
+}
+
+#bagua-table .highlight {
+  background: red;
+}
+
+
+  </style>
+<div class="navbar">
+  <a href="#home">Home</a>
+  <a href="#news">News</a>
+  <div class="dropdown">
+    <button class="dropbtn">Dropdown
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="#">Link 1</a>
+      <a href="#">Link 2</a>
+      <a href="#">Link 3</a>
+    </div>
+  </div>
+</div>
+
+
+<input type="text" id="que" name="question" placeholder="Question">
+<input type="text" id="opt" name="option" placeholder="Option">
+
+<button id="add">Add</button>
+<button id="btn" >Submit</button>
+
+<div id="quiz">
+    <div id="quiz-section">
+      <h3 id="head">Test your IQ</h3>
+      <div id="addopt">
+       
+      </div>
+     <button id="answer">NextQuiz</button>
+    </div>
+</div>
+
+<div>
+  <button id="start">Start</button>
+  <button id="stop">Stop</button>
+  <button id="reset">Reset</button>
+  <span  id="min">00</span><span  id="sec"> : 00</span><span id="minisec"> :00</span>
+</div>
+
+<div>
+  <button id='increamnent'>+</button> <span id="increamnentvalue"></span> <button id='dicreasment'>-</button>
+</div>
+
+<table id="bagua-table">
+  <tr>
+    <th colspan="3"><em>Bagua</em> Chart: Direction, Element, Color, Meaning</th>
+  </tr>
+  <tr>
+    <td class="nw"><strong>Northwest</strong>
+      <br>Metal
+      <br>Silver
+      <br>Elders
+    </td>
+    <td class="n"><strong>North</strong>
+      <br>Water
+      <br>Blue
+      <br>Change
+    </td>
+    <td class="ne"><strong>Northeast</strong>
+      <br>Earth
+      <br>Yellow
+      <br>Direction
+    </td>
+  </tr>
+  <tr>
+    <td class="w"><strong>West</strong>
+      <br>Metal
+      <br>Gold
+      <br>Youth
+    </td>
+    <td class="c"><strong>Center</strong>
+      <br>All
+      <br>Purple
+      <br>Harmony
+    </td>
+    <td class="e"><strong>East</strong>
+      <br>Wood
+      <br>Blue
+      <br>Future
+    </td>
+  </tr>
+  <tr>
+    <td class="sw"><strong>Southwest</strong>
+      <br>Earth
+      <br>Brown
+      <br>Tranquility
+    </td>
+    <td class="s"><strong>South</strong>
+      <br>Fire
+      <br>Orange
+      <br>Fame
+    </td>
+    <td class="se"><strong>Southeast</strong>
+      <br>Wood
+      <br>Green
+      <br>Romance
+    </td>
+  </tr>
+
+</table>
+
+  <!-- <ol id="elem">
+    <li>Hello</li>
+    <li>World</li>
+  </ol>
+  <table id="table">
+    <tr>
+      <td>Test</td>
+    </tr>
+  </table> -->
+  <!-- <div>
+    <h3>Creat Unoder List</h3>
+    <ul id="ul">
+
+    </ul>
+  </div>
+
+  <h1 id="error"></h1>
+  <div id="container"></div> -->
+
+  <!-- <div id="tree">
+
+    <ul>
+      <li>Animals
+        <ul>
+          <li>Mammals
+            <ul>
+              <li>Cows</li>
+              <li>Donkeys</li>
+              <li>Dogs</li>
+              <li>Tigers</li>
+            </ul>
+          </li>
+          <li>Other
+            <ul>
+              <li>Snakes</li>
+              <li>Birds</li>
+              <li>Lizards</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>Fishes
+        <ul>
+          <li>Aquarium
+            <ul>
+              <li>Guppy</li>
+              <li>Angelfish</li>
+            </ul>
+          </li>
+          <li>Sea
+            <ul>
+              <li>Sea trout</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  
+  </div>
+<div>
+<h3 id='daa'>Data Set Can Access me</h3>
+</div> -->
+
+
+
+</body>
+<script>
+let getquestion=document.getElementById('que')
+let getoption=document.getElementById('opt')
+let setquestion=document.getElementById('head')
+let addopt=document.getElementById('addopt')//answer
+let addbtn=document.getElementById('add')
+let quizstorage=[]
+let optionarray=[]
+let index=0
+let obj={
+    qustion:'',
+    option:optionarray,
+    answer:25
+}
+addbtn.addEventListener('click',function(e){
+  e.preventDefault()
+   optionarray.push(getoption.value)
+   obj.qustion=getquestion.value
+   getoption.value=''
+})
+
+
+
+let subbtn=document.getElementById('btn')
+subbtn.addEventListener('click',function(e){
+  e.preventDefault()
+  let getdata=JSON.parse(localStorage.getItem('Quiz')) 
+
+  if(getdata==null){
+    quizstorage=[] 
+    }  
+    else{
+      quizstorage=getdata
+       }
+       optionarray=[]
+     quizstorage.push(obj)
+  localStorage.setItem('Quiz',JSON.stringify(quizstorage))
+})
+
+
+let getdataforlocalstorage=JSON.parse(localStorage.getItem('Quiz'))
+
+getdataforlocalstorage.forEach(element => {
+  console.log(element)
+  let ul =document.createElement('ul')
+     ul.innerText=element.qustion
+       element.option.forEach(options=>{
+        let li =document.createElement('li')
+         li.innerHTML=` <input id='remove'  type="radio" data-answers="${element.answer}"name="option"  value="${options}"> ${options}`  
+         ul.append(li)   
+       })
+    
+   addopt.append(ul)
+});
+   
+
+
+console.log(getdataforlocalstorage)
+
+
+
+function answers(){
+   let anns=document.getElementsByName('option')
+           for(ann of anns){
+               if(ann.checked){
+                  if(ann.value==ann.dataset.answers){
+                    console.log('Right Answer')
+                   }
+                   else{
+                      console.log('Worng answer')
+                     }
+                }  
+              
+         }
+          
+  }
+         
+
+let answer=document.getElementById('answer')
+answer.addEventListener('click',function(e){
+  e.preventDefault()
+  answers()
+ 
+})
+
+let increamnent=document.getElementById('increamnent')
+let increamnentvalue=document.getElementById('increamnentvalue')
+let dicreasment=document.getElementById('dicreasment')
+let invalue=1;
+let dicvalue=1
+increamnentvalue.innerHTML=`${invalue}`
+increamnent.addEventListener('click',function(e){
+  e.preventDefault()
+  if(dicvalue>0){
+     
+    increamnentvalue.innerHTML=`${invalue+=1}`
+  }
+  else{
+    increamnentvalue.innerHTML=`${invalue=1}`
+  }
+ 
+})
+
+dicreasment.addEventListener('click',function(e){
+  e.preventDefault()
+ 
+  if(dicvalue>0){
+    increamnentvalue.innerHTML=`${invalue-=1}`
+   
+  }
+  else{
+    increamnentvalue.innerHTML=`${invalue=1}`
+    
+  }
+})
+
+let table = document.getElementById('bagua-table');
+
+let selectedTd;
+
+table.onclick = function(event) {
+  let tds = event.target.closest('td')
+  console.log(tds)
+  if(event.target.tagName == 'TD'){
+    highlight(event.target)
+     }
+}
+function highlight(td) {
+  if (selectedTd) { // remove the existing highlight if any
+    selectedTd.classList.remove('highlight');
+   
+  }
+  selectedTd = td;
+  selectedTd.classList.add('highlight'); // highlight the new td
+}
+
+
+
+
+
+// var url = 'http://universities.hipolabs.com/search?country=india';
+//https://newsapi.org/v2/top-headlines?country=de&category=business&apiKey=3f850aa553fa441d861d20c667274c7a
+/*
+var url = 'http://data.gov.bd/dataset?topics=local-govt'
+
+var req = new Request(url);
+
+fetch(url)
+    .then(function(response) {
+      return response.json()
+       
+    }).then(data=>{
+      console.log(data);
+    //  let image = document.getElementById('ima')
+    //     image.src=data.articles[10].urlToImage
+    })
+
+  */
+   /*
+    let minisec=document.getElementById('minisec')
+    let sec=document.getElementById('sec')
+    let min=document.getElementById('min')
+  
+    
+    let start=document.getElementById('start')
+    let stops=document.getElementById('stop')
+    let reset=document.getElementById('reset')
+      
+      let counts=0
+      let mins=0
+      let second=0
+
+    start.addEventListener('click',()=>{
+      count()
+    })
+   
+    function count(){
+      
+    
+    let inetrva= setInterval(()=>{
+       let cons=counts+=1
+       minisec.innerHTML=` : 0${cons}`
+        if(cons>9){
+          minisec.innerHTML=` : ${cons}`
+        }
+       if(counts==100){
+          counts=0
+         let seco= second+=1
+         sec.innerHTML=` : 0${seco}`
+         if(seco>9){
+          sec.innerHTML=` : ${seco}`
+         }
+      
+         if(seco>59){
+          sec.innerHTML=` : 0${seco=0}`
+            second=0
+            let mit= mins+=1
+            min.innerHTML=` 0${mit}`
+          if(mit>9){
+           min.innerHTML=`  ${mit}`
+           }
+          
+          }
+         }
+
+         },10)
+         stops.addEventListener('click',()=>{ 
+          clearInterval(inetrva)
+       })
+
+       reset.addEventListener('click',()=>{
+         counts=0
+         mins=0
+        second=0
+        clearInterval(inetrva)
+      minisec.innerHTML=`: 00`
+      sec.innerHTML=`: 00`
+      min.innerHTML=`00`
+       })
+   
+    }
+   */
+
+    
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  /*let clrearId=document.getElementById('elem')
+  function clear(elem) { 
+   
+      elem.remove()   
+  }
+  clear(clrearId); // clears the list
+  */
+ /*
+ let ulId=document.getElementById('ul')
+ //let data = prompt("Enter the text for the list item", "")
+   
+ for(let i=0;i<3;i++){
+  let data = prompt("Enter the text for the list item", "")
+  console.log('Helll')
+  let li=document.createElement('li')
+  li.innerText=data
+  ulId.append(li)
+   }
+
+ */
+/*
+let data = {
+  "Fish": {
+    "trout": {},
+    "salmon": {}
+  },
+
+  "Tree": {
+    "Huge": {
+      "sequoia": {},
+      "oak": {}
+    },
+    "Flowering": {
+      "apple tree": {},
+      "magnolia": {}
+    }
+  }
+};
+
+// function createTree(container, obj) {
+  
+//       container.append(createTreeDom(obj));
+//     }
+
+
+
+//     function createTreeDom(obj) {
+    
+//       let ul = document.createElement('ul');
+
+//       for (let key in obj) {
+//         let li = document.createElement('li');
+//             li.innerHTML = key;
+//             console.log(obj[key])
+//         let childrenUl = createTreeDom(obj[key]);  
+//            if (childrenUl) {
+//               li.append(childrenUl);
+//            }
+         
+//         ul.append(li);
+//       }
+  
+//       return ul;
+//     }
+  
+//     let container = document.getElementById('container');
+//     createTree(container, data);
+
+
+
+function createTree(constainer,datas){
+  constainer.append(creatTreeDom(datas))
+}
+ 
+function creatTreeDom(datas){
+  let ul =document.createElement('ul')
+ 
+    
+   for (let data in datas){
+        let li =document.createElement('li')
+         li.innerHTML=data
+         ul.append(li)
+         
+         let children=creatTreeDom(datas[data])
+         ul.append(children) 
+     }
+   return ul
+}
+
+
+let container = document.getElementById('container');
+createTree(container,data)
+*/
+/*
+let lis = document.getElementsByTagName('li');
+
+
+for (li of lis){
+
+  console.log(li)
+
+  let descendantsCount = li.getElementsByTagName('li').length;
+   console.log(descendantsCount)
+  li.firstChild.data += ' [' + descendantsCount + ']';
+}
+ 
+let daa = document.getElementById('daa');
+daa.lastChild.data +=' Bangladesh Is a failer country for cricket game'
+// console.log(lastChild.data)
+*/
+</script>
+</html>

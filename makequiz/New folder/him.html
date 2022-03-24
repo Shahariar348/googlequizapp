@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+  <div class="container mt-2" id="alertshow">
+    
+  </div>
+  
+   <script>
+
+
+
+
+                    let getIcon=get_li.children[0].children[2].children[0]
+                        if(get_li.children[0].children[1].textContent.trim() == quiz_question[question].q_answer.trim()){
+                            get_li.classList.add(["border-success"])
+                            getIcon.classList.add(["far"],["fa-check-circle"],["ml-2"])
+                          }
+                        if(get_li.children[0].children[1].textContent.trim() == check_student_answer[question].q_qanswer[0].trim() && quiz_question[question].q_answer.trim() != check_student_answer[question].q_qanswer[0].trim()){
+                            get_li.classList.add(["border-danger"])                
+                            getIcon.classList.add(["far"],["fa-times-circle"],["ml-2"])
+                         } 
+
+/*=========================================seccess Or errors==============================================================*/   
+
+let alert=document.getElementById("alertshow")
+seccess(alert,"<strong>SuccessFully complete !</strong> your Quiz")
+errors(alert,`<strong>Hey ${user_given.studentBio.name}!</strong> You allready finished your quiz`)
+   
+function seccess(tag,seccessMassage){
+  tag.innerHTML=`
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+     ${seccessMassage}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    `
+  setTimeout(()=>{
+    tag.innerHTML=``
+  },3000)  
+}
+
+function errors(tag,errormassage){
+  tag.innerHTML=`
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    ${errormassage}
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    `
+  setTimeout(()=>{
+    tag.innerHTML=``
+  },5000)  
+}
+/*=========================================seccess Or errors==============================================================*/   
+  
+                        
+     
+   </script>
+</body>
+</html>
